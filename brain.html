@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Neula - Demo</title>
+  <link rel="icon" type="image/x-icon" href="MMfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive 3D muscle atlas with training tips. Click a muscle to learn function and exercises.">
+  <meta property="og:title" content="Brain Map">
+  <meta property="og:description" content="Interactive 3D muscle atlas with training tips.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://musclemap.org/">
+
+  <!-- Theme Stylesheets -->
+  <link rel="stylesheet" href="lightV10.css">
+
+<script src="brain_index.js" defer></script>
+<script type="module" src="brain_script.js"></script>
+
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@793&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+<body>
+
+
+  <main class="mm-content">
+
+        <div class="notice">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+    <p>This site is a living document and will be updated with new information and features as time goes on.</p>
+    </div>
+
+      <header class="navbar" role="banner" aria-label="Site">
+
+        <button class="index-tog">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        </button>
+
+       <a class="link" href="landing_pg.html">
+       Home
+       </a>
+
+           <div class="nav-dropdown-container">
+         <button class="link nav-dropdown-trigger">
+           Contact 
+         </button>
+         <ul class="nav-dropdown-menu">
+           <li><a href="mailto:cmausbis@outlook.com">Email Me</a></li>
+           <li><a href="https://www.linkedin.com/in/connormaus" target="_blank">LinkedIn</a></li>
+           <li><a href="https://github.com/mrconniejellybear" target="_blank">GitHub</a></li>
+         </ul>
+       </div>
+
+         <a class="link" href="index.html">
+          Click HERE to VIEW a MODEL of the MUSCLES!!!
+         </a>
+
+
+
+       <a class="ref-link" 
+       href="references.html">References
+       </a>
+  
+
+        <a class="brand" href="https://www.wwu.edu/">
+       <img id="logo" src="western_washington_universi.jpeg">
+       </a>
+
+
+  </header>
+
+  
+
+  <div class="layout-wrapper">
+
+
+  <div class="left-hand" id="left-hand">
+
+
+      <div class="searchy">
+           <h2 class="index-title">Model Index</h2>
+
+           <svg class="mm-search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+          <input id="mi-search" class="mi-search" placeholder="⌘ K to Search Index" aria-label="Search">
+
+      </div>
+
+
+      <aside id="index" class="index">
+       <ul id="mi-list" class="mi-list" role="listbox" aria-label="All muscles"></ul>
+      </aside>
+
+      <div class="bottom-index">
+        <button id="help-btn" class="help-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+           Help
+        </button>
+      </div>
+   
+  </div>
+
+  
+
+
+<div class="viewer">
+  <div class="viewer-frame">
+  
+    <div id="three-container" class="canvas-layer window"></div>
+
+    <div class="ui-layer">
+
+      <div class="ui-safe-zone">
+
+        
+        
+     <div class="view-dropdown-container">
+  <div id="view-dropdown-trigger" class="view-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M2.42012 12.7132C2.28394 12.4975 2.21584 12.3897 2.17772 12.2234C2.14909 12.0985 2.14909 11.9015 2.17772 11.7766C2.21584 11.6103 2.28394 11.5025 2.42012 11.2868C3.54553 9.50484 6.8954 5 12.0004 5C17.1054 5 20.4553 9.50484 21.5807 11.2868C21.7169 11.5025 21.785 11.6103 21.8231 11.7766C21.8517 11.9015 21.8517 12.0985 21.8231 12.2234C21.785 12.3897 21.7169 12.4975 21.5807 12.7132C20.4553 14.4952 17.1054 19 12.0004 19C6.8954 19 3.54553 14.4952 2.42012 12.7132Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M12.0004 15C13.6573 15 15.0004 13.6569 15.0004 12C15.0004 10.3431 13.6573 9 12.0004 9C10.3435 9 9.0004 10.3431 9.0004 12C9.0004 13.6569 10.3435 15 12.0004 15Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+    
+    <span id="current-view-label">Orientation</span>
+
+</div>
+      </div>
+
+        <div class="instruction-overlay" id="instructionOverlay">
+          <div class="instruction-content">
+            <p>Click and drag to rotate the model. Scroll to zoom in and out.</p>
+            <p>Isolate a muscle using the puzzle piece (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M355.08-140H200q-24.92 0-42.46-17.54T140-200v-155.08q41.08-5 70.54-34.15Q240-418.39 240-460t-29.46-70.77q-29.46-29.15-70.54-34.15V-720q0-24.92 17.54-42.46T200-780h160q5.39-38.15 33.42-62.92 28.04-24.77 66.58-24.77t66.58 24.77Q554.61-818.15 560-780h160q24.92 0 42.46 17.54T780-720v160q38.15 5.39 62.92 33.42 24.77 28.04 24.77 66.58t-24.77 66.58Q818.15-365.39 780-360v160q0 24.92-17.54 42.46T720-140H564.92q-5.38-43.08-35.15-71.54Q500-240 460-240t-69.77 28.46q-29.77 28.46-35.15 71.54ZM200-200h108.46q20.54-52.92 64.89-76.46Q417.69-300 460-300t86.65 23.54Q591-252.92 611.54-200H720v-217.69h49.23q18.38-2.31 28.42-14.85 10.04-12.54 10.04-27.46 0-14.92-10.04-27.46-10.04-12.54-28.42-14.85H720V-720H502.31v-49.23q-2.31-18.38-14.85-28.42-12.54-10.04-27.46-10.04-14.92 0-27.46 10.04-12.54 10.04-14.85 28.42V-720H200v109.54q45.54 18.85 72.77 59.88Q300-509.54 300-460q0 48.92-27.23 89.96Q245.54-329 200-309.54V-200Zm260-260Z"/></svg>) icon.</p>
+            <p>Click the center icon (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M212.31-140Q182-140 161-161q-21-21-21-51.31V-360h60v147.69q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85H360v60H212.31ZM600-140v-60h147.69q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46V-360h60v147.69Q820-182 799-161q-21 21-51.31 21H600ZM140-600v-147.69Q140-778 161-799q21-21 51.31-21H360v60H212.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46V-600h-60Zm620 0v-147.69q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H600v-60h147.69Q778-820 799-799q21 21 21 51.31V-600h-60ZM480-300q-74.92 0-127.46-52.54Q300-405.08 300-480q0-74.92 52.54-127.46Q405.08-660 480-660q74.92 0 127.46 52.54Q660-554.92 660-480q0 74.92-52.54 127.46Q554.92-300 480-300Zm0-60q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0-120Z"/></svg>) to re-center the model.</p>
+            <p>Click the contrast icon (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M640-220q-31.62 0-60.96-7.69-29.35-7.7-55.27-22.08 49.54-44 76.73-103.92 27.19-59.93 27.19-126.31T600.5-606.31q-27.19-59.92-76.73-103.92 25.92-14.38 55.27-22.08Q608.38-740 640-740q108.54 0 184.27 75.73T900-480q0 108.54-75.73 184.27T640-220Zm-320 0q-108.54 0-184.27-75.73T60-480q0-108.54 75.73-184.27T320-740q31.62 0 60.96 7.69 29.35 7.7 55.27 22.08-12.38 10.54-23.34 22.81-10.96 12.27-20.89 25.27-15.77-8.54-33.96-13.2Q339.85-680 320-680q-83 0-141.5 58.5T120-480q0 83 58.5 141.5T320-280q19.85 0 38.04-4.65 18.19-4.66 33.96-13.2 9.93 13 20.89 25.27t23.34 22.81q-25.92 14.38-55.27 22.08Q351.62-220 320-220Zm160-56.16q-47.38-36.3-73.69-90Q380-419.85 380-480q0-60.15 26.31-113.84 26.31-53.7 73.69-90 47.38 36.3 73.69 90Q580-540.15 580-480q0 60.15-26.31 113.84-26.31 53.7-73.69 90Z"/></svg>) to swap between models.</p>
+            <button class="close-overlay" id="closeOverlayBtn">OK</button>
+          </div>
+        </div>
+        
+        <div id="texture-loader" class="loader-overlay hidden">
+          <div class="spinner"></div>
+        </div>
+
+        
+
+        <div class="rotation-controls">  
+
+
+               <button id="center-btn" class="upper-button">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M12 3V6M12 10.5V13.5M12 18V21M22 12H15.5M15.5 12L19.5 16M15.5 12L19.5 8M2 12H8.5M8.5 12L4.5 16M8.5 12L4.5 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+            </button>
+
+                        <div class="mm-sep4" role="separator"></div>
+
+
+          <button id="rotation-lock-btn" class="upper-button" aria-label="Lock Rotation">
+               <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor"><path d="M831.09-331.94q-29.9 69.06-81.38 120.57-51.48 51.52-120.49 81.44Q560.21-100 481-100q-75 0-141-26.5t-116.5-74Q173-248 140-312.5T102-451q-1-10 6-16.5t17-6.5q10 0 19.5 6t12.5 23q12 125 104 208.5T480-153q137 0 231.5-94.5T806-479q0-137-94.5-231.5T480-805q-97 0-174 50T190-625h92q10.95 0 18.48 7.54 7.52 7.53 7.52 18.5 0 10.96-7.52 18.96-7.53 8-18.48 8H143.35q-18.35 0-30.85-12.63Q100-597.25 100-615v-139q0-10.95 8.04-18.47 8.03-7.53 19-7.53 10.96 0 18.46 7.53 7.5 7.52 7.5 18.47v95q45-90 132-145.5T481-860q79.21 0 148.22 29.89t120.49 81.35q51.48 51.46 81.38 120.43Q861-559.35 861-480.17q0 79.17-29.91 148.23ZM400-327q-16.45 0-27.73-11.27Q361-349.55 361-366v-120q0-14.45 11.5-25.73Q384-523 401-525v-41q0-32.53 23-55.76Q447-645 480-645t56 23.24q23 23.23 23 55.76v41q17 2 28.5 13.27Q599-500.45 599-486v120q0 16.45-11.28 27.73Q576.45-327 560-327H400Zm39-198h82v-40.61q0-16.39-12.5-28.89T480-607q-16 0-28.5 12.5T439-565.61V-525Z"/></svg>      
+          </button>
+          <input type="range" id="rotation-slider" min="0" max="360" value="0" aria-label="Rotate Model">
+
+           <div class="mm-sep4" role="separator"></div>
+
+
+
+ <button id="center-btn" class="upper-button">
+ <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M21 21L16.65 16.65M11 8V14M8 11H14M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+</button>
+
+
+
+ <button id="center-btn" class="upper-button">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M21 21L16.65 16.65M8 11H14M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+</button>
+
+
+        </div>
+
+
+
+    </div> 
+
+
+  </div>
+          <div id="viewer-ext_controls" class="ext_controls"> 
+
+  <button id="isolate-btn" class="upper-button">
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.5 4.5C7.5 3.11929 8.61929 2 10 2C11.3807 2 12.5 3.11929 12.5 4.5V6H13.5C14.8978 6 15.5967 6 16.1481 6.22836C16.8831 6.53284 17.4672 7.11687 17.7716 7.85195C18 8.40326 18 9.10218 18 10.5H19.5C20.8807 10.5 22 11.6193 22 13C22 14.3807 20.8807 15.5 19.5 15.5H18V17.2C18 18.8802 18 19.7202 17.673 20.362C17.3854 20.9265 16.9265 21.3854 16.362 21.673C15.7202 22 14.8802 22 13.2 22H12.5V20.25C12.5 19.0074 11.4926 18 10.25 18C9.00736 18 8 19.0074 8 20.25V22H6.8C5.11984 22 4.27976 22 3.63803 21.673C3.07354 21.3854 2.6146 20.9265 2.32698 20.362C2 19.7202 2 18.8802 2 17.2V15.5H3.5C4.88071 15.5 6 14.3807 6 13C6 11.6193 4.88071 10.5 3.5 10.5H2C2 9.10218 2 8.40326 2.22836 7.85195C2.53284 7.11687 3.11687 6.53284 3.85195 6.22836C4.40326 6 5.10218 6 6.5 6H7.5V4.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+  </button>
+
+ <button id="explode-btn" class="upper-button">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 12.0001L11.6422 16.8212C11.7734 16.8868 11.839 16.9196 11.9078 16.9325C11.9687 16.9439 12.0313 16.9439 12.0922 16.9325C12.161 16.9196 12.2266 16.8868 12.3578 16.8212L22 12.0001M2 17.0001L11.6422 21.8212C11.7734 21.8868 11.839 21.9196 11.9078 21.9325C11.9687 21.9439 12.0313 21.9439 12.0922 21.9325C12.161 21.9196 12.2266 21.8868 12.3578 21.8212L22 17.0001M2 7.00006L11.6422 2.17895C11.7734 2.11336 11.839 2.08056 11.9078 2.06766C11.9687 2.05622 12.0313 2.05622 12.0922 2.06766C12.161 2.08056 12.2266 2.11336 12.3578 2.17895L22 7.00006L12.3578 11.8212C12.2266 11.8868 12.161 11.9196 12.0922 11.9325C12.0313 11.9439 11.9687 11.9439 11.9078 11.9325C11.839 11.9196 11.7734 11.8868 11.6422 11.8212L2 7.00006Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+ </button>
+
+    <div class="mm-sep4" role="separator"></div> 
+           
+ <button id="settings-toggle-btn" class="upper-button" aria-label="Toggle Controls">
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18.7273 14.7273C18.6063 15.0015 18.5702 15.3056 18.6236 15.6005C18.6771 15.8954 18.8177 16.1676 19.0273 16.3818L19.0818 16.4364C19.2509 16.6052 19.385 16.8057 19.4765 17.0265C19.568 17.2472 19.6151 17.4838 19.6151 17.7227C19.6151 17.9617 19.568 18.1983 19.4765 18.419C19.385 18.6397 19.2509 18.8402 19.0818 19.0091C18.913 19.1781 18.7124 19.3122 18.4917 19.4037C18.271 19.4952 18.0344 19.5423 17.7955 19.5423C17.5565 19.5423 17.3199 19.4952 17.0992 19.4037C16.8785 19.3122 16.678 19.1781 16.5091 19.0091L16.4545 18.9545C16.2403 18.745 15.9682 18.6044 15.6733 18.5509C15.3784 18.4974 15.0742 18.5335 14.8 18.6545C14.5311 18.7698 14.3018 18.9611 14.1403 19.205C13.9788 19.4489 13.8921 19.7347 13.8909 20.0273V20.1818C13.8909 20.664 13.6994 21.1265 13.3584 21.4675C13.0174 21.8084 12.5549 22 12.0727 22C11.5905 22 11.1281 21.8084 10.7871 21.4675C10.4461 21.1265 10.2545 20.664 10.2545 20.1818V20.1C10.2475 19.7991 10.1501 19.5073 9.97501 19.2625C9.79991 19.0176 9.55521 18.8312 9.27273 18.7273C8.99853 18.6063 8.69437 18.5702 8.39947 18.6236C8.10456 18.6771 7.83244 18.8177 7.61818 19.0273L7.56364 19.0818C7.39478 19.2509 7.19425 19.385 6.97353 19.4765C6.7528 19.568 6.51621 19.6151 6.27727 19.6151C6.03834 19.6151 5.80174 19.568 5.58102 19.4765C5.36029 19.385 5.15977 19.2509 4.99091 19.0818C4.82186 18.913 4.68775 18.7124 4.59626 18.4917C4.50476 18.271 4.45766 18.0344 4.45766 17.7955C4.45766 17.5565 4.50476 17.3199 4.59626 17.0992C4.68775 16.8785 4.82186 16.678 4.99091 16.5091L5.04545 16.4545C5.25503 16.2403 5.39562 15.9682 5.4491 15.6733C5.50257 15.3784 5.46647 15.0742 5.34545 14.8C5.23022 14.5311 5.03887 14.3018 4.79497 14.1403C4.55107 13.9788 4.26526 13.8921 3.97273 13.8909H3.81818C3.33597 13.8909 2.87351 13.6994 2.53253 13.3584C2.19156 13.0174 2 12.5549 2 12.0727C2 11.5905 2.19156 11.1281 2.53253 10.7871C2.87351 10.4461 3.33597 10.2545 3.81818 10.2545H3.9C4.2009 10.2475 4.49273 10.1501 4.73754 9.97501C4.98236 9.79991 5.16883 9.55521 5.27273 9.27273C5.39374 8.99853 5.42984 8.69437 5.37637 8.39947C5.3229 8.10456 5.18231 7.83244 4.97273 7.61818L4.91818 7.56364C4.74913 7.39478 4.61503 7.19425 4.52353 6.97353C4.43203 6.7528 4.38493 6.51621 4.38493 6.27727C4.38493 6.03834 4.43203 5.80174 4.52353 5.58102C4.61503 5.36029 4.74913 5.15977 4.91818 4.99091C5.08704 4.82186 5.28757 4.68775 5.50829 4.59626C5.72901 4.50476 5.96561 4.45766 6.20455 4.45766C6.44348 4.45766 6.68008 4.50476 6.9008 4.59626C7.12152 4.68775 7.32205 4.82186 7.49091 4.99091L7.54545 5.04545C7.75971 5.25503 8.03183 5.39562 8.32674 5.4491C8.62164 5.50257 8.9258 5.46647 9.2 5.34545H9.27273C9.54161 5.23022 9.77093 5.03887 9.93245 4.79497C10.094 4.55107 10.1807 4.26526 10.1818 3.97273V3.81818C10.1818 3.33597 10.3734 2.87351 10.7144 2.53253C11.0553 2.19156 11.5178 2 12 2C12.4822 2 12.9447 2.19156 13.2856 2.53253C13.6266 2.87351 13.8182 3.33597 13.8182 3.81818V3.9C13.8193 4.19253 13.906 4.47834 14.0676 4.72224C14.2291 4.96614 14.4584 5.15749 14.7273 5.27273C15.0015 5.39374 15.3056 5.42984 15.6005 5.37637C15.8954 5.3229 16.1676 5.18231 16.3818 4.97273L16.4364 4.91818C16.6052 4.74913 16.8057 4.61503 17.0265 4.52353C17.2472 4.43203 17.4838 4.38493 17.7227 4.38493C17.9617 4.38493 18.1983 4.43203 18.419 4.52353C18.6397 4.61503 18.8402 4.74913 19.0091 4.91818C19.1781 5.08704 19.3122 5.28757 19.4037 5.50829C19.4952 5.72901 19.5423 5.96561 19.5423 6.20455C19.5423 6.44348 19.4952 6.68008 19.4037 6.9008C19.3122 7.12152 19.1781 7.32205 19.0091 7.49091L18.9545 7.54545C18.745 7.75971 18.6044 8.03183 18.5509 8.32674C18.4974 8.62164 18.5335 8.9258 18.6545 9.2V9.27273C18.7698 9.54161 18.9611 9.77093 19.205 9.93245C19.4489 10.094 19.7347 10.1807 20.0273 10.1818H20.1818C20.664 10.1818 21.1265 10.3734 21.4675 10.7144C21.8084 11.0553 22 11.5178 22 12C22 12.4822 21.8084 12.9447 21.4675 13.2856C21.1265 13.6266 20.664 13.8182 20.1818 13.8182H20.1C19.8075 13.8193 19.5217 13.906 19.2778 14.0676C19.0339 14.2291 18.8425 14.4584 18.7273 14.7273Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+ </button>
+ 
+  </div>
+  </div>
+  </div>
+
+<aside id="panel" class="panel" aria-label="Muscle Info">
+      <div class="panel-header"  id="brainName">
+        Brain Region
+      </div>
+        
+    <div class="panel-content">
+
+        <div class="mm-sep10"></div>
+
+      <div class="panel-section"><div>
+        
+        <div class="section-label">
+          About this region:
+        </div>
+           </div>
+           <p id="info-desc"></p>
+           </div>
+
+        <div class="mm-sep10"></div>
+
+
+        <div class="section-label">
+          Where is it found?
+        </div>
+
+        <div class="panel-section">
+          <p id="info-head"></p>
+        </div>
+
+        <div class="mm-sep10"></div>
+
+      <div class="panel-section">
+      <div class="section-label">
+        What does it do?
+      </div>
+      <p id="info-func"></p>
+    </div>
+  </div>
+</aside>
+  </main>
+
+
+    <footer class="atsocials">
+      <a href="https://www.linkedin.com/in/connormaus">Linkedin <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 50 50">
+      <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
+  </svg></a>
+
+        <a href="https://github.com/mrconniejellybear">GitHub <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 50 50">
+      <path d="M17.791,46.836C18.502,46.53,19,45.823,19,45v-5.4c0-0.197,0.016-0.402,0.041-0.61C19.027,38.994,19.014,38.997,19,39 c0,0-3,0-3.6,0c-1.5,0-2.8-0.6-3.4-1.8c-0.7-1.3-1-3.5-2.8-4.7C8.9,32.3,9.1,32,9.7,32c0.6,0.1,1.9,0.9,2.7,2c0.9,1.1,1.8,2,3.4,2 c2.487,0,3.82-0.125,4.622-0.555C21.356,34.056,22.649,33,24,33v-0.025c-5.668-0.182-9.289-2.066-10.975-4.975 c-3.665,0.042-6.856,0.405-8.677,0.707c-0.058-0.327-0.108-0.656-0.151-0.987c1.797-0.296,4.843-0.647,8.345-0.714 c-0.112-0.276-0.209-0.559-0.291-0.849c-3.511-0.178-6.541-0.039-8.187,0.097c-0.02-0.332-0.047-0.663-0.051-0.999 c1.649-0.135,4.597-0.27,8.018-0.111c-0.079-0.5-0.13-1.011-0.13-1.543c0-1.7,0.6-3.5,1.7-5c-0.5-1.7-1.2-5.3,0.2-6.6 c2.7,0,4.6,1.3,5.5,2.1C21,13.4,22.9,13,25,13s4,0.4,5.6,1.1c0.9-0.8,2.8-2.1,5.5-2.1c1.5,1.4,0.7,5,0.2,6.6c1.1,1.5,1.7,3.2,1.6,5 c0,0.484-0.045,0.951-0.11,1.409c3.499-0.172,6.527-0.034,8.204,0.102c-0.002,0.337-0.033,0.666-0.051,0.999 c-1.671-0.138-4.775-0.28-8.359-0.089c-0.089,0.336-0.197,0.663-0.325,0.98c3.546,0.046,6.665,0.389,8.548,0.689 c-0.043,0.332-0.093,0.661-0.151,0.987c-1.912-0.306-5.171-0.664-8.879-0.682C35.112,30.873,31.557,32.75,26,32.969V33 c2.6,0,5,3.9,5,6.6V45c0,0.823,0.498,1.53,1.209,1.836C41.37,43.804,48,35.164,48,25C48,12.318,37.683,2,25,2S2,12.318,2,25 C2,35.164,8.63,43.804,17.791,46.836z"></path>
+  </svg></a>
+
+        <a href="https://www.instagram.com/mrconniejellybear/">Email <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0,0,256,256">
+  <g fill="#1a1a1a" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M25.50586,4.02539c-1.325,0.00125 -2.65164,0.37977 -3.80664,1.13477l-15.19922,9.85937c-0.93,0.6 -1.5,1.64 -1.5,2.75v1.04102c0,0.06 -0.00023,0.12945 0.00977,0.18945h8.83984l15.38086,-9.76953c0.69,-0.44 1.09867,-1.1607 1.13867,-1.9707c0.03,-0.8 -0.30945,-1.5393 -0.93945,-2.0293l-0.01953,-0.01953l-0.09961,-0.06055c-1.155,-0.75 -2.47969,-1.12625 -3.80469,-1.125zM32.35938,7.13086v0.21875c-0.06,1.47 -0.80859,2.77055 -2.05859,3.56055l-13.14062,8.34961c2.2,0.69 3.81984,2.75945 3.83984,5.18945l16.14063,-10.22852c0.71,-0.45 1.10938,-1.18148 1.10938,-2.02148c0,-0.7 -0.29078,-1.32953 -0.80078,-1.76953zM40.25,12.25c-0.02,1.49 -0.76906,2.86016 -2.03906,3.66016l-17.21094,10.91016v3.39063l3.66992,2.30859l20.21094,-12.67969c0.7,-0.44 1.11914,-1.18977 1.11914,-2.00977v-0.06055c0,-1.12 -0.56,-2.15977 -1.5,-2.75976zM4.5,21c-1.933,0 -3.5,1.567 -3.5,3.5v11c0,1.933 1.567,3.5 3.5,3.5h11c1.933,0 3.5,-1.567 3.5,-3.5v-11c0,-1.933 -1.567,-3.5 -3.5,-3.5zM46,21.5c-0.02,0.01 -0.03078,0.0193 -0.05078,0.0293l-19.39844,12.18164l4.42969,2.78906c1.66,1.05 2.65039,2.85055 2.65039,4.81055c0,1.41 -0.51133,2.69945 -1.36133,3.68945h7.73047c3.31,0 6,-2.69 6,-6zM10.11523,24.79883c1.446,0 2.62325,0.47211 3.53125,1.41211c0.912,0.941 1.36719,2.17975 1.36719,3.71875c0,1.581 -0.47102,2.85622 -1.41602,3.82422c-0.94,0.964 -2.15458,1.44531 -3.64258,1.44531c-1.451,0 -2.64227,-0.46634 -3.57227,-1.40234c-0.931,-0.936 -1.39648,-2.15806 -1.39648,-3.66406c0,-1.591 0.47297,-2.87738 1.41797,-3.85937c0.945,-0.983 2.18094,-1.47461 3.71094,-1.47461zM10.05273,26.7793c-0.805,0 -1.45236,0.29662 -1.94336,0.89063c-0.491,0.589 -0.73828,1.37075 -0.73828,2.34375c0,0.987 0.24728,1.76875 0.73828,2.34375c0.491,0.571 1.11972,0.85742 1.88672,0.85742c0.791,0 1.42816,-0.27994 1.91016,-0.83594c0.482,-0.557 0.72266,-1.33027 0.72266,-2.32227c0,-1.034 -0.23317,-1.83806 -0.70117,-2.41406c-0.468,-0.575 -1.093,-0.86328 -1.875,-0.86328zM21,32.57031v2.92969c0,3.03 -2.47,5.5 -5.5,5.5h-10.11914c0.86,2.34 3.10828,4 5.73828,4h16.83008c0.97,0 1.85172,-0.38 2.51172,-1c0.72,-0.67 1.16992,-1.62945 1.16992,-2.68945c0,-1.27 -0.6407,-2.44109 -1.7207,-3.12109l-5.24023,-3.29883l-2.5293,-1.60156z"></path></g></g>
+  </svg></a>
+
+        <a href="https://chss.wwu.edu/health-human-development/kinesiology">WWU <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#1a1a1a"><path d="M840-280v-276L480-360 40-600l440-240 440 240v320h-80ZM480-120 200-272v-200l280 152 280-152v200L480-120Z"/></svg></a>
+    </footer>
+
+    <footer class="credits">
+      <div class="credit-box"> 
+      Developed by <a href="https://www.instagram.com/allstarconnor">Connor Mausolf</a>
+      - BS in progress, at <a href="https://www.wwu.edu/">Western Washington University</a> | Assests featured fall under the <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.en">Creative Commons Attribution-NonCommercial 4.0 International License.</a></p>
+      
+      <p> 
+      Brain model by <a href="https://www.cgtrader.com/designers/aabansaad">aabansaad</a> | Muscle ecorche by <a href="https://alexlashko.com/">Alex Lashko</a> | .OBJ controls sourced from Three.js
+      <a href="https://threejs.org/docs/#examples/en/controls/OrbitControls">Orbit Controls</a> |
+      Typeface sourced from <a href="https://fonts.google.com/icons?icon.size=24&icon.color=%23e3e3e3&selected=Material+Symbols+Outlined:tonality:FILL@0;wght@400;GRAD@0;opsz@24">Google Materials</a> |
+      SVGs sourced from <a href="https://www.untitledui.com/free-icons">Untitled UI</a> |
+      </div>
+    </footer>
+
+</body>
+</html>
