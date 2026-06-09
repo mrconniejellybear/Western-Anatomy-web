@@ -47,10 +47,6 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     function: 'Facilitates interhemispheric communication, allowing the left and right sides of the brain to share information and coordinate function.', 
   },
 
-  lateral_geniculate_body: {
-   title: "hey"
-  },
-
   cingulate_gyrus: {
     title: 'Cingulate Gyrus', 
     description: 'An integral part of the limbic system, acting as a major pathway connecting the cerebral cortex to deeper structures.', 
@@ -73,7 +69,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   },
 
   insula: {
-    title: 'Insular Cortex (Insula)', 
+    title: 'Insula', 
     description: 'A portion of the cerebral cortex folded deep within the lateral sulcus. It is deeply involved in consciousness and homeostasis.', 
     head: 'Hidden beneath the frontal, parietal, and temporal opercula.', 
     function: 'Processes interoception (the sense of the internal state of the body), pain perception, and social emotions like empathy and disgust.', 
@@ -105,23 +101,23 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   },
 
   Supramarginal_gyrus: {
-    title: 'Supramarginal_gyrus'
+    title: 'Supramarginal Gyrus'
   },
 
   Straight_gyrus:{
-    title: 'Gyrus_Rectus'
+    title: 'Gyrus Rectus'
   },
 
   Orbital_sulci_:{
-    title: 'Orbital_sulci_'
+    title: 'Orbital Sulci'
   },
 
    Middle_frontal_gyrus:{
-    title: 'Middle_frontal_gyrus'
+    title: 'Middle Frontal Gyrus'
   },
 
    Middle_temporal_gyrus:{
-    title: ' Middle_temporal_gyrus'
+    title: ' Middle Temporal Gyrus'
   },
 
    Precuneus:{
