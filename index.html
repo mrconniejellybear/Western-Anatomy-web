@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>WWU Neuro Demo</title>
-  <link rel="icon" type="image/x-icon" href="BRAIN_SIMPLE.png">
+  <link rel="icon" type="image/x-icon" href="BRAIN_ICON.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta property="og:title" content="Brain Map">
   <meta property="og:description" content="Interactive 3D muscle atlas with training tips.">
@@ -62,12 +62,6 @@
   </header>
 
   
-        <div class="notice">
-<svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
- <path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
- </svg>
-    <p>This site is a living document and will be updated with new information and features as time goes on.</p>
-    </div>
 
   <div class="layout-wrapper">
 
@@ -130,9 +124,21 @@
         <div class="instruction-overlay" id="instructionOverlay">
           <div class="instruction-content">
             <p>Click and drag to rotate the model. Scroll to zoom in and out.</p>
-            <p>Isolate a muscle using the puzzle piece (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M355.08-140H200q-24.92 0-42.46-17.54T140-200v-155.08q41.08-5 70.54-34.15Q240-418.39 240-460t-29.46-70.77q-29.46-29.15-70.54-34.15V-720q0-24.92 17.54-42.46T200-780h160q5.39-38.15 33.42-62.92 28.04-24.77 66.58-24.77t66.58 24.77Q554.61-818.15 560-780h160q24.92 0 42.46 17.54T780-720v160q38.15 5.39 62.92 33.42 24.77 28.04 24.77 66.58t-24.77 66.58Q818.15-365.39 780-360v160q0 24.92-17.54 42.46T720-140H564.92q-5.38-43.08-35.15-71.54Q500-240 460-240t-69.77 28.46q-29.77 28.46-35.15 71.54ZM200-200h108.46q20.54-52.92 64.89-76.46Q417.69-300 460-300t86.65 23.54Q591-252.92 611.54-200H720v-217.69h49.23q18.38-2.31 28.42-14.85 10.04-12.54 10.04-27.46 0-14.92-10.04-27.46-10.04-12.54-28.42-14.85H720V-720H502.31v-49.23q-2.31-18.38-14.85-28.42-12.54-10.04-27.46-10.04-14.92 0-27.46 10.04-12.54 10.04-14.85 28.42V-720H200v109.54q45.54 18.85 72.77 59.88Q300-509.54 300-460q0 48.92-27.23 89.96Q245.54-329 200-309.54V-200Zm260-260Z"/></svg>) icon.</p>
-            <p>Click the center icon (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M212.31-140Q182-140 161-161q-21-21-21-51.31V-360h60v147.69q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85H360v60H212.31ZM600-140v-60h147.69q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46V-360h60v147.69Q820-182 799-161q-21 21-51.31 21H600ZM140-600v-147.69Q140-778 161-799q21-21 51.31-21H360v60H212.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46V-600h-60Zm620 0v-147.69q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H600v-60h147.69Q778-820 799-799q21 21 21 51.31V-600h-60ZM480-300q-74.92 0-127.46-52.54Q300-405.08 300-480q0-74.92 52.54-127.46Q405.08-660 480-660q74.92 0 127.46 52.54Q660-554.92 660-480q0 74.92-52.54 127.46Q554.92-300 480-300Zm0-60q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0-120Z"/></svg>) to re-center the model.</p>
-            <p>Click the contrast icon (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M640-220q-31.62 0-60.96-7.69-29.35-7.7-55.27-22.08 49.54-44 76.73-103.92 27.19-59.93 27.19-126.31T600.5-606.31q-27.19-59.92-76.73-103.92 25.92-14.38 55.27-22.08Q608.38-740 640-740q108.54 0 184.27 75.73T900-480q0 108.54-75.73 184.27T640-220Zm-320 0q-108.54 0-184.27-75.73T60-480q0-108.54 75.73-184.27T320-740q31.62 0 60.96 7.69 29.35 7.7 55.27 22.08-12.38 10.54-23.34 22.81-10.96 12.27-20.89 25.27-15.77-8.54-33.96-13.2Q339.85-680 320-680q-83 0-141.5 58.5T120-480q0 83 58.5 141.5T320-280q19.85 0 38.04-4.65 18.19-4.66 33.96-13.2 9.93 13 20.89 25.27t23.34 22.81q-25.92 14.38-55.27 22.08Q351.62-220 320-220Zm160-56.16q-47.38-36.3-73.69-90Q380-419.85 380-480q0-60.15 26.31-113.84 26.31-53.7 73.69-90 47.38 36.3 73.69 90Q580-540.15 580-480q0 60.15-26.31 113.84-26.31 53.7-73.69 90Z"/></svg>) to swap between models.</p>
+
+            <p>
+              Click the center icon (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M212.31-140Q182-140 161-161q-21-21-21-51.31V-360h60v147.69q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85H360v60H212.31ZM600-140v-60h147.69q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46V-360h60v147.69Q820-182 799-161q-21 21-51.31 21H600ZM140-600v-147.69Q140-778 161-799q21-21 51.31-21H360v60H212.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46V-600h-60Zm620 0v-147.69q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H600v-60h147.69Q778-820 799-799q21 21 21 51.31V-600h-60ZM480-300q-74.92 0-127.46-52.54Q300-405.08 300-480q0-74.92 52.54-127.46Q405.08-660 480-660q74.92 0 127.46 52.54Q660-554.92 660-480q0 74.92-52.54 127.46Q554.92-300 480-300Zm0-60q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0-120Z"/></svg>) to re-center the model.
+            </p>
+            <p>Click the layers icon (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 12.0001L11.6422 16.8212C11.7734 16.8868 11.839 16.9196 11.9078 16.9325C11.9687 16.9439 12.0313 16.9439 12.0922 16.9325C12.161 16.9196 12.2266 16.8868 12.3578 16.8212L22 12.0001M2 17.0001L11.6422 21.8212C11.7734 21.8868 11.839 21.9196 11.9078 21.9325C11.9687 21.9439 12.0313 21.9439 12.0922 21.9325C12.161 21.9196 12.2266 21.8868 12.3578 21.8212L22 17.0001M2 7.00006L11.6422 2.17895C11.7734 2.11336 11.839 2.08056 11.9078 2.06766C11.9687 2.05622 12.0313 2.05622 12.0922 2.06766C12.161 2.08056 12.2266 2.11336 12.3578 2.17895L22 7.00006L12.3578 11.8212C12.2266 11.8868 12.161 11.9196 12.0922 11.9325C12.0313 11.9439 11.9687 11.9439 11.9078 11.9325C11.839 11.9196 11.7734 11.8868 11.6422 11.8212L2 7.00006Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>) to seperate the layers of the brain.</p>
+
+                        <p> 
+              Click the puzzle piece (<svg width="23" height="23" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.5 4.5C7.5 3.11929 8.61929 2 10 2C11.3807 2 12.5 3.11929 12.5 4.5V6H13.5C14.8978 6 15.5967 6 16.1481 6.22836C16.8831 6.53284 17.4672 7.11687 17.7716 7.85195C18 8.40326 18 9.10218 18 10.5H19.5C20.8807 10.5 22 11.6193 22 13C22 14.3807 20.8807 15.5 19.5 15.5H18V17.2C18 18.8802 18 19.7202 17.673 20.362C17.3854 20.9265 16.9265 21.3854 16.362 21.673C15.7202 22 14.8802 22 13.2 22H12.5V20.25C12.5 19.0074 11.4926 18 10.25 18C9.00736 18 8 19.0074 8 20.25V22H6.8C5.11984 22 4.27976 22 3.63803 21.673C3.07354 21.3854 2.6146 20.9265 2.32698 20.362C2 19.7202 2 18.8802 2 17.2V15.5H3.5C4.88071 15.5 6 14.3807 6 13C6 11.6193 4.88071 10.5 3.5 10.5H2C2 9.10218 2 8.40326 2.22836 7.85195C2.53284 7.11687 3.11687 6.53284 3.85195 6.22836C4.40326 6 5.10218 6 6.5 6H7.5V4.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>) icon to isolate a region. By breaking apart the model, isolating a region, and re
+            </p>
+            
+            
             <button class="close-overlay" id="closeOverlayBtn">OK</button>
           </div>
         </div>
@@ -195,6 +201,7 @@
       </svg>
   </button>
 
+
  <button id="explode-btn" class="upper-button">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M2 12.0001L11.6422 16.8212C11.7734 16.8868 11.839 16.9196 11.9078 16.9325C11.9687 16.9439 12.0313 16.9439 12.0922 16.9325C12.161 16.9196 12.2266 16.8868 12.3578 16.8212L22 12.0001M2 17.0001L11.6422 21.8212C11.7734 21.8868 11.839 21.9196 11.9078 21.9325C11.9687 21.9439 12.0313 21.9439 12.0922 21.9325C12.161 21.9196 12.2266 21.8868 12.3578 21.8212L22 17.0001M2 7.00006L11.6422 2.17895C11.7734 2.11336 11.839 2.08056 11.9078 2.06766C11.9687 2.05622 12.0313 2.05622 12.0922 2.06766C12.161 2.08056 12.2266 2.11336 12.3578 2.17895L22 7.00006L12.3578 11.8212C12.2266 11.8868 12.161 11.9196 12.0922 11.9325C12.0313 11.9439 11.9687 11.9439 11.9078 11.9325C11.839 11.9196 11.7734 11.8868 11.6422 11.8212L2 7.00006Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -225,9 +232,6 @@
 
       <div class="panel-section"><div>
         
-        <div class="section-label">
-          About this region:
-        </div>
            </div>
            <p id="info-desc"></p>
            </div>
@@ -256,38 +260,51 @@
   </main>
 
 
-    <footer class="atsocials">
-      <a href="https://www.linkedin.com/in/connormaus">Linkedin <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 50 50">
-      <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-  </svg></a>
+<footer class="site-footer">
+  <div class="footer-logo">
+    <img src="BRAIN_2.png" alt="Neuroanatomy Logo">
+  </div>
 
-        <a href="https://github.com/mrconniejellybear">GitHub <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 50 50">
-      <path d="M17.791,46.836C18.502,46.53,19,45.823,19,45v-5.4c0-0.197,0.016-0.402,0.041-0.61C19.027,38.994,19.014,38.997,19,39 c0,0-3,0-3.6,0c-1.5,0-2.8-0.6-3.4-1.8c-0.7-1.3-1-3.5-2.8-4.7C8.9,32.3,9.1,32,9.7,32c0.6,0.1,1.9,0.9,2.7,2c0.9,1.1,1.8,2,3.4,2 c2.487,0,3.82-0.125,4.622-0.555C21.356,34.056,22.649,33,24,33v-0.025c-5.668-0.182-9.289-2.066-10.975-4.975 c-3.665,0.042-6.856,0.405-8.677,0.707c-0.058-0.327-0.108-0.656-0.151-0.987c1.797-0.296,4.843-0.647,8.345-0.714 c-0.112-0.276-0.209-0.559-0.291-0.849c-3.511-0.178-6.541-0.039-8.187,0.097c-0.02-0.332-0.047-0.663-0.051-0.999 c1.649-0.135,4.597-0.27,8.018-0.111c-0.079-0.5-0.13-1.011-0.13-1.543c0-1.7,0.6-3.5,1.7-5c-0.5-1.7-1.2-5.3,0.2-6.6 c2.7,0,4.6,1.3,5.5,2.1C21,13.4,22.9,13,25,13s4,0.4,5.6,1.1c0.9-0.8,2.8-2.1,5.5-2.1c1.5,1.4,0.7,5,0.2,6.6c1.1,1.5,1.7,3.2,1.6,5 c0,0.484-0.045,0.951-0.11,1.409c3.499-0.172,6.527-0.034,8.204,0.102c-0.002,0.337-0.033,0.666-0.051,0.999 c-1.671-0.138-4.775-0.28-8.359-0.089c-0.089,0.336-0.197,0.663-0.325,0.98c3.546,0.046,6.665,0.389,8.548,0.689 c-0.043,0.332-0.093,0.661-0.151,0.987c-1.912-0.306-5.171-0.664-8.879-0.682C35.112,30.873,31.557,32.75,26,32.969V33 c2.6,0,5,3.9,5,6.6V45c0,0.823,0.498,1.53,1.209,1.836C41.37,43.804,48,35.164,48,25C48,12.318,37.683,2,25,2S2,12.318,2,25 C2,35.164,8.63,43.804,17.791,46.836z"></path>
-  </svg></a>
-
-        <a href="https://www.instagram.com/mrconniejellybear/">Email <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0,0,256,256">
-  <g fill="#1a1a1a" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M25.50586,4.02539c-1.325,0.00125 -2.65164,0.37977 -3.80664,1.13477l-15.19922,9.85937c-0.93,0.6 -1.5,1.64 -1.5,2.75v1.04102c0,0.06 -0.00023,0.12945 0.00977,0.18945h8.83984l15.38086,-9.76953c0.69,-0.44 1.09867,-1.1607 1.13867,-1.9707c0.03,-0.8 -0.30945,-1.5393 -0.93945,-2.0293l-0.01953,-0.01953l-0.09961,-0.06055c-1.155,-0.75 -2.47969,-1.12625 -3.80469,-1.125zM32.35938,7.13086v0.21875c-0.06,1.47 -0.80859,2.77055 -2.05859,3.56055l-13.14062,8.34961c2.2,0.69 3.81984,2.75945 3.83984,5.18945l16.14063,-10.22852c0.71,-0.45 1.10938,-1.18148 1.10938,-2.02148c0,-0.7 -0.29078,-1.32953 -0.80078,-1.76953zM40.25,12.25c-0.02,1.49 -0.76906,2.86016 -2.03906,3.66016l-17.21094,10.91016v3.39063l3.66992,2.30859l20.21094,-12.67969c0.7,-0.44 1.11914,-1.18977 1.11914,-2.00977v-0.06055c0,-1.12 -0.56,-2.15977 -1.5,-2.75976zM4.5,21c-1.933,0 -3.5,1.567 -3.5,3.5v11c0,1.933 1.567,3.5 3.5,3.5h11c1.933,0 3.5,-1.567 3.5,-3.5v-11c0,-1.933 -1.567,-3.5 -3.5,-3.5zM46,21.5c-0.02,0.01 -0.03078,0.0193 -0.05078,0.0293l-19.39844,12.18164l4.42969,2.78906c1.66,1.05 2.65039,2.85055 2.65039,4.81055c0,1.41 -0.51133,2.69945 -1.36133,3.68945h7.73047c3.31,0 6,-2.69 6,-6zM10.11523,24.79883c1.446,0 2.62325,0.47211 3.53125,1.41211c0.912,0.941 1.36719,2.17975 1.36719,3.71875c0,1.581 -0.47102,2.85622 -1.41602,3.82422c-0.94,0.964 -2.15458,1.44531 -3.64258,1.44531c-1.451,0 -2.64227,-0.46634 -3.57227,-1.40234c-0.931,-0.936 -1.39648,-2.15806 -1.39648,-3.66406c0,-1.591 0.47297,-2.87738 1.41797,-3.85937c0.945,-0.983 2.18094,-1.47461 3.71094,-1.47461zM10.05273,26.7793c-0.805,0 -1.45236,0.29662 -1.94336,0.89063c-0.491,0.589 -0.73828,1.37075 -0.73828,2.34375c0,0.987 0.24728,1.76875 0.73828,2.34375c0.491,0.571 1.11972,0.85742 1.88672,0.85742c0.791,0 1.42816,-0.27994 1.91016,-0.83594c0.482,-0.557 0.72266,-1.33027 0.72266,-2.32227c0,-1.034 -0.23317,-1.83806 -0.70117,-2.41406c-0.468,-0.575 -1.093,-0.86328 -1.875,-0.86328zM21,32.57031v2.92969c0,3.03 -2.47,5.5 -5.5,5.5h-10.11914c0.86,2.34 3.10828,4 5.73828,4h16.83008c0.97,0 1.85172,-0.38 2.51172,-1c0.72,-0.67 1.16992,-1.62945 1.16992,-2.68945c0,-1.27 -0.6407,-2.44109 -1.7207,-3.12109l-5.24023,-3.29883l-2.5293,-1.60156z"></path></g></g>
-  </svg></a>
-
-        <a href="https://chss.wwu.edu/health-human-development/kinesiology">WWU <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#1a1a1a"><path d="M840-280v-276L480-360 40-600l440-240 440 240v320h-80ZM480-120 200-272v-200l280 152 280-152v200L480-120Z"/></svg></a>
-    </footer>
-
-    <footer class="credits">
-
-
-        <img class="logo-main" src="BRAIN_SIMPLE.png">
-
-      <div class="credit-box"> 
-        © Neuroanatomy.com 2026 Developed by <a href="https://www.instagram.com/allstarconnor">Connor Mausolf</a>
-      - BS in progress, at <a href="https://www.wwu.edu/">Western Washington University</a> | Assests featured fall under the <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.en">Creative Commons Attribution-NonCommercial 4.0 International License.</a></p>
-      
-      <p> 
-      Brain model by <a href="https://www.cgtrader.com/designers/aabansaad">aabansaad</a> | Muscle ecorche by <a href="https://alexlashko.com/">Alex Lashko</a> | .OBJ controls sourced from Three.js
-      <a href="https://threejs.org/docs/#examples/en/controls/OrbitControls">Orbit Controls</a> |
-      Typeface sourced from <a href="https://fonts.google.com/icons?icon.size=24&icon.color=%23e3e3e3&selected=Material+Symbols+Outlined:tonality:FILL@0;wght@400;GRAD@0;opsz@24">Google Materials</a> |
-      SVGs sourced from <a href="https://www.untitledui.com/free-icons">Untitled UI</a> |
+  <div class="footer-content">
+    
+    <div class="footer-top-row">
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/connormaus">Linkedin</a>
+        <a href="https://github.com/mrconniejellybear">GitHub</a>
+        <a href="mailto:cmausbis@outlook.com">Email</a>
+        <a href="https://chss.wwu.edu/health-human-development/kinesiology">WWU</a>
       </div>
-    </footer>
+      
+      <div class="footer-feedback">
+        <span>This project has helped me:</span>
+        <button class="vote-btn" aria-label="Thumbs Up">
+         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 22V11M2 13V20C2 21.1046 2.89543 22 4 22H17.4262C18.907 22 20.1662 20.9197 20.3914 19.4562L21.4683 12.4562C21.7479 10.6389 20.3418 9 18.5032 9H15C14.4477 9 14 8.55228 14 8V4.46584C14 3.10399 12.896 2 11.5342 2C11.2093 2 10.915 2.1913 10.7831 2.48812L7.26394 10.4061C7.10344 10.7673 6.74532 11 6.35013 11H4C2.89543 11 2 11.8954 2 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="vote-btn" aria-label="Thumbs Down">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.0001 2V13M22.0001 9.8V5.2C22.0001 4.07989 22.0001 3.51984 21.7821 3.09202C21.5903 2.71569 21.2844 2.40973 20.908 2.21799C20.4802 2 19.9202 2 18.8001 2H8.11806C6.65658 2 5.92584 2 5.33563 2.26743C4.81545 2.50314 4.37335 2.88242 4.06129 3.36072C3.70722 3.90339 3.59611 4.62564 3.37388 6.07012L2.8508 9.47012C2.5577 11.3753 2.41114 12.3279 2.69386 13.0691C2.94199 13.7197 3.4087 14.2637 4.01398 14.6079C4.70358 15 5.66739 15 7.59499 15H8.40005C8.96011 15 9.24013 15 9.45404 15.109C9.64221 15.2049 9.79519 15.3578 9.89106 15.546C10.0001 15.7599 10.0001 16.0399 10.0001 16.6V19.5342C10.0001 20.896 11.104 22 12.4659 22C12.7907 22 13.0851 21.8087 13.217 21.5119L16.5778 13.9502C16.7306 13.6062 16.807 13.4343 16.9278 13.3082C17.0346 13.1967 17.1658 13.1115 17.311 13.0592C17.4753 13 17.6635 13 18.0398 13H18.8001C19.9202 13 20.4802 13 20.908 12.782C21.2844 12.5903 21.5903 12.2843 21.7821 11.908C22.0001 11.4802 22.0001 10.9201 22.0001 9.8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-credits-text">
+      <p>© <a href="#">Neuroanatomy.com</a>, June 2026. Developed by <a href="https://www.instagram.com/allstarconnor">Connor Mausolf</a> - BS in progress, in association with <a href="https://www.wwu.edu/">Western Washington University</a> Neuroscience and Psychology.</p>
+      <p>Unlicensed assets featured fall under the <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.en">Creative Commons Attribution-NonCommercial 4.0 International License.</a></p>
+      <p>Typeface sourced from <a href="https://fonts.google.com/icons">Google Materials</a> | SVGs sourced from <a href="https://www.untitledui.com/free-icons">Untitled UI</a> |Brain model by <a href="https://www.cgtrader.com/designers/aabansaad">aabansaad</a> .OBJ controls from Three.js <a href="https://threejs.org/docs/#examples/en/controls/OrbitControls">Orbit Controls</a></p>
+    </div>
+
+  </div>
+</footer>
+
+        <div class="notice">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+    <p>This site is a living document and will be updated with new information and features as time goes on.</p>
+    </div>
 
 </body>
 </html>
