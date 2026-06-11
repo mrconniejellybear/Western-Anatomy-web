@@ -1169,7 +1169,7 @@ right: unset;
   color: #1a1a1a;
 }
 .vote-btn:focus{
-  color: #0397a7;
+  color: #1783ff;
 }
 
 /* --- Divider --- */
@@ -1313,7 +1313,7 @@ right: unset;
  }
 
   .panel-header{
-    font-size: 26px;
+    font-size: 28px;
   }
   .panel-section{
     margin: 0;
@@ -1353,7 +1353,7 @@ right: unset;
     background: #54728b22;
     border: 1px solid #3d3d3d36;
     color: #ffffff;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
   }
 
   .rotation-controls{
