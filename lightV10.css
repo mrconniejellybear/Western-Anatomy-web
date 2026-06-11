@@ -905,7 +905,7 @@ html, body { overflow-x: hidden;}
 
 .index{
   width: var(--mm-index-w);
-  height : calc(var(--main-height));
+  height : calc(var(--main-height) - 100px);
   overflow-y: auto;
   background-color: #4b4c5500;
     color: var(--lil-text);
@@ -959,14 +959,14 @@ html, body { overflow-x: hidden;}
 }
 
 .mi-list button:hover {
-  color: #06a3ca;
-  background-color: #00fca827;
+  color: #068fca;
+  background-color: #00fcd631;
     border-radius: 4px;
     margin-left: 4px;
 }
 .mi-list button.is-active {
-  color: #07357b;
-  background-color: var(--link-text);
+  color: #103362;
+  background-color: #25e3c6b3;
     border-radius: 4px;
     margin-left: 4px;
 }
@@ -1290,15 +1290,33 @@ right: unset;
   display: none; 
 }
 
+
 /* --- Responsive Mobile Layout --- */
 @media (max-width: 850px) {
 
+  .navbar{
+    justify-content: left;
+    gap: 9vw;
+    padding: 20px }
+  .index-tog{
+    display: none;
+  }
+
+  brand img{
+   margin: auto; position: fixed; 
+  }
+
+ .help-btn{
+  display: none;
+ }
+
   .panel-header{
-    font-size: 24px;
+    font-size: 26px;
   }
   .panel-section{
     margin: 0;
     padding: 0;
+    gap: 0;
   }
   
   /* Stack everything vertically */
@@ -1326,11 +1344,11 @@ right: unset;
   #mobile-region-select {
     width: 60%;
     appearance: auto; /* Forces Apple/Android native roller */
-    padding: 12px 10px;
-    margin: 14px;
+    padding: 10px;
+    margin: 12px;
     font-size: 15px; /* 16px prevents iOS from forcibly zooming the camera */
     border-radius: 8px;
-    background: #68839a2a;
+    background: #54728b22;
     border: 1px solid #3d3d3d36;
     color: #ffffff;
     backdrop-filter: blur(10px);
@@ -1379,12 +1397,12 @@ right: unset;
   .panel {
     width: 100vw;
     height: auto;
-    min-height: 40vh;
+    min-height: 30vh;
     margin: 0;
     border-radius: 0;
     border: none;
     border-top: 1px solid var(--border-2);
-    padding: 14px;
+    padding: 12px 20px 20px 20px;
     position: relative; /* Removes it from absolute positioning if applied */
   }
 
@@ -1402,23 +1420,74 @@ right: unset;
   }
 
 
+
   /* Stack the footer vertically */
   .site-footer {
     flex-direction: column;
-    padding: 1rem 1.5rem;
-    gap: 1rem;
-    align-items: center;
-    text-align: center;
+    padding: 20px; 
+    position: relative; /* Acts as an anchor for the absolute logo */
+    background-color: #f9f9ff;
   }
-  .footer-links {
+  .footer-credits-text{
+        order: 2;
+  }
+    .footer-content {
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    width: 100%;
+  }
+ .footer-links {
+    order: 4;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    align-items: flex-start;
+    max-width: 90%; /* Leaves empty space for the logo */
+  }
+  .footer-credits-text .self-ref-link{
+    color: #0080ff;
   }
   .footer-bottom-row {
-    flex-direction: column;
-    gap: 1rem;
+    display: contents; 
   }
-  .footer-logo{
+  .footer-logo {
+    position: absolute;
+    bottom: 1rem;
+    right: 20px;
+    width: 80px; /* Adjust based on your image size */
+    margin: 0;
+  }
+    .footer-feedback {
+    order: 1;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c5d5df; /* Creates the first divider */
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  .footer-divider {
+    order: 3;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  .notice{
+    height: auto;
+    padding: 12px 20px;
+    background-color: #2e4169;
+    color: #e7ebeb;
+  }
+  .notice svg{
     display: none;
+  }
+
+    .brand {
+    order: -1; /* Pushes the logo to the very front of the line */
+    margin-right: auto; /* Pushes the Home/Contact/References links to the right side */
+  }
+
+  .brand img {
+    position: static; /* Kills the stubborn fixed positioning */
+    margin: 0; /* Clears the 'margin: auto' inherited from the desktop CSS */
   }
 }
