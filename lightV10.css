@@ -1297,7 +1297,9 @@ right: unset;
   .navbar{
     justify-content: left;
     gap: 9vw;
-    padding: 20px }
+    padding: 16px;
+    padding-right: 50px;
+  }
   .index-tog{
     display: none;
   }
@@ -1359,7 +1361,7 @@ right: unset;
   }
   .ext_controls{
     flex-direction: column;
-    padding: 14px;
+    padding: 16px;
   }
   .mm-sep4{
     display: none;
@@ -1402,7 +1404,7 @@ right: unset;
     border-radius: 0;
     border: none;
     border-top: 1px solid var(--border-2);
-    padding: 12px 20px 20px 20px;
+    padding: 12px 16px 16px 16px;
     position: relative; /* Removes it from absolute positioning if applied */
   }
 
@@ -1424,13 +1426,19 @@ right: unset;
   /* Stack the footer vertically */
   .site-footer {
     flex-direction: column;
-    padding: 20px; 
+    padding: 16px; 
     position: relative; /* Acts as an anchor for the absolute logo */
     background-color: #f9f9ff;
   }
   .footer-credits-text{
         order: 2;
-  }
+        line-height: 18px;
+        }
+
+          .footer-credits-text p{
+            margin-bottom: 10px;
+          }
+
     .footer-content {
     display: flex;
     flex-direction: column;
@@ -1453,7 +1461,7 @@ right: unset;
   .footer-logo {
     position: absolute;
     bottom: 1rem;
-    right: 20px;
+    right: 16px;
     width: 80px; /* Adjust based on your image size */
     margin: 0;
   }
@@ -1473,7 +1481,7 @@ right: unset;
 
   .notice{
     height: auto;
-    padding: 12px 20px;
+    padding: 12px 16px;
     background-color: #2e4169;
     color: #e7ebeb;
   }
