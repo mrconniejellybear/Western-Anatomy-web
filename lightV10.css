@@ -1075,6 +1075,7 @@ right: unset;
   padding-left: 14px; 
 }
 
+
 .mm-search-icon{
   position: absolute;
   left: 41px; 
@@ -1096,8 +1097,8 @@ right: unset;
 /* --- Footer Layout --- */
 .site-footer {
   display: flex;
-  gap: 3rem; /* Space between the logo and the text column */
-  padding: 2rem 4rem;
+  gap: 3rem;
+  padding: 2rem 6rem;
   background-color: #f9f9ff;
   border-top: 0px solid var(--mm-border);
   margin: 0 auto;
@@ -1106,7 +1107,7 @@ right: unset;
 
 .footer-logo {
   flex-shrink: 0;
-  width: 150px; 
+  width: 140px; 
 }
 
 .footer-logo img {
@@ -1120,18 +1121,23 @@ right: unset;
   flex-direction: column;
 }
 
-.footer-top-row {
+.footer-bottom-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top:4px;
 }
 
 .footer-links {
   display: flex;
-  gap: 6rem;
+  gap: 4rem;
 }
 
 .footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
   text-decoration: none;
   color: #1a1a1a;
   font-weight: 700;
@@ -1139,7 +1145,7 @@ right: unset;
 }
 
 .footer-links a:hover {
- color: var(--link-text);
+ color: #00aeff;
 }
 
 .footer-feedback {
@@ -1180,6 +1186,7 @@ right: unset;
   color: #333333;
   line-height: 1;
   text-align: left;
+  padding-bottom: 6px;
 }
 
 .footer-credits-text p {
@@ -1250,7 +1257,7 @@ right: unset;
 
 
 .close-overlay {
-  background: #25e3c6;
+  background: #008cff;
   color: #fff;
   border: none;
   padding: 12px;
@@ -1264,6 +1271,6 @@ right: unset;
   transition: 0.2s ease;
 }
 .close-overlay:hover{
-  background: #09d2cb;
+  background: #46acff;
   box-shadow: #057aa839 1px 1px 10px;
 }
