@@ -1279,7 +1279,27 @@ right: unset;
 }
 
 
+.references{
+  background-color: var(--main-color);
+  line-height: 2rem;
+  padding: 1rem 8rem;
+}
+.references li{
+  margin-left: 2rem;
+}
+.references a{
+  color: #05a1a1;
+  text-decoration: none;
+}
+.references a:hover{
+  color: #0084dd;
+  text-decoration: underline;
+}
 
+.desc_{
+  font-size: 15px;
+  font-weight: 400;
+}
 
 
 
