@@ -6,7 +6,7 @@
   --main-color: #ffffff;
   --color3: #ffffff;
   
-  --mm-border: #b9bbcdf3;
+  --mm-border: #cdd3def3;
 
   --hoverlay: #3333333b;
   --hoverlay-2: #3232328f;
@@ -60,7 +60,6 @@ a:hover{
 
   .notice{
   background-color: #0088ff;  color: #ffffff;
-  padding-left: 30px;
   font-size: 13px;
   top: 0; left: 0; right: 0;
   height: var(--navbar-h);
@@ -68,6 +67,7 @@ a:hover{
   z-index: 1300;
   display: flex; align-items: center;
   border-bottom: 1px solid var(--mm-border);
+  justify-content: center;
 
   display: flex; align-items: center; gap: 8px;
 
@@ -735,7 +735,7 @@ margin-top: auto;
   margin-left: 0;
   font-weight: var(--lil-text);
 }
-.panel-section p{ line-height:24px; color: #adc1bf;
+.panel-section p{ line-height:24px; color: #acc0c7;
   ;}
 
 
@@ -765,7 +765,7 @@ margin-top: auto;
   border-radius: 0px 14px 14px 0px;
   pointer-events: auto;
   position: relative;
-  padding: 24px;
+  padding: 20px;
   margin-right: 2vw;
   margin-top: 14px;
   height: calc(var(--main-height) - 2rem); 
@@ -805,7 +805,7 @@ margin-top: auto;
   justify-content: space-between; /* Pushes text left and button right */
   align-items: center;
   color: var(--big-2);
-  font-size: 40px;
+  font-size: 46px;
   font-weight: 600;
   background-color: none;
 }
@@ -905,7 +905,7 @@ html, body { overflow-x: hidden;}
 
 .index{
   width: var(--mm-index-w);
-  height : calc(var(--main-height) - 130px);
+  height : calc(var(--main-height) - 100px);
   overflow-y: auto;
   background-color: #4b4c5500;
     color: var(--lil-text);
@@ -959,14 +959,14 @@ html, body { overflow-x: hidden;}
 }
 
 .mi-list button:hover {
-  color: #06c3ca;
-  background-color: #00fcdf25;
+  color: #068fca;
+  background-color: #00fcd631;
     border-radius: 4px;
     margin-left: 4px;
 }
 .mi-list button.is-active {
-  color: #07357b;
-  background-color: var(--link-text);
+  color: #103362;
+  background-color: #25e3c6b3;
     border-radius: 4px;
     margin-left: 4px;
 }
@@ -990,10 +990,9 @@ right: unset;
   align-items: center;
   display: flex;
   gap: 6px;
-  position: absolute;
+
   background: none;
-  bottom: 10px;
-  left: 20px;
+
 
   color: var(--lil-text);
   font-weight: var(--lil-text);
@@ -1075,6 +1074,7 @@ right: unset;
   padding-left: 14px; 
 }
 
+
 .mm-search-icon{
   position: absolute;
   left: 41px; 
@@ -1096,8 +1096,8 @@ right: unset;
 /* --- Footer Layout --- */
 .site-footer {
   display: flex;
-  gap: 3rem; /* Space between the logo and the text column */
-  padding: 2rem 4rem;
+  gap: 3rem;
+  padding: 2rem 6rem;
   background-color: #f9f9ff;
   border-top: 0px solid var(--mm-border);
   margin: 0 auto;
@@ -1106,7 +1106,7 @@ right: unset;
 
 .footer-logo {
   flex-shrink: 0;
-  width: 150px; 
+  width: 140px; 
 }
 
 .footer-logo img {
@@ -1120,26 +1120,31 @@ right: unset;
   flex-direction: column;
 }
 
-.footer-top-row {
+.footer-bottom-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top:4px;
 }
 
 .footer-links {
   display: flex;
-  gap: 6rem;
+  gap: 4rem;
 }
 
 .footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
   text-decoration: none;
   color: #1a1a1a;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .footer-links a:hover {
- color: var(--link-text);
+ color: #00aeff;
 }
 
 .footer-feedback {
@@ -1164,7 +1169,7 @@ right: unset;
   color: #1a1a1a;
 }
 .vote-btn:focus{
-  color: #0397a7;
+  color: #1783ff;
 }
 
 /* --- Divider --- */
@@ -1180,6 +1185,7 @@ right: unset;
   color: #333333;
   line-height: 1;
   text-align: left;
+  padding-bottom: 6px;
 }
 
 .footer-credits-text p {
@@ -1250,7 +1256,7 @@ right: unset;
 
 
 .close-overlay {
-  background: #25e3c6;
+  background: #008cff;
   color: #fff;
   border: none;
   padding: 12px;
@@ -1264,6 +1270,232 @@ right: unset;
   transition: 0.2s ease;
 }
 .close-overlay:hover{
-  background: #09d2cb;
+  background: #46acff;
   box-shadow: #057aa839 1px 1px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- MOBILE ADAPTATION --- */
+.mobile-select-container {
+  display: none; 
+}
+
+
+/* --- Responsive Mobile Layout --- */
+@media (max-width: 850px) {
+
+  .navbar{
+    justify-content: left;
+    gap: 9vw;
+    padding: 16px;
+    padding-right: 50px;
+  }
+  .index-tog{
+    display: none;
+  }
+
+  brand img{
+   margin: auto; position: fixed; 
+  }
+
+ .help-btn{
+  display: none;
+ }
+
+  .panel-header{
+    font-size: 28px;
+  }
+  .panel-section{
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+  
+  /* Stack everything vertically */
+  .layout-wrapper {
+    flex-direction: column;
+    overflow-y: auto; /* Let the user scroll the page */
+  }
+  .mm-sep10{
+    margin: 10px 0px 10px 0px;
+  }
+
+  /* Swap the sidebars */
+  .left-hand {
+    display: none !important; /* Hide desktop index */
+  }
+  .mobile-select-container {
+    display: block; /* Show mobile dropdown */
+    width: 100%;
+    height: 0px;
+    background-color: #000000;
+    z-index: 100;
+  }
+  
+  /* Native select styling */
+  #mobile-region-select {
+    width: 60%;
+    appearance: auto; /* Forces Apple/Android native roller */
+    padding: 10px;
+    margin: 12px;
+    font-size: 15px; /* 16px prevents iOS from forcibly zooming the camera */
+    border-radius: 8px;
+    background: #54728b22;
+    border: 1px solid #3d3d3d36;
+    color: #ffffff;
+    backdrop-filter: blur(20px);
+  }
+
+  .rotation-controls{
+    display: none;
+  }
+  .ext_controls{
+    flex-direction: column;
+    padding: 16px;
+  }
+  .mm-sep4{
+    display: none;
+  }
+  .view-dropdown-container{
+    display: none;
+  }
+
+  /* Restructure Viewer for Mobile Real Estate */
+  .viewer {
+    width: 100vw;
+    height: 60vh; /* Limits 3D canvas to half the screen */
+    margin: 0;
+    border-radius: 0;
+    flex: none; /* Prevents flexbox from stretching it */
+  }
+  .window {
+    border-radius: 0;
+  }
+
+
+  /* Shrink external controls so they don't overlap on small screens */
+  .ext_controls {
+    top: 10px; right: 10px;
+    transform: scale(0.85);
+    transform-origin: top right;
+  }
+  .rotation-controls {
+    bottom: 10px; left: 5%; right: 5%;
+    width: 90%;
+    transform: scale(0.9);
+  }
+
+  /* Move info panel directly below the viewer */
+  .panel {
+    width: 100vw;
+    height: auto;
+    min-height: 30vh;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid var(--border-2);
+    padding: 12px 16px 16px 16px;
+    position: relative; /* Removes it from absolute positioning if applied */
+  }
+
+  .panel-content{
+    margin-top: 0px;
+  }
+  .panel-content p{
+    font-size: 13px;
+      line-height: 18px;
+      margin: 0px;
+  }
+
+  .section-label{
+    margin: 0px;
+  }
+
+
+
+  /* Stack the footer vertically */
+  .site-footer {
+    flex-direction: column;
+    padding: 16px; 
+    position: relative; /* Acts as an anchor for the absolute logo */
+    background-color: #f9f9ff;
+  }
+  .footer-credits-text{
+        order: 2;
+        line-height: 18px;
+        }
+
+          .footer-credits-text p{
+            margin-bottom: 10px;
+          }
+
+    .footer-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+ .footer-links {
+    order: 4;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    align-items: flex-start;
+    max-width: 90%; /* Leaves empty space for the logo */
+  }
+  .footer-credits-text .self-ref-link{
+    color: #0080ff;
+  }
+  .footer-bottom-row {
+    display: contents; 
+  }
+  .footer-logo {
+    position: absolute;
+    bottom: 1rem;
+    right: 16px;
+    width: 80px; /* Adjust based on your image size */
+    margin: 0;
+  }
+    .footer-feedback {
+    order: 1;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c5d5df; /* Creates the first divider */
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  .footer-divider {
+    order: 3;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  .notice{
+    height: auto;
+    padding: 12px 16px;
+    background-color: #2e4169;
+    color: #e7ebeb;
+  }
+  .notice svg{
+    display: none;
+  }
+
+    .brand {
+    order: -1; /* Pushes the logo to the very front of the line */
+    margin-right: auto; /* Pushes the Home/Contact/References links to the right side */
+  }
+
+  .brand img {
+    position: static; /* Kills the stubborn fixed positioning */
+    margin: 0; /* Clears the 'margin: auto' inherited from the desktop CSS */
+  }
 }
