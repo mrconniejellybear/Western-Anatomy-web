@@ -12,6 +12,35 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     function: 'Contributes to executive functions, spatial working memory, and introspection/self-awareness.', 
   },
 
+  Inferior_frontal_gyrus: {
+    title: 'Inferior Frontal Gyrus'
+  },
+
+  Angular_gyrus: {
+    title: 'Angular Gyrus'
+  },
+
+  Superior_frontal_sulcus: {
+    title: 'Test_item'
+  },
+
+  central_sulcus: {
+    title: 'Central Sulcus'
+  },
+
+  Third_ventricle: {
+    title: 'Third Ventricle'
+  },
+
+   Fourth_ventricle: {
+    title: 'Fouth Ventricle'
+  },
+
+   Lateral_ventricle: {
+    title: 'Lateral Ventricle(s)'
+  },
+
+
   hippocampus: {
     title: 'Hippocampus', 
     description: 'A complex, seahorse-shaped structure embedded deep in the temporal lobe. It is one of the most widely studied regions in cognitive neuroscience due to its vulnerability in Alzheimer’s disease.', 
@@ -45,6 +74,10 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     description: 'The corpus callosum connects the right and left hemispheres of the brain. It is a massive bundle of over 200 million myelinated nerve fibers.', 
     head: 'Spans the longitudinal fissure, forming the roof of the lateral ventricles.', 
     function: 'Facilitates interhemispheric communication, allowing the left and right sides of the brain to share information and coordinate function.', 
+  },
+
+  lateral_geniculate_body: {
+   title: "hey"
   },
 
   cingulate_gyrus: {
@@ -84,9 +117,9 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
     occipital_pole: {
     title: 'Primary Visual Cortex', 
-    description: 'The Primary Visual Cortex (V1), is the first stop for visual information in the occipital lobe. It receives raw sensory input directly from the lateral geniculate nucleus (LGN) of the thalamus via optic radiations.', 
+    description: 'The Primary Visual Cortex (V1), is the first stop for visual data taken in by the eyes. It lives in the inferior posterior (lower back) of the occipital lobe, the region involved in vision. It receives raw sensory input directly from the lateral geniculate nucleus (LGN) of the thalamus via optic radiations.', 
     head: 'Located at the inferior posterior (bottom-back) area of the occipital lobe, the region involved with visual processing.', 
-    function: 'Responsible for the initial processing of visual stimuli, decoding basic orientation, spatial frequencies, color, and contrast boundaries.', 
+    function: 'V1 handles the initial processing of visual stimuli, decoding the signal for basic information such as orientation, size, shape, and contrast, before sending the signal off to other areas for more complex processing', 
   },
 
   lateral_geniculate_body: {
@@ -99,6 +132,12 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   Superior_temporal_gyrus: {
     title: 'Superior Temporal Gyrus'
   },
+
+  Inferior_temporal_gyrus: {
+    title: 'Inferior Temporal Gyrus'
+  },
+
+  
 
   Supramarginal_gyrus: {
     title: 'Supramarginal Gyrus'
@@ -117,7 +156,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   },
 
    Middle_temporal_gyrus:{
-    title: ' Middle Temporal Gyrus'
+    title: 'Middle Temporal Gyrus'
   },
 
    Precuneus:{
@@ -187,7 +226,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
       if (info.img){ img.src = info.img; img.alt = `${info.title} illustration`; img.style.display='block'; }
       else { img.removeAttribute('src'); img.alt=''; img.style.display='none'; }
     }
-    const desc = $('info-desc'); if (desc) desc.textContent = info.description || 'Description coming soon.';
+    const desc = $('info-desc'); if (desc) desc.textContent = info.description || 'Im still working on this one... Have a little paitence, would ya?';
     const head = $('info-head'); if (head) head.textContent = info.head || '';
     const func = $('info-func'); if (func) func.textContent = info.function || '';
   }
@@ -242,28 +281,46 @@ navbar.addEventListener('mouseleave', () => {
 (function buildIndex(){
   const UL = document.getElementById('mi-list');
   const Q  = document.getElementById('mi-search');
-  if (!UL) return;
+  const SELECT = document.getElementById('mobile-region-select'); // NEW: Get mobile target
 
   const titleOf = (k,m)=>(m?.title)||k.replace(/[_-]/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
+  
   function allItems(){
     return Object.entries(window.BRAIN_INFO||{})
       .map(([key,m]) => ({ key, title: titleOf(key,m) }))
       .sort((a,b)=>a.title.localeCompare(b.title));
   }
 
+  // Modified to render BOTH UI elements
   function render(list){
-    UL.innerHTML = '';
-    const frag = document.createDocumentFragment();
-    for (const it of list){
-      const li  = document.createElement('li');
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.textContent = it.title;
-      btn.dataset.key = it.key;
-      btn.addEventListener('click', () => openSidebarWith(it.key));
-      li.appendChild(btn); frag.appendChild(li);
+    // 1. Render Desktop UL (Existing code)
+    if (UL) {
+      UL.innerHTML = '';
+      const frag = document.createDocumentFragment();
+      for (const it of list){
+        const li  = document.createElement('li');
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = it.title;
+        btn.dataset.key = it.key;
+        btn.addEventListener('click', () => openSidebarWith(it.key));
+        li.appendChild(btn); frag.appendChild(li);
+      }
+      UL.appendChild(frag);
     }
-    UL.appendChild(frag);
+
+    // 2. Render Mobile Select (New code)
+    if (SELECT) {
+      SELECT.innerHTML = '<option value="" disabled selected>Select a region...</option>';
+      const fragSel = document.createDocumentFragment();
+      for (const it of list){
+        const opt = document.createElement('option');
+        opt.value = it.key;
+        opt.textContent = it.title;
+        fragSel.appendChild(opt);
+      }
+      SELECT.appendChild(fragSel);
+    }
   }
 
   function filter(q, items){
@@ -275,61 +332,42 @@ navbar.addEventListener('mouseleave', () => {
   let ITEMS = allItems();
   render(ITEMS);
 
-  // search
-  Q?.addEventListener('input',(e)=>render(filter(e.target.value, ITEMS)));
+  // search (Desktop only)
+  Q?.addEventListener('input',(e)=> {
+    // Only re-render the UL based on search, don't filter the mobile dropdown
+    const filtered = filter(e.target.value, ITEMS);
+    // (If you want the search bar to filter the mobile dropdown too, just call render(filtered))
+    render(filtered); 
+  });
 
-  // keep highlight in sync
+  // NEW: Mobile dropdown interaction listener
+  SELECT?.addEventListener('change', (e) => {
+    if (e.target.value) {
+      openSidebarWith(e.target.value);
+    }
+  });
+
+  // keep highlight in sync across both platforms
   addEventListener('mm:selected',(e)=>{
     const key = e.detail?.name;
-    UL.querySelectorAll('button.is-active').forEach(el => el.classList.remove('is-active'));
-    const match = [...UL.querySelectorAll('button')].find(b => b.dataset.key === key);
-    if (match) {
-      match.classList.add('is-active');
-      match.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-    }
-  });
-
-    // --- Command K (or Ctrl K) to Focus Search ---
-  document.addEventListener('keydown', (e) => {
-    // Check if the user pressed Meta (Cmd on Mac) or Ctrl (Windows) AND the 'k' key
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-      e.preventDefault(); // Prevents the browser's default search box from opening
-      if (Q) {
-        Q.focus();
-      }
-    }
-  });
-  
-  // Keyboard navigation for the index
-  document.addEventListener('keydown', (e) => {
-    const isSearchFocused = document.activeElement === Q;
-    if (isSearchFocused && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {
-      e.preventDefault();
-      const firstItem = UL.querySelector('button');
-      if (firstItem) firstItem.focus();
-      return;
-    }
     
-    if (document.activeElement.parentElement?.parentElement === UL || !isSearchFocused) {
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        const current = document.activeElement;
-        const next = current.parentElement.nextElementSibling?.querySelector('button');
-        if (next) next.focus();
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        const current = document.activeElement;
-        const prev = current.parentElement.previousElementSibling?.querySelector('button');
-        if (prev) prev.focus();
-        else if (!isSearchFocused) Q.focus();
-      } else if (e.key === 'Enter' && document.activeElement.dataset.key) {
-        openSidebarWith(document.activeElement.dataset.key);
+    // Sync Desktop
+    if (UL) {
+      UL.querySelectorAll('button.is-active').forEach(el => el.classList.remove('is-active'));
+      const match = [...UL.querySelectorAll('button')].find(b => b.dataset.key === key);
+      if (match) {
+        match.classList.add('is-active');
+        match.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
       }
+    }
+
+    // Sync Mobile
+    if (SELECT && key) {
+      SELECT.value = key;
     }
   });
 
-
-  // Viewer can send us all mesh names; we merge any we’re missing and rebuild once.
+  // Viewer mesh merging (kept the same, just calling our updated render)
   window.addEventListener('mm:meshList', (e) => {
     const names = e.detail?.names || [];
     let added = 0;
@@ -342,7 +380,7 @@ navbar.addEventListener('mouseleave', () => {
     }
     if (added){
       ITEMS = allItems();
-      render(filter(Q.value, ITEMS));
+      render(ITEMS); 
       console.info(`📚 index merged ${added} new item(s) from model`);
     }
   });
