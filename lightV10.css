@@ -6,7 +6,7 @@
   --main-color: #ffffff;
   --color3: #ffffff;
   
-  --mm-border: #cdd3def3;
+  --mm-border: #d1dce5;
 
   --hoverlay: #3333333b;
   --hoverlay-2: #3232328f;
@@ -54,16 +54,16 @@ a:hover{
     backdrop-filter: blur(80px);
     margin-bottom: 0rem;
     z-index: 0;
-    border-bottom: 1px solid var(--mm-border);
   }
 
 
   .notice{
-  background-color: #0088ff;  color: #ffffff;
+  background-color: #1c2d49;
+  color: #eef2f5;
   font-size: 13px;
   top: 0; left: 0; right: 0;
   height: var(--navbar-h);
-  height: 30px;
+  height: 40px;
   z-index: 1300;
   display: flex; align-items: center;
   border-bottom: 1px solid var(--mm-border);
@@ -1099,7 +1099,8 @@ right: unset;
   gap: 3rem;
   padding: 2rem 6rem;
   background-color: #f9f9ff;
-  border-top: 0px solid var(--mm-border);
+  border-top: 1px solid var(--mm-border);
+  border-bottom: 14px solid var(--mm-border);
   margin: 0 auto;
   align-items: flex-start;
 }
@@ -1169,7 +1170,7 @@ right: unset;
   color: #1a1a1a;
 }
 .vote-btn:focus{
-  color: #1783ff;
+  color: #0397a7;
 }
 
 /* --- Divider --- */
@@ -1205,6 +1206,9 @@ right: unset;
   text-decoration: underline;
   color: #0081fa;
 }
+  .footer-credits-text .self-ref-link{
+    color: #0077ff;
+  }
 
 
 /* --- Frosted Glass Instruction Overlay --- */
@@ -1313,7 +1317,7 @@ right: unset;
  }
 
   .panel-header{
-    font-size: 28px;
+    font-size: 26px;
   }
   .panel-section{
     margin: 0;
@@ -1353,7 +1357,7 @@ right: unset;
     background: #54728b22;
     border: 1px solid #3d3d3d36;
     color: #ffffff;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
   }
 
   .rotation-controls{
@@ -1452,9 +1456,7 @@ right: unset;
     align-items: flex-start;
     max-width: 90%; /* Leaves empty space for the logo */
   }
-  .footer-credits-text .self-ref-link{
-    color: #0080ff;
-  }
+
   .footer-bottom-row {
     display: contents; 
   }
@@ -1462,7 +1464,7 @@ right: unset;
     position: absolute;
     bottom: 1rem;
     right: 16px;
-    width: 80px; /* Adjust based on your image size */
+    width: 114px; /* Adjust based on your image size */
     margin: 0;
   }
     .footer-feedback {
