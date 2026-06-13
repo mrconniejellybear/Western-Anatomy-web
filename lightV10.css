@@ -16,7 +16,7 @@
   --main-height: calc(100vh - var(--navbar-h) - 24px);
 
   --big-text: #161515;
-  --lil-text: #3b445f; font-size: 15px; font-weight: 400;
+  --lil-text: #333a50; font-size: 15px; font-weight: 400;
 
   --big-2: #ffffff;
   --border-2: #bdcbd32e;
@@ -1286,6 +1286,7 @@ right: unset;
 
 
 .references{
+  color: #17171b;
   background-color: var(--main-color);
   padding: 0rem 8rem;
   margin-top: 2rem;
@@ -1294,6 +1295,7 @@ right: unset;
   margin-bottom: 1rem;
 }
 .references li{
+  color: var(--lil-text);
   line-height: 2rem;
   margin-left: 2rem;
 }
@@ -1534,4 +1536,39 @@ right: unset;
   .references{
       padding: 0px 20px;
   }
+}
+
+
+
+
+
+.setup{
+ padding: 4rem 16rem;
+ font-size: 19px;
+ line-height: 1.5rem;
+}
+.setup p{
+  color: var(--lil-text);
+  margin-bottom: 1rem;
+}
+
+.soapbox{
+  background-color: #c7cfd4;
+  padding: 2rem 12rem;
+}
+.soapbox h1{
+  color: #414552;
+  margin-bottom: 0.5rem;
+}
+.soapbox p{
+  color: #22252b;
+  font-size: 16px;
+  line-height: 1.7rem;
+}
+.soapbox a{
+  color: var(--link-2);
+}
+.banner img{
+  max-height: 260px;
+  width: auto;
 }
