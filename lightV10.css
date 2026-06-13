@@ -22,6 +22,8 @@
   --border-2: #bdcbd32e;
 
   --link-text: #25e3c6;
+  --link-2: #098692;
+  --link-sel: #0084dd;
 
   --mm-select: #090909;
   --mm-highlight: #bfcab846;
@@ -124,10 +126,14 @@ a:hover{
 }
 
 .link:hover{
-  color:var(--link-text); 
+  color: var(--link-2); 
   border: none; 
   text-decoration: none; 
   border-radius: 40px;
+}
+.link:active{
+  color: var(--link-sel);
+  text-decoration: underline;
 }
 
 .ref-link{
@@ -227,12 +233,11 @@ a:hover{
 }
 
 /* Separator */
-.mm-sep1{ height:1px; background: var(--mm-border);   max-width: var(--max-width); margin: 0 auto;
-margin-bottom: 1rem;}
+.mm-sep1{ height:1px; background: var(--mm-border);   max-width: 100%; margin: 1rem 0rem; }
+
 .mm-sep2{ height:1px; background:var(--mm-border);}
 .mm-sep3{ flex: 0 0 1px; height: 26px; align-self: center;  color:var(--mm-border);}
 .mm-sep5{ height:0px; background:var(--mm-border); margin-bottom: 10px;}
-.mm-sep6{ height: var(--main-height); margin-right: 2rem;}
 .mm-sep7{ height: var(--main-height); width: 0px; background-color: var(--mm-border);}
 
 
@@ -1281,27 +1286,31 @@ right: unset;
 
 .references{
   background-color: var(--main-color);
-  line-height: 2rem;
-  padding: 1rem 8rem;
+  padding: 0rem 8rem;
+  margin-top: 2rem;
+}
+.references h2{
+  margin-bottom: 1rem;
 }
 .references li{
+  line-height: 2rem;
   margin-left: 2rem;
 }
 .references a{
-  color: #05a1a1;
+  color: #079494;
   text-decoration: none;
 }
 .references a:hover{
   color: #0084dd;
   text-decoration: underline;
 }
-
-.desc_{
+.references h3{
   font-size: 15px;
-  font-weight: 400;
 }
 
-
+.shoutsout{
+  margin-bottom: 2rem;
+}
 
 
 
