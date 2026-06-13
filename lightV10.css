@@ -1530,4 +1530,8 @@ right: unset;
     position: static; /* Kills the stubborn fixed positioning */
     margin: 0; /* Clears the 'margin: auto' inherited from the desktop CSS */
   }
+
+  .references{
+      padding: 0px 20px;
+  }
 }
