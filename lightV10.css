@@ -25,6 +25,7 @@
   --link-2: #098692;
   --link-sel: #0084dd;
 
+
   --mm-select: #090909;
   --mm-highlight: #bfcab846;
 }
@@ -1297,11 +1298,11 @@ right: unset;
   margin-left: 2rem;
 }
 .references a{
-  color: #079494;
+  color: var(--link-2);
   text-decoration: none;
 }
 .references a:hover{
-  color: #0084dd;
+  color: var(--link-sel);
   text-decoration: underline;
 }
 .references h3{

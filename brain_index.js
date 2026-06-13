@@ -1,8 +1,5 @@
-/* === UI CORE — no three.js, just panels/rail/resizer ===================== */
 console.info('✅ UI core executing');
 
-/* 1) Data (extend this with all your real entries) */
-/* === BRAIN DATA DICTIONARY ===================== */
 window.BRAIN_INFO = window.BRAIN_INFO || {
 
   superior_frontal_gyrus: {
@@ -242,16 +239,13 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   /* 3) Open the info panel for a given key */
   window.openSidebarWith = function(key){
     const info = (window.BRAIN_INFO || {})[key];
-    // If missing, synthesize a readable title so the page still opens.
     const fallback = (k)=>({ title: k.replace(/[_-]/g,' ').replace(/\b\w/g,m=>m.toUpperCase()), description:'Coming soon.' });
     const data = info || fallback(key);
   
     renderBrainInfo(data);
     renderBrainExercises(data);
     
-  
-    // Let the viewer know (to highlight/zoom)
-    window.dispatchEvent(new CustomEvent('mm:selected', { detail:{ name:key }}));
+      window.dispatchEvent(new CustomEvent('mm:selected', { detail:{ name:key }}));
 
     
   };
@@ -268,7 +262,6 @@ navbar.addEventListener('mouseleave', () => {
   // run exit: keep armed, add leaving so it slides off to the right
   navbar.classList.add('is-leaving');
 
-  // after the transform transition finishes, reset to initial (hidden)
   const onEnd = (e) => {
     if (e.propertyName !== 'transform') return;
     navbar.classList.remove('is-armed', 'is-leaving');
@@ -334,9 +327,7 @@ navbar.addEventListener('mouseleave', () => {
 
   // search (Desktop only)
   Q?.addEventListener('input',(e)=> {
-    // Only re-render the UL based on search, don't filter the mobile dropdown
     const filtered = filter(e.target.value, ITEMS);
-    // (If you want the search bar to filter the mobile dropdown too, just call render(filtered))
     render(filtered); 
   });
 
