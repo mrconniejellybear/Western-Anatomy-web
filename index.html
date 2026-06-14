@@ -50,13 +50,6 @@
         <a class="brand" href="https://www.wwu.edu/">
        <img id="logo" src="images/WWU_Scaled_Lvl2_Rgb.png">
        </a>
-
-                 <button id="help-btn" class="help-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-           Help
-        </button>
   </header>
 
   
@@ -80,6 +73,8 @@
     </svg>
       <input id="mi-search" class="mi-search" placeholder="⌘ K to Search Index" aria-label="Search">
 
+      <div class="mm-sep1"></div>
+
      <div class="item-sec" id="group-filter-sec">
       By group:
 
@@ -90,17 +85,34 @@
           <option value="Sulci">Sulci</option>
           <option value="Subcortical">Subcortical</option>
         </select>
+
+       <button class="reset-btn" id="reset-group">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.54661 19.7675C10.9457 20.8319 13.8032 20.7741 16.2502 19.3613C20.3157 17.0141 21.7086 11.8156 19.3614 7.75008L19.1114 7.31706M4.63851 16.2502C2.2913 12.1847 3.68424 6.98619 7.74972 4.63898C10.1967 3.22621 13.0542 3.16841 15.4533 4.23277M2.49341 16.3338L5.22546 17.0659L5.95751 14.3338M18.0426 9.6659L18.7747 6.93385L21.5067 7.6659" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
 
     <div class="item-sec" id="item-filter">
       By function:
         <select class="filter-items" id="func-filter-sec">
           <option value="All">All</option>
+          <option value="Personality">Personality</option>
+          <option value="Social">Social</option>
           <option value="Memory">Memory</option>
           <option value="Motor">Motor</option>
           <option value="Emotion">Emotion</option>
-          <option value="Sensory">Sensory</option>
+          <option value="Vision">Vision</option>
+          <option value="Smell">Smell</option>
+          <option value="Taste">Taste</option>
+          <option value="Touch">Touch</option>
         </select>
+
+        <button class="reset-btn" id="reset-func">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.54661 19.7675C10.9457 20.8319 13.8032 20.7741 16.2502 19.3613C20.3157 17.0141 21.7086 11.8156 19.3614 7.75008L19.1114 7.31706M4.63851 16.2502C2.2913 12.1847 3.68424 6.98619 7.74972 4.63898C10.1967 3.22621 13.0542 3.16841 15.4533 4.23277M2.49341 16.3338L5.22546 17.0659L5.95751 14.3338M18.0426 9.6659L18.7747 6.93385L21.5067 7.6659" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
 
 
@@ -146,16 +158,17 @@
             <p>Click and drag to rotate the model. Scroll to zoom in and out.</p>
 
             <p>
-              Click the center icon (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M212.31-140Q182-140 161-161q-21-21-21-51.31V-360h60v147.69q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85H360v60H212.31ZM600-140v-60h147.69q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46V-360h60v147.69Q820-182 799-161q-21 21-51.31 21H600ZM140-600v-147.69Q140-778 161-799q21-21 51.31-21H360v60H212.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46V-600h-60Zm620 0v-147.69q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H600v-60h147.69Q778-820 799-799q21 21 21 51.31V-600h-60ZM480-300q-74.92 0-127.46-52.54Q300-405.08 300-480q0-74.92 52.54-127.46Q405.08-660 480-660q74.92 0 127.46 52.54Q660-554.92 660-480q0 74.92-52.54 127.46Q554.92-300 480-300Zm0-60q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0-120Z"/></svg>) to re-center the model.
+              Click the center reticle (<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M450-72v-69.23q-125-12.85-210.46-98.31Q154.08-325 141.23-450H72v-60h69.23q12.85-125 98.31-210.46Q325-805.92 450-818.77V-888h60v69.23q125 12.85 210.46 98.31Q805.92-635 818.77-510H888v60h-69.23q-12.85 125-98.31 210.46Q635-154.08 510-141.23V-72h-60Zm228-210q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82Zm-296.96-99.04Q340-422.08 340-480q0-57.92 41.04-98.96Q422.08-620 480-620q57.92 0 98.96 41.04Q620-537.92 620-480q0 57.92-41.04 98.96Q537.92-340 480-340q-57.92 0-98.96-41.04ZM536.5-423.5Q560-447 560-480t-23.5-56.5Q513-560 480-560t-56.5 23.5Q400-513 400-480t23.5 56.5Q447-400 480-400t56.5-23.5ZM480-480Z"/></svg>) to re-center the model.
             </p>
+            
             <p>Click the layers icon (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 12.0001L11.6422 16.8212C11.7734 16.8868 11.839 16.9196 11.9078 16.9325C11.9687 16.9439 12.0313 16.9439 12.0922 16.9325C12.161 16.9196 12.2266 16.8868 12.3578 16.8212L22 12.0001M2 17.0001L11.6422 21.8212C11.7734 21.8868 11.839 21.9196 11.9078 21.9325C11.9687 21.9439 12.0313 21.9439 12.0922 21.9325C12.161 21.9196 12.2266 21.8868 12.3578 21.8212L22 17.0001M2 7.00006L11.6422 2.17895C11.7734 2.11336 11.839 2.08056 11.9078 2.06766C11.9687 2.05622 12.0313 2.05622 12.0922 2.06766C12.161 2.08056 12.2266 2.11336 12.3578 2.17895L22 7.00006L12.3578 11.8212C12.2266 11.8868 12.161 11.9196 12.0922 11.9325C12.0313 11.9439 11.9687 11.9439 11.9078 11.9325C11.839 11.9196 11.7734 11.8868 11.6422 11.8212L2 7.00006Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>) to seperate the layers of the brain.</p>
+            </svg>) to seperate the layers of the brain.
+            </p>
 
-                        <p> 
-              Click the puzzle piece (<svg width="23" height="23" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7.5 4.5C7.5 3.11929 8.61929 2 10 2C11.3807 2 12.5 3.11929 12.5 4.5V6H13.5C14.8978 6 15.5967 6 16.1481 6.22836C16.8831 6.53284 17.4672 7.11687 17.7716 7.85195C18 8.40326 18 9.10218 18 10.5H19.5C20.8807 10.5 22 11.6193 22 13C22 14.3807 20.8807 15.5 19.5 15.5H18V17.2C18 18.8802 18 19.7202 17.673 20.362C17.3854 20.9265 16.9265 21.3854 16.362 21.673C15.7202 22 14.8802 22 13.2 22H12.5V20.25C12.5 19.0074 11.4926 18 10.25 18C9.00736 18 8 19.0074 8 20.25V22H6.8C5.11984 22 4.27976 22 3.63803 21.673C3.07354 21.3854 2.6146 20.9265 2.32698 20.362C2 19.7202 2 18.8802 2 17.2V15.5H3.5C4.88071 15.5 6 14.3807 6 13C6 11.6193 4.88071 10.5 3.5 10.5H2C2 9.10218 2 8.40326 2.22836 7.85195C2.53284 7.11687 3.11687 6.53284 3.85195 6.22836C4.40326 6 5.10218 6 6.5 6H7.5V4.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>) icon to isolate a region. By breaking apart the model, isolating a region, and re
+            <p> 
+            Click the puzzle piece 
+            icon to isolate a region. By breaking apart the model, isolating a region, and reassembling the model, you can understand where regions lie within larger structures.
             </p>
             
             
@@ -164,31 +177,26 @@
         </div>
         
         <div id="texture-loader" class="loader-overlay hidden">
-          <div class="spinner"></div>
+        <div class="spinner"></div>
         </div>
 
         
 
         <div class="rotation-controls">  
 
+        <button id="center-btn" class="upper-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="currentColor"><path d="M450-72v-69.23q-125-12.85-210.46-98.31Q154.08-325 141.23-450H72v-60h69.23q12.85-125 98.31-210.46Q325-805.92 450-818.77V-888h60v69.23q125 12.85 210.46 98.31Q805.92-635 818.77-510H888v60h-69.23q-12.85 125-98.31 210.46Q635-154.08 510-141.23V-72h-60Zm228-210q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82Zm-296.96-99.04Q340-422.08 340-480q0-57.92 41.04-98.96Q422.08-620 480-620q57.92 0 98.96 41.04Q620-537.92 620-480q0 57.92-41.04 98.96Q537.92-340 480-340q-57.92 0-98.96-41.04ZM536.5-423.5Q560-447 560-480t-23.5-56.5Q513-560 480-560t-56.5 23.5Q400-513 400-480t23.5 56.5Q447-400 480-400t56.5-23.5ZM480-480Z"/></svg>
+        </button>
 
-               <button id="center-btn" class="upper-button">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
- <path d="M12 3V6M12 10.5V13.5M12 18V21M22 12H15.5M15.5 12L19.5 16M15.5 12L19.5 8M2 12H8.5M8.5 12L4.5 16M8.5 12L4.5 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
- </svg>
-            </button>
-
-                        <div class="mm-sep4" role="separator"></div>
+         <div class="mm-sep4" role="separator"></div>
 
 
-          <button id="rotation-lock-btn" class="upper-button" aria-label="Lock Rotation">
-               <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor"><path d="M831.09-331.94q-29.9 69.06-81.38 120.57-51.48 51.52-120.49 81.44Q560.21-100 481-100q-75 0-141-26.5t-116.5-74Q173-248 140-312.5T102-451q-1-10 6-16.5t17-6.5q10 0 19.5 6t12.5 23q12 125 104 208.5T480-153q137 0 231.5-94.5T806-479q0-137-94.5-231.5T480-805q-97 0-174 50T190-625h92q10.95 0 18.48 7.54 7.52 7.53 7.52 18.5 0 10.96-7.52 18.96-7.53 8-18.48 8H143.35q-18.35 0-30.85-12.63Q100-597.25 100-615v-139q0-10.95 8.04-18.47 8.03-7.53 19-7.53 10.96 0 18.46 7.53 7.5 7.52 7.5 18.47v95q45-90 132-145.5T481-860q79.21 0 148.22 29.89t120.49 81.35q51.48 51.46 81.38 120.43Q861-559.35 861-480.17q0 79.17-29.91 148.23ZM400-327q-16.45 0-27.73-11.27Q361-349.55 361-366v-120q0-14.45 11.5-25.73Q384-523 401-525v-41q0-32.53 23-55.76Q447-645 480-645t56 23.24q23 23.23 23 55.76v41q17 2 28.5 13.27Q599-500.45 599-486v120q0 16.45-11.28 27.73Q576.45-327 560-327H400Zm39-198h82v-40.61q0-16.39-12.5-28.89T480-607q-16 0-28.5 12.5T439-565.61V-525Z"/></svg>      
-          </button>
+        <button id="rotation-lock-btn" class="upper-button" aria-label="Lock Rotation">
+           <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor"><path d="M831.09-331.94q-29.9 69.06-81.38 120.57-51.48 51.52-120.49 81.44Q560.21-100 481-100q-75 0-141-26.5t-116.5-74Q173-248 140-312.5T102-451q-1-10 6-16.5t17-6.5q10 0 19.5 6t12.5 23q12 125 104 208.5T480-153q137 0 231.5-94.5T806-479q0-137-94.5-231.5T480-805q-97 0-174 50T190-625h92q10.95 0 18.48 7.54 7.52 7.53 7.52 18.5 0 10.96-7.52 18.96-7.53 8-18.48 8H143.35q-18.35 0-30.85-12.63Q100-597.25 100-615v-139q0-10.95 8.04-18.47 8.03-7.53 19-7.53 10.96 0 18.46 7.53 7.5 7.52 7.5 18.47v95q45-90 132-145.5T481-860q79.21 0 148.22 29.89t120.49 81.35q51.48 51.46 81.38 120.43Q861-559.35 861-480.17q0 79.17-29.91 148.23ZM400-327q-16.45 0-27.73-11.27Q361-349.55 361-366v-120q0-14.45 11.5-25.73Q384-523 401-525v-41q0-32.53 23-55.76Q447-645 480-645t56 23.24q23 23.23 23 55.76v41q17 2 28.5 13.27Q599-500.45 599-486v120q0 16.45-11.28 27.73Q576.45-327 560-327H400Zm39-198h82v-40.61q0-16.39-12.5-28.89T480-607q-16 0-28.5 12.5T439-565.61V-525Z"/></svg>      
+        </button>
           <input type="range" id="rotation-slider" min="0" max="360" value="0" aria-label="Rotate Model">
 
            <div class="mm-sep4" role="separator"></div>
-
-
 
  <button id="center-btn" class="upper-button">
  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -244,6 +252,13 @@
         Structure isolation: 
         <button>on</button>
       </div>
+
+        <button id="help-btn" class="help-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="currentColor">
+              <path d="M508.5-267.21q11.81-11.83 11.81-28.97 0-17.13-11.83-28.94-11.83-11.8-28.96-11.8-17.13 0-28.94 11.83-11.81 11.83-11.81 28.96 0 17.13 11.83 28.94 11.83 11.8 28.96 11.8 17.13 0 28.94-11.82ZM480.07-100q-78.84 0-148.21-29.92t-120.68-81.21q-51.31-51.29-81.25-120.63Q100-401.1 100-479.93q0-78.84 29.92-148.21t81.21-120.68q51.29-51.31 120.63-81.25Q401.1-860 479.93-860q78.84 0 148.21 29.92t120.68 81.21q51.31 51.29 81.25 120.63Q860-558.9 860-480.07q0 78.84-29.92 148.21t-81.21 120.68q-51.29 51.31-120.63 81.25Q558.9-100 480.07-100Zm-.07-60q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm3.24-171.23q27.68 0 47.91 17.43 20.24 17.43 20.24 43.57 0 22-12.93 39.38-12.92 17.39-29.54 32.39-21.78 19.32-38.35 42.51-16.57 23.18-17.72 51.64-.39 10.93 7.69 18.31 8.08 7.38 18.84 7.38 11.54 0 19.54-7.69t10.23-18.84q4-20.62 17.04-36.73 13.04-16.12 28.25-30.65 21.87-21.32 38.17-46.48 16.31-25.17 16.31-56.14 0-47.54-37.46-78.12Q534-703.84 484-703.84q-35.69 0-67.31 15.8-31.61 15.81-49.23 46.12-5.46 9.31-3.5 19.59 1.95 10.29 10.55 15.62 10.95 6.09 22.49 3.48 11.54-2.62 19.61-13.15 12.16-15.77 29.43-25.31t37.2-9.54Z"/>
+            </svg>
+        </button>
+
   </div>
   </div>
 

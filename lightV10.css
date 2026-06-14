@@ -4,7 +4,7 @@
 :root{
   --navbar-h: 54px;
   --main-color: #ffffff;
-  --color3: #f2f5f88d;
+  --color3: #f2f5f88e;
   
   --mm-border: #d1dce5;
 
@@ -851,7 +851,7 @@ html, body { overflow-x: hidden;}
   z-index: 10;
 
   transition: width 0.3s ease, min-width 0.3s ease;
-  width: 310px;
+  width: 320px;
   overflow: hidden;
 }
 .left-hand.collapsed {
@@ -924,7 +924,7 @@ html, body { overflow-x: hidden;}
   width: var(--mm-index-w);
   height : calc(var(--main-height) - 160px);
   overflow-y: auto;
-  background-color: #4b4c5500;
+  background-color: #ffffff43;
     color: var(--lil-text);
 
       padding-left: 22px;
@@ -1007,16 +1007,19 @@ right: unset;
   align-items: center;
   display: flex;
   gap: 6px;
-  display: none;
 
+  z-index: 3000;
+  position: absolute;
+  bottom: 16px;
+  left: 10px;
   background: none;
 
 
-  color: var(--lil-text);
+  color:#ffffff71;
   font-weight: var(--lil-text);
 
   border: none;
-  padding: 8px 10px;
+  padding: 8px;
   text-decoration: none;
   font-size: var(--lil-text);
 }
@@ -1024,14 +1027,14 @@ right: unset;
   background: var(--mm-highlight);
   border: none;
 
-  color: var(--link-text);
+  color: var(--link-2);
    text-decoration: none;
    border-radius:30px;
-   padding: 8px 10px;
+   padding: 8px;
   cursor: pointer;
 }
 .help-btn:active{
-  background: var(--link-text);
+  background: var(--link-2);
   border: none;
 
   color: #fff;
@@ -1079,7 +1082,24 @@ right: unset;
   border-radius: 8px;
 
   color: var(--lil-text);
+
 }
+.reset-btn{
+  background: none;
+  border: none;
+  position: absolute;
+  right: 22px;
+  color: #807d7d;
+
+  cursor: pointer;
+}
+.reset-btn:hover{
+  color: var(--link-2);
+
+  cursor: pointer;
+}
+
+
 .isolation-status{
   position: absolute;
   top: 3rem;
@@ -1091,13 +1111,12 @@ right: unset;
   gap: 6px;
   margin-top: 10px;
   z-index: 3000;
-  
 
   color: #b0b5b8d9;
 }
 .isolation-status button{
   border: none;
-  font-size: 14px;
+  font-size: 16px;
   background: none;
 
   border-radius: 8px;
@@ -1106,15 +1125,15 @@ right: unset;
 
 .mi-search{
   opacity: 1;
-  width: 265px;
+  width: 276px;
   padding:14px;   
 
   border-radius: 10px; 
   border: none;
   font-size: var(--lil-text);
   padding-left: 38px; 
-  background: #9f9f9f11;
-  border: solid 1px var(--mm-border);
+  background: #ffffff82;
+  border: solid 1px #6d6d6d77;
 }
 
 .mi-search:hover{
@@ -1300,11 +1319,13 @@ right: unset;
   background-color: #00000039;
    backdrop-filter: blur(10px);
    border-radius: 30px;
+
 }
 
 
 .instruction-content p {
   display: flex;
+  align-items: center;
   color:#e4e4e4;
   margin-bottom: 1rem;
   font-size: 16px;
@@ -1497,7 +1518,7 @@ right: unset;
     position: relative; /* Removes it from absolute positioning if applied */
 
     background-color: #000000b7;
-    backdrop-filter: blur(200px);
+    backdrop-filter: blur(140px);
 
   }
 
@@ -1597,16 +1618,49 @@ right: unset;
 
 
 
+.model-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  background-color: var(--link-2);
+  padding: 14px 18px;
+  font-size: 22px;
+  border-radius: 8px;
+  border: 1px solid #0ea08ac5;
+}
+.model-button a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+.model-button:hover{
+  background-color: #089d7f;
+}
 
 .setup{
- padding: 4rem 16rem;
- font-size: 19px;
- line-height: 1.5rem;
+ padding: 3rem 16rem 2rem 16rem;
+ font-size: 18px;
+}
+.setup h2{
+    display: flex;
+  align-items: center;
+  font-size: 19px;
+    gap: 8px;
+  margin-bottom: 14px;
 }
 .setup p{
   color: var(--lil-text);
   margin-bottom: 1rem;
+   line-height: 1.7rem;
+
+}
+.setup svg{
+  color: rgb(184, 7, 7);
+  transition: ease-in-out 0.3s;
+}
+.setup svg:hover{
+  color: rgb(255, 0, 0);
 }
 
 .soapbox{
