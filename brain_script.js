@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const THREE = await import('https://esm.sh/three@0.153.0');
   const { OBJLoader } = await import('https://esm.sh/three@0.153.0/examples/jsm/loaders/OBJLoader.js');
-  const { MTLLoader } = await import('https://esm.sh/three@0.153.0/examples/jsm/loaders/MTLLoader.js'); // ADD THIS
+  const { MTLLoader } = await import('https://esm.sh/three@0.153.0/examples/jsm/loaders/MTLLoader.js'); 
   const { OrbitControls } = await import('https://esm.sh/three@0.153.0/examples/jsm/controls/OrbitControls.js');
 
   const BRAIN_INFO = window.BRAIN_INFO || {};
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     0.1,
     1000
   );
- camera.position.set(1, 0.2, 0.5); 
+  camera.position.set(1, 0.2, 0.5); 
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
@@ -50,6 +50,37 @@ document.addEventListener('DOMContentLoaded', () => {
   controls.minDistance  = 0.15;
   controls.maxDistance  = 2.0;
 
+  // ==========================================
+  // --- NEW: Idle Auto-Rotate Logic ---
+  // ==========================================
+  let idleTimer = null;
+  const IDLE_TIMEOUT = 60000; // 60 seconds of inactivity
+
+  function startAutoRotate() {
+    // Only spin if the user hasn't pressed the "Lock Rotation" button
+    if (controls.enableRotate) {
+      controls.autoRotate = true;
+      controls.autoRotateSpeed =1; // A very slow, cinematic spin speed
+    }
+  }
+
+  function resetIdleTimer() {
+    controls.autoRotate = false;
+    if (idleTimer) clearTimeout(idleTimer);
+    idleTimer = setTimeout(startAutoRotate, IDLE_TIMEOUT);
+  }
+
+  // Listen for ANY interaction to pause the rotation and reset the timer
+  ['pointermove', 'pointerdown', 'wheel', 'keydown'].forEach(evt => {
+    window.addEventListener(evt, resetIdleTimer, { passive: true });
+  });
+
+  // Start auto-rotating immediately on initial load
+  startAutoRotate();
+  idleTimer = setTimeout(startAutoRotate, IDLE_TIMEOUT);
+  // ==========================================
+
+
   const mmTip = document.createElement('div');
   mmTip.className = 'mm-tooltip';
   document.body.appendChild(mmTip);
@@ -68,23 +99,18 @@ document.addEventListener('DOMContentLoaded', () => {
   let model        = null;
   const loader = new THREE.TextureLoader();
   const boneTex = loader.load('Ecorche_Bones.png', t => {
-  t.encoding = THREE.sRGBEncoding;  
-  t.wrapS = t.wrapT = THREE.RepeatWrapping; 
-});
+    t.encoding = THREE.sRGBEncoding;  
+    t.wrapS = t.wrapT = THREE.RepeatWrapping; 
+  });
 
-
-
-
-scene.traverse(o => {
-  if (o.isMesh) {
-    const mats = Array.isArray(o.material) ? o.material : [o.material];
-    mats.forEach(m => {
-      if (m && (m.map || m.userData.forceOverlay)) addBoneOverlay(m);
-    });
-  }
-});
-
-
+  scene.traverse(o => {
+    if (o.isMesh) {
+      const mats = Array.isArray(o.material) ? o.material : [o.material];
+      mats.forEach(m => {
+        if (m && (m.map || m.userData.forceOverlay)) addBoneOverlay(m);
+      });
+    }
+  });
 
   let selectedMesh = null;
   let selectedPrevEmissive = 0x000000;
@@ -92,62 +118,62 @@ scene.traverse(o => {
   const SELECT_COLOR = 0x66ff99;
 
   let isIsolationActive = false;
-    const isolateBtn = document.getElementById('isolate-btn');
+  const isolateBtn = document.getElementById('isolate-btn');
   
-    function clearIsolation() {
-      if (!model) return;
-      model.traverse((child) => {
-        if (child.isMesh) {
-          if (Array.isArray(child.material)) {
-            child.material.forEach(mat => {
-              mat.transparent = false;
-              mat.opacity = 1.0;
-            });
-          } else if (child.material) {
-            child.material.transparent = false;
-            child.material.opacity = 1.0;
-          }
-          child.material.needsUpdate = true;
+  function clearIsolation() {
+    if (!model) return;
+    model.traverse((child) => {
+      if (child.isMesh) {
+        if (Array.isArray(child.material)) {
+          child.material.forEach(mat => {
+            mat.transparent = false;
+            mat.opacity = 1.0;
+          });
+        } else if (child.material) {
+          child.material.transparent = false;
+          child.material.opacity = 1.0;
         }
-      });
-    }
-
-    function isolateMesh(targetMesh) {
-      if (!model) return;
-      model.traverse((child) => {
-        if (child.isMesh) {
-          const isTarget = (child === targetMesh);
-
-          if (Array.isArray(child.material)) {
-            child.material.forEach(mat => {
-              mat.transparent = !isTarget;
-              mat.opacity = isTarget ? 1.0 : 0.15; 
-              mat.needsUpdate = true;
-            });
-          } else if (child.material) {
-            child.material.transparent = !isTarget;
-            child.material.opacity = isTarget ? 1.0 : 0.15; 
-            child.material.needsUpdate = true;
-          }
-        }
-      });
-    }
-
-    isolateBtn?.addEventListener('click', () => {
-      isIsolationActive = !isIsolationActive;
-      isolateBtn.classList.toggle('is-active', isIsolationActive);
-      
-      if (isIsolationActive) {
-        if (selectedMesh) {
-          isolateMesh(selectedMesh);
-        } else {
-          isIsolationActive = false; 
-          isolateBtn.classList.remove('is-active');
-        }
-      } else {
-        clearIsolation();
+        child.material.needsUpdate = true;
       }
     });
+  }
+
+  function isolateMesh(targetMesh) {
+    if (!model) return;
+    model.traverse((child) => {
+      if (child.isMesh) {
+        const isTarget = (child === targetMesh);
+
+        if (Array.isArray(child.material)) {
+          child.material.forEach(mat => {
+            mat.transparent = !isTarget;
+            mat.opacity = isTarget ? 1.0 : 0.15; 
+            mat.needsUpdate = true;
+          });
+        } else if (child.material) {
+          child.material.transparent = !isTarget;
+          child.material.opacity = isTarget ? 1.0 : 0.15; 
+          child.material.needsUpdate = true;
+        }
+      }
+    });
+  }
+
+  isolateBtn?.addEventListener('click', () => {
+    isIsolationActive = !isIsolationActive;
+    isolateBtn.classList.toggle('is-active', isIsolationActive);
+    
+    if (isIsolationActive) {
+      if (selectedMesh) {
+        isolateMesh(selectedMesh);
+      } else {
+        isIsolationActive = false; 
+        isolateBtn.classList.remove('is-active');
+      }
+    } else {
+      clearIsolation();
+    }
+  });
 
 
   const mtlLoader = new MTLLoader();
@@ -161,7 +187,7 @@ scene.traverse(o => {
       obj => {
         model = obj;
 
-          const uniqueNames = new Set();
+        const uniqueNames = new Set();
         obj.traverse(ch => { if (ch.isMesh) uniqueNames.add(ch.name); });
         console.log("📋 UNIQUE MESH NAMES:", Array.from(uniqueNames));
         
@@ -210,7 +236,33 @@ scene.traverse(o => {
     );
   });
 
-  
+  // --- Filter Mesh Logic ---
+  window.addEventListener('mm:filterMeshes', (e) => {
+    const { allowedKeys, isFiltering } = e.detail;
+    if (!model) return;
+
+    model.traverse((child) => {
+      if (child.isMesh) {
+        const meshName = (child.name || '').toLowerCase();
+        const foundKey = Object.keys(BRAIN_INFO).find(k => meshName.includes(k));
+
+        const isAllowed = !isFiltering || (foundKey && allowedKeys.includes(foundKey));
+
+        if (Array.isArray(child.material)) {
+          child.material.forEach(mat => {
+            mat.transparent = !isAllowed;
+            mat.opacity = isAllowed ? 1.0 : 0.05; 
+            mat.needsUpdate = true;
+          });
+        } else if (child.material) {
+          child.material.transparent = !isAllowed;
+          child.material.opacity = isAllowed ? 1.0 : 0.05;
+          child.material.needsUpdate = true;
+        }
+      }
+    });
+  });
+
 
   const textureToggleBtn = document.getElementById('texture-toggle-btn'); 
   const textureLabel = document.getElementById('texture-label');    
@@ -251,7 +303,6 @@ scene.traverse(o => {
   });
 
 
-
   function getMeshForKey(key) {
     if (!model || !key) return null;
     const k = key.toLowerCase();
@@ -263,6 +314,7 @@ scene.traverse(o => {
     });
     return hit;
   }
+
   function highlightMesh(mesh) {
     if (selectedMesh && selectedMesh.material?.emissive) {
       selectedMesh.material.emissive.setHex(selectedPrevEmissive);
@@ -280,6 +332,7 @@ scene.traverse(o => {
       clearIsolation();
     }
   }
+
   function selectMeshByKey(key) {
     const m = getMeshForKey(key);
     if (!m) return false;
@@ -290,59 +343,54 @@ scene.traverse(o => {
     return true;
   }
 
- function zoomToMesh(mesh, opts = {}) {
-  if (!mesh || !camera) return;
-  const { duration = 900, fitRatio = 1.75, reorient = false } = opts; 
+  function zoomToMesh(mesh, opts = {}) {
+    if (!mesh || !camera) return;
+    const { duration = 900, fitRatio = 1.75, reorient = false } = opts; 
 
-  const box = new THREE.Box3().setFromObject(mesh);
-  const sphere = box.getBoundingSphere(new THREE.Sphere());
+    const box = new THREE.Box3().setFromObject(mesh);
+    const sphere = box.getBoundingSphere(new THREE.Sphere());
 
-  const startPos = camera.position.clone();
-  const startTarget = controls ? controls.target.clone() : new THREE.Vector3();
-  const endTarget = sphere.center.clone();
+    const startPos = camera.position.clone();
+    const startTarget = controls ? controls.target.clone() : new THREE.Vector3();
+    const endTarget = sphere.center.clone();
 
-
-  let dir;
-  if (reorient) {
-    const worldOrigin = new THREE.Vector3(0, 0, 0);
-    dir = new THREE.Vector3().subVectors(sphere.center, worldOrigin).normalize();
-    
-    if (dir.lengthSq() === 0) {
+    let dir;
+    if (reorient) {
+      const worldOrigin = new THREE.Vector3(0, 0, 0);
+      dir = new THREE.Vector3().subVectors(sphere.center, worldOrigin).normalize();
+      
+      if (dir.lengthSq() === 0) {
+        dir = startPos.clone().sub(startTarget).normalize();
+      }
+    } else {
       dir = startPos.clone().sub(startTarget).normalize();
     }
-  } else {
-    dir = startPos.clone().sub(startTarget).normalize();
-  }
 
+    const dist = sphere.radius * fitRatio / Math.sin(THREE.MathUtils.degToRad(camera.fov * 0.5));
+    const endPos = endTarget.clone().add(dir.multiplyScalar(dist));
 
-  const dist = sphere.radius * fitRatio / Math.sin(THREE.MathUtils.degToRad(camera.fov * 0.5));
-  
-  const endPos = endTarget.clone().add(dir.multiplyScalar(dist));
+    const t0 = performance.now();
+    function animateZoom() {
+      const t = Math.min(1, (performance.now() - t0) / duration);
+      // ease in-out formula
+      const e = t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
 
-  const t0 = performance.now();
-  function animateZoom() {
-    const t = Math.min(1, (performance.now() - t0) / duration);
-    // ease in-out formula
-    const e = t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
-
-    camera.position.lerpVectors(startPos, endPos, e);
-    if (controls) {
-      controls.target.lerpVectors(startTarget, endTarget, e);
-      controls.update();
+      camera.position.lerpVectors(startPos, endPos, e);
+      if (controls) {
+        controls.target.lerpVectors(startTarget, endTarget, e);
+        controls.update();
+      }
+      camera.lookAt(controls ? controls.target : endTarget);
+      
+      if (t < 1) requestAnimationFrame(animateZoom);
     }
-    camera.lookAt(controls ? controls.target : endTarget);
-    
-    if (t < 1) requestAnimationFrame(animateZoom);
+    animateZoom();
   }
-  animateZoom();
-}
+
   function autoZoomToKey(key, opts) {
     const m = getMeshForKey(key);
     if (m) zoomToMesh(m, opts);
   }
-  
-  
-  
 
   function getValidRaycastHit(hits) {
     for (const hit of hits) {
@@ -360,21 +408,17 @@ scene.traverse(o => {
       }
       if (isGhosted) continue;
 
-
       const meshName = (mesh.name || '').toLowerCase();
       const foundKey = Object.keys(BRAIN_INFO).find(k => meshName.includes(k));
 
       if (foundKey) {
         return { mesh: mesh, key: foundKey };
       } else {
-    
         return null; 
       }
     }
     return null;
   }
-
-
 
   let currentHover = null;
   container.addEventListener('pointermove', e => {
@@ -407,7 +451,6 @@ scene.traverse(o => {
       const validKey = validTarget.key;
 
       if (currentHover !== mesh) {
-
         if (currentHover && currentHover !== selectedMesh && currentHover.material?.emissive) {
           currentHover.material.emissive.setHex(0x000000);
         }
@@ -417,12 +460,8 @@ scene.traverse(o => {
         }
         currentHover = mesh;
       }
-
-
       showTip(BRAIN_INFO[validKey].title, e.clientX + 12, e.clientY + 12);
-
     } else {
-      // Hit nothing or hit an unlabelled area
       if (currentHover && currentHover !== selectedMesh && currentHover.material?.emissive) {
         currentHover.material.emissive.setHex(0x000000);
       }
@@ -431,14 +470,12 @@ scene.traverse(o => {
     }
   });
 
-
   container.addEventListener('pointerleave', hideTip);
 
   container.addEventListener('pointerdown', e => {
     isDragging = false;
   });
   
-
   container.addEventListener('pointerup', e => {
     if (e.target.closest('button') || 
         e.target.closest('.controls') || 
@@ -458,7 +495,6 @@ scene.traverse(o => {
     const validTarget = getValidRaycastHit(hits);
   
     if (validTarget) {
-
       const mesh = validTarget.mesh;
       const key = validTarget.key;
       
@@ -468,14 +504,12 @@ scene.traverse(o => {
         autoZoomToKey(key, { duration: 900, fitRatio: 1.35 });
       }
     } else {
-
       highlightMesh(null);
       if (window.clearSidebar) {
         window.clearSidebar();
       }
     }
   });
-
 
 
   const closePanelBtn = document.querySelector('.close-panel-btn');
@@ -493,31 +527,24 @@ scene.traverse(o => {
     }
   });
 
-
   const centerBtn = document.getElementById('center-btn');
   
   centerBtn?.addEventListener('click', () => {
-  camera.position.set(1, 0.2, 0.5);   
-
-  controls.target.set(0, 0, 0);
-  
-
-  controls.update();
+    camera.position.set(1, 0.2, 0.5);   
+    controls.target.set(0, 0, 0);
+    controls.update();
   });
  
-  
   window.addEventListener('mm:selected', (e) => {
     const key = e.detail?.name;
     if (!key) return;
 
-      selectMeshByKey(key);
+    selectMeshByKey(key);
     autoZoomToKey(key, { duration: 900, fitRatio: 1.75 });
     
     document.getElementById('panel')?.classList.remove('is-closed');
-
     autoZoomToKey(key, { duration: 900, fitRatio: 1.75 });
   });
-
 
   window.addEventListener('resize', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
@@ -525,12 +552,9 @@ scene.traverse(o => {
     renderer.setSize(container.clientWidth, container.clientHeight);
   });
 
-  (function animate() {
-    requestAnimationFrame(animate);
-    controls.update();
-    renderer.render(scene, camera);
-  })();
-
+  // ==========================================
+  // --- Rotation Sync & Animation Loop ---
+  // ==========================================
   const rotationSlider = document.getElementById('rotation-slider');
   const anatomicalLabel = document.getElementById('current-view-label');  
   const startPos = new THREE.Vector3(0.6, 0.6, 2.3);
@@ -538,7 +562,6 @@ scene.traverse(o => {
 
   function updateAnatomyLabel() {
       if (!anatomicalLabel || !camera || !controls) return;
-
 
       const offset = new THREE.Vector3().subVectors(camera.position, controls.target);
       const spherical = new THREE.Spherical().setFromVector3(offset);
@@ -573,6 +596,21 @@ scene.traverse(o => {
       anatomicalLabel.textContent = direction;
   }
 
+  // Master function to keep the slider and label synced with the true camera rotation
+  function syncRotationUI() {
+    if (rotationSlider && document.activeElement !== rotationSlider) {
+      const offset = new THREE.Vector3().subVectors(camera.position, controls.target);
+      const spherical = new THREE.Spherical().setFromVector3(offset);
+      
+      let angleDiff = spherical.theta - initialAzimuth;
+      while (angleDiff < 0) angleDiff += Math.PI * 2;
+      while (angleDiff > Math.PI * 2) angleDiff -= Math.PI * 2;
+
+      rotationSlider.value = THREE.MathUtils.radToDeg(angleDiff);
+    }
+    updateAnatomyLabel();
+  }
+
   rotationSlider?.addEventListener('input', (e) => {
     const deg = parseFloat(e.target.value);
     const radians = THREE.MathUtils.degToRad(deg);
@@ -591,24 +629,25 @@ scene.traverse(o => {
     updateAnatomyLabel(); 
   });
 
-  controls.addEventListener('change', () => {
-    if (document.activeElement !== rotationSlider) {
-      const offset = new THREE.Vector3().subVectors(camera.position, controls.target);
-      const spherical = new THREE.Spherical().setFromVector3(offset);
-      
-      let angleDiff = spherical.theta - initialAzimuth;
-      while (angleDiff < 0) angleDiff += Math.PI * 2;
-      while (angleDiff > Math.PI * 2) angleDiff -= Math.PI * 2;
+  // Sync when the user manually drags the model
+  controls.addEventListener('change', syncRotationUI);
+  
+  // Ensure the UI is correct immediately on load
+  setTimeout(syncRotationUI, 100);
 
-      rotationSlider.value = THREE.MathUtils.radToDeg(angleDiff);
+  // The engine render loop
+  (function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+
+    // If the brain is auto-spinning, continuously sync the slider and label!
+    if (controls.autoRotate) {
+      syncRotationUI();
     }
 
-    updateAnatomyLabel();
-  });
-
-  setTimeout(updateAnatomyLabel, 100);
-
-  setTimeout(updateAnatomyLabel, 100);
+    renderer.render(scene, camera);
+  })();
+  // ==========================================
 
   const toggleBtn = document.querySelector('.index-tog');
   const leftHand = document.getElementById('left-hand');
@@ -619,62 +658,59 @@ scene.traverse(o => {
     });
   }
 
-window.addEventListener('mm:changeView', (e) => {
-  const targetView = e.detail.view; 
-  if (!camera || !controls) return;
+  window.addEventListener('mm:changeView', (e) => {
+    const targetView = e.detail.view; 
+    if (!camera || !controls) return;
 
-  const dist = camera.position.distanceTo(controls.target);
-  const target = controls.target.clone(); 
+    const dist = camera.position.distanceTo(controls.target);
+    const target = controls.target.clone(); 
 
-  let newPos = new THREE.Vector3();
+    let newPos = new THREE.Vector3();
 
-  switch(targetView) {
-    case 'anterior':
-      newPos.set(0, 0, dist);
-      break;
-    case 'posterior':
-      newPos.set(0, 0, -dist);
-      break;
-    case 'lateral-right':
-
-    newPos.set(-dist, 0, 0); 
-      break;
-    case 'lateral-left':
-
-    newPos.set(dist, 0, 0); 
-      break;
-    case 'superior':
-
-    newPos.set(0, dist, 0.001); 
-      break;
-    case 'inferior':
-      newPos.set(0, -dist, 0.001); 
-      break;
-    default:
-      return;
-  }
-
-  newPos.add(target);
-
-  const startPos = camera.position.clone();
-  const duration = 600; // milliseconds
-  const t0 = performance.now();
-  
-  function animateView() {
-    const t = Math.min(1, (performance.now() - t0) / duration);
-    const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    
-    camera.position.lerpVectors(startPos, newPos, ease);
-    camera.lookAt(target);
-    controls.update(); 
-    
-    if (t < 1) {
-      requestAnimationFrame(animateView);
+    switch(targetView) {
+      case 'anterior':
+        newPos.set(0, 0, dist);
+        break;
+      case 'posterior':
+        newPos.set(0, 0, -dist);
+        break;
+      case 'lateral-right':
+        newPos.set(-dist, 0, 0); 
+        break;
+      case 'lateral-left':
+        newPos.set(dist, 0, 0); 
+        break;
+      case 'superior':
+        newPos.set(0, dist, 0.001); 
+        break;
+      case 'inferior':
+        newPos.set(0, -dist, 0.001); 
+        break;
+      default:
+        return;
     }
-  }
-  
-  animateView();
-});
+
+    newPos.add(target);
+
+    const startPos = camera.position.clone();
+    const duration = 600; // milliseconds
+    const t0 = performance.now();
+    
+    function animateView() {
+      const t = Math.min(1, (performance.now() - t0) / duration);
+      const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      
+      camera.position.lerpVectors(startPos, newPos, ease);
+      camera.lookAt(target);
+      controls.update(); 
+      
+      if (t < 1) {
+        requestAnimationFrame(animateView);
+      }
+    }
+    
+    animateView();
+  });
 
 
   const explodeBtn = document.getElementById('explode-btn');
@@ -686,11 +722,10 @@ window.addEventListener('mm:changeView', (e) => {
   function animateExplode(targetPercent) {
     if (!model) return;
 
-    const lateralScale = 1.2;  // Controls Left/Right (X-axis) explosion width
-    const verticalScale = 0; // Controls Up/Down (Y-axis) explosion height
-    const depthScale = 0;      // Controls Front/Back (Z-axis) explosion depth
-    const duration = 1400;      // Animation duration in milliseconds
-    // ================================
+    const lateralScale = 1.2;  
+    const verticalScale = 0; 
+    const depthScale = 0;      
+    const duration = 1400;      
 
     const startPercent = currentExplodePercent;
     const t0 = performance.now();
@@ -699,7 +734,6 @@ window.addEventListener('mm:changeView', (e) => {
 
     function step() {
       const t = Math.min(1, (performance.now() - t0) / duration);
-      // Ease in-out formula for a smooth glide
       const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
       
       currentExplodePercent = startPercent + (targetPercent - startPercent) * ease;
@@ -728,13 +762,9 @@ window.addEventListener('mm:changeView', (e) => {
 
   explodeBtn?.addEventListener('click', () => {
     isExploded = !isExploded;
-    
-   
     explodeBtn.classList.toggle('is-active', isExploded);
-    
     animateExplode(isExploded ? 1.0 : 0.0);
   });
-
 
   // --- Rotation Lock Logic ---
   const lockBtn = document.getElementById('rotation-lock-btn');
@@ -744,6 +774,11 @@ window.addEventListener('mm:changeView', (e) => {
     isRotationLocked = !isRotationLocked;
 
     controls.enableRotate = !isRotationLocked;
+    
+    // NEW: Stop auto-rotation immediately if the user locks it
+    if (isRotationLocked) {
+      controls.autoRotate = false;
+    }
 
     lockBtn.classList.toggle('is-active', isRotationLocked);
 
@@ -753,13 +788,12 @@ window.addEventListener('mm:changeView', (e) => {
       rotationSlider.style.opacity = isRotationLocked ? '0.3' : '1';
     }
   });
+
   const settingsToggleBtn = document.getElementById('settings-toggle-btn');
   const extControls = document.getElementById('viewer-ext_controls');
 
   settingsToggleBtn?.addEventListener('click', () => {
     extControls?.classList.toggle('is-collapsed');
   });
-
-  
 
 })();
