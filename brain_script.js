@@ -98,10 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const pointer    = new THREE.Vector2();
   let model        = null;
   const loader = new THREE.TextureLoader();
-  const boneTex = loader.load('Ecorche_Bones.png', t => {
-    t.encoding = THREE.sRGBEncoding;  
-    t.wrapS = t.wrapT = THREE.RepeatWrapping; 
-  });
 
   scene.traverse(o => {
     if (o.isMesh) {
@@ -795,5 +791,25 @@ document.addEventListener('DOMContentLoaded', () => {
   settingsToggleBtn?.addEventListener('click', () => {
     extControls?.classList.toggle('is-collapsed');
   });
+
+window.addEventListener('brain:filter', (e) => {
+    // 1. Keep your clean dictionary keys lowercase
+    const activeKeys = e.detail.activeMeshes.map(key => key.toLowerCase());
+    
+    scene.traverse((child) => {
+        if (child.isMesh && child.name) {
+            const meshNameLower = child.name.toLowerCase();
+            
+            // 2. SMART MATCH: Check if any of your active dictionary keys 
+            // are a subset/part of the actual 3D mesh name!
+            const isVisible = activeKeys.some(key => meshNameLower.includes(key));
+            
+            // Apply visual styling
+            child.material.opacity = isVisible ? 1.0 : 0.15;
+            child.material.transparent = !isVisible; 
+            child.material.needsUpdate = true;
+        }
+    });
+});
 
 })();

@@ -4,7 +4,7 @@
 :root{
   --navbar-h: 54px;
   --main-color: #ffffff;
-  --color3: #f2f5f88e;
+  --color3: #f2f5f785;
   
   --mm-border: #d1dce5;
 
@@ -23,7 +23,7 @@
   --big-2: #ffffff;
   --border-2: #7e8ba346;
 
-  --link-text: #25e3c6;
+  --link-text: #25b43d;
   --link-2: #00806d;
   --link-sel: #00a6ff;
 
@@ -153,11 +153,6 @@ a:hover{
   align-items: center;
   gap: 6px;
 }
-.ref-link:hover{
-  color: var(--link-text);
-  border: none; background: none;
-  text-decoration: none; 
-}
 
 /* --- Navbar Dropdowns --- */
 .nav-dropdown-container {
@@ -198,29 +193,6 @@ a:hover{
   display: none; /* Hidden until hovered */
   flex-direction: column;
   z-index: 5000;
-}
-
-/* Show the menu and rotate the chevron when hovering over the container */
-.nav-dropdown-container:hover .nav-dropdown-menu {
-  display: flex;
-}
-
-/* Style the links inside the dropdown */
-.nav-dropdown-menu li {
-  width: 100%;
-}
-.nav-dropdown-menu a {
-  display: block;
-  padding: 10px 20px;
-  color: var(--lil-text);
-  text-decoration: none;
-  font-size: var(--lil-text);
-  font-weight: var(--lil-text);
-  transition: background 0.15s ease, color 0.15s ease;
-}
-.nav-dropdown-menu a:hover {
-  background: #f4f5f7;
-  color: var(--link-text);
 }
 
 
@@ -323,8 +295,8 @@ a:hover{
   /* Container holds everything together */
 .view-dropdown-container {
   position: absolute;
-  top: 14px;
-  left: 10px;
+  top: 10px;
+  left: 8px;
   pointer-events: auto; /* Ensure clicks register */
   z-index: 20; 
 }
@@ -652,9 +624,7 @@ color: rgb(255, 119, 0) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
 }
-.rotation-lock-btn:hover{
-  color: var(--link-text);
-}
+
 .rotation-lock-btn.is-active {
   background: var(--mm-select) !important;
   color: #fff !important;
@@ -722,22 +692,6 @@ margin-top: auto;
 /* --- Texture Toggle Styles --- */
 
 
-.hud-btn{
-  background:none;
-  display: flex; 
-  align-items: center;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  color: var(--lil-text);
-  padding: 6px;
-}
-.hud-btn :hover{
-  border: none;
-  background: var(--mm-highlight);
-  border-radius: 999px;
-  color: var(--link-text);
-}
 
 
 .panel-content p{
@@ -831,7 +785,7 @@ margin-top: auto;
 #exerciseList{ list-style:none; margin-top:10px; padding:0; }
 
 #exerciseList li{ color: #bbbbbb; display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;}
-#exerciseList li a{ color: var(--link-text); text-decoration:none; }
+#exerciseList li a{ color: var(--link-2); text-decoration:none; }
 #exerciseList li a:hover{ text-decoration:underline; }
 
 
@@ -922,7 +876,7 @@ html, body { overflow-x: hidden;}
 
 .index{
   width: var(--mm-index-w);
-  height : calc(var(--main-height) - 160px);
+  height : calc(var(--main-height) - 180px);
   overflow-y: auto;
   background-color: #ffffff43;
     color: var(--lil-text);
@@ -1094,8 +1048,7 @@ right: unset;
   cursor: pointer;
 }
 .reset-btn:hover{
-  color: var(--link-2);
-
+  color: var(--link-text);
   cursor: pointer;
 }
 
@@ -1103,16 +1056,16 @@ right: unset;
 .isolation-status{
   position: absolute;
   top: 3rem;
-  left: 24px;
+  left: 22px;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 6px;
-  margin-top: 10px;
+  margin-top: 6px;
   z-index: 3000;
 
-  color: #b0b5b8d9;
+  color: #b0b5b8c7;
 }
 .isolation-status button{
   border: none;
@@ -1246,10 +1199,10 @@ right: unset;
 }
 
 .vote-btn:hover {
-  color: #1a1a1a;
+  color: #000000;
 }
 .vote-btn:focus{
-  color: #0397a7;
+  color: var(--link-text);
 }
 
 /* --- Divider --- */
@@ -1614,6 +1567,7 @@ right: unset;
   .references{
       padding: 0px 20px;
   }
+  
 }
 
 
