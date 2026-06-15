@@ -543,6 +543,16 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   // CRITICAL: Actually draw the items onto the page!
   render(ITEMS); 
 
+  // --- NEW: Map Mobile Selection to the 3D View and Info Panel ---
+  if (SELECT) {
+    SELECT.addEventListener('change', (e) => {
+      const selectedKey = e.target.value;
+      if (selectedKey) {
+        openSidebarWith(selectedKey);
+      }
+    });
+  }
+
   console.info(`📚 brain index rendered: ${ITEMS.length} items`);
 })();
 

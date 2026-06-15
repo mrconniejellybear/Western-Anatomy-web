@@ -1053,27 +1053,10 @@ right: unset;
 }
 
 
-.isolation-status{
-  position: absolute;
-  top: 3rem;
-  left: 22px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 6px;
+.isolation-status-row{
   margin-top: 6px;
-  z-index: 3000;
-
-  color: #b0b5b8c7;
-}
-.isolation-status button{
-  border: none;
-  font-size: 16px;
-  background: none;
-
-  border-radius: 8px;
-  color: green;
+  font-size: 14px;
+  color: #dcdcdc89;
 }
 
 .mi-search{
@@ -1367,19 +1350,25 @@ right: unset;
     padding: 16px;
     padding-right: 50px;
   }
-  .index-tog{
-    display: none;
-  }
-
-  brand img{
-   margin: auto; position: fixed; 
-  }
 
 .help-btn{
   display: none;}
 
   .panel-header {
     font-size: 26px;
+  }
+
+  .pathway{
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .brand{
+    position:fixed;
+    display: none;
+  }
+  .index-tog{
+    display: none;
   }
 
   .panel-section{
@@ -1563,12 +1552,16 @@ right: unset;
   }
 
   .brand img {
-    position: static; /* Kills the stubborn fixed positioning */
-    margin: 0; /* Clears the 'margin: auto' inherited from the desktop CSS */
+    position: absolute; /* Kills the stubborn fixed positioning */
+    right: 20px; /* Clears the 'margin: auto' inherited from the desktop CSS */
   }
 
   .references{
       padding: 0px 20px;
+  }
+
+  #track-btn{
+    display: none;
   }
   
 }

@@ -112,10 +112,32 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedPrevEmissive = 0x000000;
   const HOVER_COLOR  = 0x999999;  
   const SELECT_COLOR = 0x66ff99;
-
   let isIsolationActive = false;
   const isolateBtn = document.getElementById('isolate-btn');
-  
+  const isolationLabel = document.getElementById('isolation-status-label'); // Grab the text target
+
+  // --- NEW: Centralized function to manage button state & text state ---
+  function updateIsolationState(isActive) {
+    isIsolationActive = isActive;
+    
+    // Sync the puzzle piece active class
+    isolateBtn?.classList.toggle('is-active', isIsolationActive);
+    
+    // Sync the status text and inline styles (or custom class)
+    if (isolationLabel) {
+      if (isIsolationActive) {
+        isolationLabel.textContent = 'on';
+        isolationLabel.style.color = '#66ff99'; // Bright green matching your select color
+      } else {
+        isolationLabel.textContent = 'off';
+        isolationLabel.style.color = '#ff4d4d'; // Soft error red
+      }
+    }
+  }
+
+  // Set the initial default state on load
+  updateIsolationState(false);
+
   function clearIsolation() {
     if (!model) return;
     model.traverse((child) => {
@@ -156,20 +178,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   isolateBtn?.addEventListener('click', () => {
-    isIsolationActive = !isIsolationActive;
-    isolateBtn.classList.toggle('is-active', isIsolationActive);
+    const nextState = !isIsolationActive;
     
-    if (isIsolationActive) {
+    if (nextState) {
       if (selectedMesh) {
+        updateIsolationState(true);
         isolateMesh(selectedMesh);
       } else {
-        isIsolationActive = false; 
-        isolateBtn.classList.remove('is-active');
+        // Fall back or do nothing if no mesh is clicked yet
+        updateIsolationState(false);
       }
     } else {
+      updateIsolationState(false);
       clearIsolation();
     }
   });
+
 
 
   const mtlLoader = new MTLLoader();
@@ -320,11 +344,12 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedPrevEmissive = selectedMesh.material.emissive.getHex();
       selectedMesh.material.emissive.setHex(SELECT_COLOR);
     }
-     if (isIsolationActive && selectedMesh) {
+    
+    // --- Sync text if user clicks empty space and breaks isolation ---
+    if (isIsolationActive && selectedMesh) {
       isolateMesh(selectedMesh);
     } else if (isIsolationActive && !selectedMesh) {
-      isIsolationActive = false;
-      isolateBtn.classList.remove('is-active');
+      updateIsolationState(false); // Refreshes text back to 'off / red' seamlessly
       clearIsolation();
     }
   }
