@@ -4,7 +4,7 @@
 :root{
   --navbar-h: 54px;
   --main-color: #ffffff;
-  --color3: #f2f5f785;
+  --color3: #f9fafb;
   
   --mm-border: #d1dce5;
 
@@ -25,7 +25,7 @@
 
   --link-text: #25b43d;
   --link-2: #00806d;
-  --link-sel: #00a6ff;
+  --link-sel: #007fef;
 
 
   --mm-select: #090909;
@@ -83,7 +83,7 @@ a:hover{
   top: 0; left: 0; right: 0;
   z-index: 1300;
   transform: scaleX(1);  
-  background-color: #ffffff;
+  background-color: var();
   height: var(--navbar-h);
   display: flex; align-items: center;
   border-bottom: 1px solid var(--mm-border);
@@ -1129,8 +1129,8 @@ right: unset;
 .site-footer {
   display: flex;
   gap: 3rem;
-  padding: 2rem 6rem;
-  background-color: #f9f9ff;
+  padding: 3rem 6rem 1rem 6rem;
+  background-color: #e9ecf0;
   border-top: 1px solid var(--mm-border);
   border-bottom: 14px solid var(--mm-border);
   margin: 0 auto;
@@ -1208,7 +1208,7 @@ right: unset;
 /* --- Divider --- */
 .footer-divider {
   border: none;
-  border-top: 1px solid #c5d5df; /* Matches your --mm-border */
+  border-top: 1px solid var(--mm-border); /* Matches your --mm-border */
   margin: 10px 0 14px 0px;
 }
 
@@ -1239,7 +1239,7 @@ right: unset;
   color: #0081fa;
 }
   .footer-credits-text .self-ref-link{
-    color: #0077ff;
+    color: var(--link-sel);
   }
 
 
@@ -1319,9 +1319,11 @@ right: unset;
   padding: 0rem 8rem;
   margin-top: 2rem;
 }
-.references h2{
-  margin-bottom: 1rem;
+.references p{
+  margin-bottom: 10px;
+  line-height: 1.5;
 }
+
 .references li{
   color: var(--lil-text);
   line-height: 2rem;
@@ -1337,6 +1339,7 @@ right: unset;
 }
 .references h3{
   font-size: 15px;
+    margin-top: 1rem;
 }
 
 .shoutsout{
@@ -1576,12 +1579,17 @@ right: unset;
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
 
   background-color: var(--link-2);
-  padding: 14px 18px;
-  font-size: 22px;
-  border-radius: 8px;
+  padding: 14px 30px;
+  font-size: 28px;
+  border-radius: 14px;
   border: 1px solid #0ea08ac5;
+
+  margin-top: 10px;
+
+  transition: ease-in-out 0.15s;
 }
 .model-button a{
   color: #fff;
@@ -1590,24 +1598,33 @@ right: unset;
 }
 .model-button:hover{
   background-color: #089d7f;
+  cursor: pointer;
 }
 
 .setup{
- padding: 3rem 16rem 2rem 16rem;
- font-size: 18px;
+ padding: 40px 12rem;
+ font-size: 17px;
+
+ display: flex;
+ flex-direction: column;
 }
 .setup h2{
     display: flex;
   align-items: center;
-  font-size: 19px;
-    gap: 8px;
-  margin-bottom: 14px;
+  color: #213c5d;
+  font-size: 23px;
+  gap: 8px;
+  margin-bottom: 28px;
 }
 .setup p{
   color: var(--lil-text);
   margin-bottom: 1rem;
-   line-height: 1.7rem;
+   line-height: 1.5rem;
+   margin-left: 11px;
+    border-left: 4px solid var(--mm-border);
+    padding-left: 1.4rem;
 
+    position: relative;
 }
 .setup svg{
   color: rgb(184, 7, 7);
@@ -1617,8 +1634,30 @@ right: unset;
   color: rgb(255, 0, 0);
 }
 
+.setup p::before {
+  content: ""; 
+  position: absolute;
+  top: 0;
+  left: -4px; 
+  width: 4px;
+  
+  height: 100%; 
+  background-color: rgb(197, 12, 12);
+
+  transform-origin: bottom; 
+  transform: scaleY(0); 
+  transition: transform 1.4s ease-in-out;
+}
+
+.setup:has(svg:hover) p::before {
+  /* HOVER STATE (When mouse enters): Grow from the TOP */
+  transform-origin: top; 
+  transform: scaleY(1); 
+}
+
 .soapbox{
-  background-color: #c7cfd4;
+  border-top: 1px solid var(--mm-border);
+  background-color: var(--color3);
   padding: 2rem 12rem;
 }
 .soapbox h1{
@@ -1636,4 +1675,5 @@ right: unset;
 .banner img{
   max-height: 260px;
   width: auto;
+    border-bottom: 10px solid var(--mm-border);
 }

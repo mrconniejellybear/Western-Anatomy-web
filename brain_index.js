@@ -154,13 +154,57 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     functionTags: ['All', 'Motor',]
   },
 
+  cerebellar_peduncle: {
+    title: 'Cerebellar Peduncle'
+  },
+
+  mamillary_body: {
+    title: 'Mamillary Body'
+  },
+
+  habenula: {
+    title: 'Habenula'
+  },
+
+  septum_pellucidum: {
+    title: 'Septum Pellucidum'
+  },
+
+  internal_capsule: {
+    title: 'Internal_capsule'
+  },
+
+  Anterior_commissure: {
+    title: 'Anterior Commissure'
+  },
+
+  Septal_nuclei: {
+    title: 'Septal Nuclei'
+  },
+
+  Olfactory_sulcus: {
+    title: 'Olfactory_sulcus',
+    groupPath: ['Sulci',],
+    functionTags: ['Smell',]
+  },
+
+  Occipitotemporal_sulcus: {
+    title: 'Occipitotemporal Sulcus',
+    groupPath: ['Sulci',],
+  },
+
+  Transverse_frontopolar_gyrus_and_sulcus: {
+    title: 'Transverse Frontopolar Gyrus',
+    groupPath: ['Gyri',],
+  },
+
   insula: {
     title: 'Insula', 
     description: 'A portion of the cerebral cortex folded deep within the lateral sulcus. It is deeply involved in consciousness and homeostasis.', 
     head: 'Hidden beneath the frontal, parietal, and temporal opercula.', 
     function: 'Processes interoception (the sense of the internal state of the body), pain perception, and social emotions like empathy and disgust.', 
     groupPath: ['Lobe', 'Insular Cortex', 'Insula'],
-    functionTags: ['Sensory', 'Emotion']
+    functionTags: ['Personality', 'Emotion']
   },
   
   optic_chiasm: {
@@ -248,6 +292,12 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     functionTags: ['Emotion']
   },
 
+   orbital_gyri_:{
+    title: 'Orbital Gyrus',
+    groupPath: ['Frontal Lobe', 'Gyri', 'Orbital Gyrus'],
+    functionTags: ['Emotion']
+  },
+
   middle_frontal_gyrus:{
     title: 'Middle Frontal Gyrus',
     description: 'Makes up about one-third of the frontal lobe, sitting between the superior and inferior frontal sulci.',
@@ -289,7 +339,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     description: 'Precentral Gyrus, also called the Primary Motor Cortex (M1), is a prominent surface structure on the posterior frontal lobe that serves as the command center for executing physical activity.', 
     head: 'Situated in the frontal lobe, immediately anterior to the central sulcus.', 
     function: 'Controls voluntary, coordinated skeletal muscle movements across the body using a topographically mapped structure called the motor homunculus.', 
-    groupPath: ['Lobe', 'Frontal Lobe', 'Gyri', 'Primary Motor Cortex'],
+    groupPath: ['Frontal Lobe', 'Gyri', 'Primary Motor Cortex'],
     functionTags: ['Motor']
   },
 
@@ -298,7 +348,19 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     description: 'Postcentral Gyrus, also called the Primary Somatosensory Cortex (S1), is the first destination for the sense of touch. Like the motor cortex, it maps incoming bodily sensations onto a somatosensory homunculus.', 
     head: 'Located in the parietal lobe, immediately posterior to the central sulcus.', 
     function: 'Receives and decodes somatosensory signals from the body, including touch, vibration, temperature, pain, and spatial body position (proprioception).', 
-    groupPath: ['Lobe', 'Parietal Lobe', 'Gyri', 'Primary Somatosensory Cortex'],
+    groupPath: ['Parietal Lobe', 'Gyri', 'Primary Somatosensory Cortex'],
+    functionTags: ['Touch']
+  },
+
+  _Postcentral_sulcus: {
+    title: 'Postcentral Sulcus',
+    groupPath: ['Parietal Lobe', 'Sulci', 'Primary Somatosensory Cortex'],
+    functionTags: ['Touch']
+  },
+
+  Stria_medullaris_thalami: {
+    title: 'Stria Medullaris Thalami',
+    groupPath: ['Parietal Lobe', 'Sulci', 'Primary Somatosensory Cortex'],
     functionTags: ['Touch']
   },
 
@@ -308,7 +370,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     head: 'Located above the medulla oblongata and below the midbrain.',
     function: 'Serves as a communications and coordination center between the two hemispheres of the brain, and handles unconscious processes like breathing and sleep cycles.',
     groupPath: ['Subcortical', 'Brainstem', 'Pons'],
-    functionTags: ['Motor,']
+    functionTags: ['All', 'Motor',]
   },
 
   medulla_oblongata: {
@@ -317,7 +379,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     head: 'Located at the lowest part of the brainstem.',
     function: 'Controls crucial autonomic functions like heart rate, breathing, and blood pressure.',
     groupPath: ['Subcortical', 'Brainstem', 'Medulla Oblongata'],
-    functionTags: ['Motor,']
+    functionTags: ['All', 'Motor',]
   },
 
   fornix: {
