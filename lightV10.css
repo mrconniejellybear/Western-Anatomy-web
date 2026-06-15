@@ -1582,8 +1582,8 @@ right: unset;
   align-self: center;
 
   background-color: var(--link-2);
-  padding: 14px 30px;
-  font-size: 28px;
+  padding: 14px 22px;
+  font-size: 24px;
   border-radius: 14px;
   border: 1px solid #0ea08ac5;
 
@@ -1602,7 +1602,7 @@ right: unset;
 }
 
 .setup{
- padding: 40px 12rem;
+ padding: 30px 12rem;
  font-size: 17px;
 
  display: flex;
@@ -1612,14 +1612,14 @@ right: unset;
     display: flex;
   align-items: center;
   color: #213c5d;
-  font-size: 23px;
+  font-size: 28px;
   gap: 8px;
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 }
 .setup p{
   color: var(--lil-text);
   margin-bottom: 1rem;
-   line-height: 1.5rem;
+   line-height: 1.6rem;
    margin-left: 11px;
     border-left: 4px solid var(--mm-border);
     padding-left: 1.4rem;
@@ -1642,7 +1642,7 @@ right: unset;
   width: 4px;
   
   height: 100%; 
-  background-color: rgb(197, 12, 12);
+  background-color: rgb(182, 13, 13);
 
   transform-origin: bottom; 
   transform: scaleY(0); 
@@ -1673,7 +1673,6 @@ right: unset;
   color: var(--link-2);
 }
 .banner img{
-  max-height: 260px;
-  width: auto;
-    border-bottom: 10px solid var(--mm-border);
+  max-height: 300px;
+  border-bottom: 20px solid var(--mm-border);
 }
