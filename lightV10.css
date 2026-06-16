@@ -2,7 +2,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root{
-  --navbar-h: 54px;
+  --navbar-h: 60px;
   --main-color: #ffffff;
   --color3: #f9fafb;
   
@@ -92,7 +92,7 @@ a:hover{
   position: relative;
 
 
-  gap: 5rem;
+  gap: 4rem;
 
   font-weight: var(--lil-text);
 }
@@ -1112,7 +1112,7 @@ right: unset;
 .site-footer {
   display: flex;
   gap: 3rem;
-  padding: 3rem 6rem 1rem 6rem;
+  padding: 3rem 6rem 2rem 6rem;
   background-color: #e9ecf0;
   border-top: 1px solid var(--mm-border);
   border-bottom: 14px solid var(--mm-border);
@@ -1122,7 +1122,7 @@ right: unset;
 
 .footer-logo {
   flex-shrink: 0;
-  width: 140px; 
+  width: 190px; 
 }
 
 .footer-logo img {
