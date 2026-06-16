@@ -110,9 +110,17 @@ a:hover{
   cursor: pointer;
   transition: color 0.15s ease;
   padding-left: 28px;
+
 }
-.index-tog:hover{
-  color: var(--link-text);
+
+.index-tog .mobile{
+display: none;
+}
+
+
+.index-tog img{
+   height: 30px;
+  width: auto;
 }
 
 .link{ 
@@ -1048,7 +1056,7 @@ right: unset;
   cursor: pointer;
 }
 .reset-btn:hover{
-  color: var(--link-text);
+  color: var(--link-2);
   cursor: pointer;
 }
 
@@ -1329,7 +1337,116 @@ right: unset;
   margin-bottom: 2rem;
 }
 
+.model-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
 
+  background-color: var(--link-2);
+  padding: 14px 22px;
+  font-size: 24px;
+  border-radius: 14px;
+  border: 1px solid #0ea08ac5;
+
+  margin-top: 10px;
+
+  transition: ease-in-out 0.15s;
+}
+.model-button a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+.model-button:hover{
+  background-color: #089d7f;
+  cursor: pointer;
+}
+
+.setup{
+ padding: 30px 14vw;
+ font-size: 17px;
+
+ display: flex;
+ flex-direction: column;
+}
+.setup h2{
+    display: flex;
+  align-items: center;
+  color: #213c5d;
+  font-size: 28px;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.setup p{
+  color: var(--lil-text);
+  margin-bottom: 1rem;
+   line-height: 1.6rem;
+   margin-left: 11px;
+    border-left: 4px solid var(--mm-border);
+    padding-left: 1.4rem;
+
+    position: relative;
+}
+.setup p a{
+  color: var(--link-2);
+  text-decoration: none;
+}
+.setup p a:hover{
+  color: var(--link-sel);
+  text-decoration: underline;
+}
+
+.setup svg{
+  color: rgb(184, 7, 7);
+  transition: ease-in-out 0.3s;
+}
+.setup svg:hover{
+  color: rgb(255, 0, 0);
+}
+
+.setup p::before {
+  content: ""; 
+  position: absolute;
+  top: 0;
+  left: -4px; 
+  width: 4px;
+  
+  height: 100%; 
+  background-color: rgb(182, 13, 13);
+
+  transform-origin: bottom; 
+  transform: scaleY(0); 
+  transition: transform 1.4s ease-in-out;
+}
+
+.setup:has(svg:hover) p::before {
+  /* HOVER STATE (When mouse enters): Grow from the TOP */
+  transform-origin: top; 
+  transform: scaleY(1); 
+}
+
+.soapbox{
+  border-top: 1px solid var(--mm-border);
+  background-color: var(--color3);
+  padding: 2rem 12rem;
+}
+.soapbox h1{
+  color: #414552;
+  margin-bottom: 0.5rem;
+}
+.soapbox p{
+  color: #22252b;
+  font-size: 16px;
+  line-height: 1.7rem;
+}
+.soapbox a{
+  color: var(--link-2);
+}
+.banner img{
+  max-height: 300px;
+  border-bottom: 20px solid var(--mm-border);
+}
 
 
 
@@ -1346,9 +1463,8 @@ right: unset;
 
   .navbar{
     justify-content: left;
-    gap: 9vw;
-    padding: 16px;
-    padding-right: 50px;
+    gap: 10vw;
+    padding: 30px;
   }
 
 .help-btn{
@@ -1367,7 +1483,14 @@ right: unset;
     position:fixed;
     display: none;
   }
-  .index-tog{
+  .index-tog .mobile{
+    position: absolute;
+    left: 20px;
+    width: auto;
+    height: 34px;
+    display: block;
+  }
+    .index-tog .desktop{
     display: none;
   }
 
@@ -1564,109 +1687,23 @@ right: unset;
   #track-btn{
     display: none;
   }
-  
-}
 
 
-
-.model-button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-
-  background-color: var(--link-2);
-  padding: 14px 22px;
-  font-size: 24px;
-  border-radius: 14px;
-  border: 1px solid #0ea08ac5;
-
-  margin-top: 10px;
-
-  transition: ease-in-out 0.15s;
-}
-.model-button a{
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-}
-.model-button:hover{
-  background-color: #089d7f;
-  cursor: pointer;
-}
-
-.setup{
- padding: 30px 12rem;
- font-size: 17px;
-
- display: flex;
- flex-direction: column;
+  .setup{
+ padding: 20px 20px 10px 10px;
+ font-size: 14px;
+ margin-bottom: 2rem;
 }
 .setup h2{
-    display: flex;
-  align-items: center;
-  color: #213c5d;
-  font-size: 28px;
-  gap: 8px;
-  margin-bottom: 14px;
+  font-size: 24px;
+  max-width: 940vw;
 }
 .setup p{
-  color: var(--lil-text);
-  margin-bottom: 1rem;
-   line-height: 1.6rem;
-   margin-left: 11px;
-    border-left: 4px solid var(--mm-border);
-    padding-left: 1.4rem;
-
-    position: relative;
+  max-width: 90vw;
 }
+
 .setup svg{
-  color: rgb(184, 7, 7);
-  transition: ease-in-out 0.3s;
+  width: 50px;
+  height: auto;
 }
-.setup svg:hover{
-  color: rgb(255, 0, 0);
-}
-
-.setup p::before {
-  content: ""; 
-  position: absolute;
-  top: 0;
-  left: -4px; 
-  width: 4px;
-  
-  height: 100%; 
-  background-color: rgb(182, 13, 13);
-
-  transform-origin: bottom; 
-  transform: scaleY(0); 
-  transition: transform 1.4s ease-in-out;
-}
-
-.setup:has(svg:hover) p::before {
-  /* HOVER STATE (When mouse enters): Grow from the TOP */
-  transform-origin: top; 
-  transform: scaleY(1); 
-}
-
-.soapbox{
-  border-top: 1px solid var(--mm-border);
-  background-color: var(--color3);
-  padding: 2rem 12rem;
-}
-.soapbox h1{
-  color: #414552;
-  margin-bottom: 0.5rem;
-}
-.soapbox p{
-  color: #22252b;
-  font-size: 16px;
-  line-height: 1.7rem;
-}
-.soapbox a{
-  color: var(--link-2);
-}
-.banner img{
-  max-height: 300px;
-  border-bottom: 20px solid var(--mm-border);
 }
