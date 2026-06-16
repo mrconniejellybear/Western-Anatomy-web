@@ -222,7 +222,8 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   },
 
   midbrain: {
-    title: 'Midbrain'
+    title: 'Midbrain',
+    functionTags: ['All', 'Motor']
   },
 
   Interpeduncular_fossa: {
@@ -253,7 +254,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     head: 'Located on the superior aspect of the temporal lobe.',
     function: 'Essential for processing auditory information and houses Wernicke’s area (involved in language comprehension).',
     groupPath: ['Lobe', 'Temporal Lobe', 'Gyri', 'Superior Temporal Gyrus'],
-    functionTags: ['Sensory', 'Emotion']
+    functionTags: ['All', 'Sensory', 'Emotion']
   },
 
   inferior_temporal_gyrus: {
@@ -262,7 +263,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     head: 'Located on the lateral and inferior surface of the temporal lobe.',
     function: 'Critical for the visual recognition of objects, identifying faces, and processing complex visual stimuli.',
     groupPath: ['Lobe', 'Temporal Lobe', 'Gyri', 'Inferior Temporal Gyrus'],
-    functionTags: ['Vision', 'Memory']
+    functionTags: ['All', 'Vision', 'Memory']
   },
 
   supramarginal_gyrus: {
