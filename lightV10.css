@@ -1056,7 +1056,7 @@ right: unset;
 .isolation-status-row{
   margin-top: 6px;
   font-size: 14px;
-  color: #dcdcdc89;
+  color: #707070;
 }
 
 .mi-search{
@@ -1466,6 +1466,7 @@ right: unset;
     backdrop-filter: blur(140px);
 
   }
+
 
   .panel-content{
     margin-top: 0px;
