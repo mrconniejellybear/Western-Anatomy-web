@@ -825,14 +825,19 @@ window.addEventListener('brain:filter', (e) => {
         if (child.isMesh && child.name) {
             const meshNameLower = child.name.toLowerCase();
             
-            // 2. SMART MATCH: Check if any of your active dictionary keys 
-            // are a subset/part of the actual 3D mesh name!
+            // 2. SMART MATCH: Check if any active dictionary keys are part of the 3D mesh name
             const isVisible = activeKeys.some(key => meshNameLower.includes(key));
             
-            // Apply visual styling
-            child.material.opacity = isVisible ? 1.0 : 0.15;
-            child.material.transparent = !isVisible; 
-            child.material.needsUpdate = true;
+            // 3. SAFE MATERIAL UPDATES: Handle both single materials and arrays
+            const materials = Array.isArray(child.material) ? child.material : [child.material];
+            
+            materials.forEach(mat => {
+                if (mat) {
+                    mat.transparent = true; // Keep true so blending works flawlessly during shifts
+                    mat.opacity = isVisible ? 1.0 : 0.15; // Shift to ghost opacity if filtered out
+                    mat.needsUpdate = true;
+                }
+            });
         }
     });
 });

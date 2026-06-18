@@ -786,7 +786,6 @@ margin-top: auto;
   font-size: 16px;
   font-style: italic;
   color: var(--p-text);
-  margin-bottom: 2px;
 }
 
   .header-contents{
@@ -1008,7 +1007,7 @@ right: unset;
 
 .mm-sep10{
   height: 1px;
-  margin: 4px 0px 8px 0px;
+  margin: 4px 0px 10px 0px;
   background-color: var(--border-2);
 }
 

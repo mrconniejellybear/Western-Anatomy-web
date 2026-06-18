@@ -28,6 +28,12 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     functionTags: ['Motor']
   },
 
+  Lateral_occipital_gyrus: {
+    title: 'Lateral Occipital Gyrus',
+    groupPath: ['Lobe','Occipital Lobe', 'Gyri', 'Lateral Occipital Gyrus'],
+    functionTags: ['Vision']
+  },
+
   angular_gyrus: {
     title: 'Angular Gyrus',
     description: 'The angular gyrus, known as Broadmann area 39, is associated with complex language related functions in the brain. Being a gyrus, it is mostly connected to its neighboring areas of the cortex, like the ipsilateral prefrontal gyrus, and both inferior and superior frontal gyri.',
@@ -64,6 +70,11 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     functionTags: ['Autonomic']
   },
 
+  Aqueduct_of_midbrain_: {
+    title: 'Cerebral Aqueduct',
+    groupPath: ['Subcortical', 'Ventricular System', 'Cerebral Aqueduct'],
+  },
+
    fourth_ventricle: {
     title: 'Fourth Ventricle',
     description: 'A tent-like cavity filled with cerebrospinal fluid that protects the human brain from trauma.',
@@ -75,9 +86,10 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
    lateral_ventricle: {
     title: 'Lateral Ventricle(s)',
-    description: 'The two largest cavities of the ventricular system of the human brain, containing cerebrospinal fluid.',
-    location: 'Located deep within each cerebral hemisphere, shaped like a C.',
-    function: 'Provides cushioning for the brain while also helping to circulate nutrients and remove waste.',
+    description: "The two lateral ventricles are the largest cavities in the brain's ventricular system, and are responsible for most of its work. You may notice that the model does not contain a 'first' or 'second' ventricle anywhere. Because the lateral ventricles have a side on either hemisphere, they are technically the first and second ventricles, but they are seldom called that in brain anatomy.",
+    location: 'Deep within the cerebrum, the lateral ventricles sit just below the corpus callosum, arching over the thalamus and basal ganglia.',
+    function: 'Their main job is to produce and house cerebrospinal fluid throughout a network of blood vessels. The fluid provides buoyancy and shock absorption for the brain. Without it, ordinary movements would jostle the fragile brain, subjecting it to serious damage.',
+    connections: "To keep the cerebrospinal fluid circulating, the lateral ventricles connect directly to the brain's third ventricle through two small channels called the interventricular foramina.",
     groupPath: ['Subcortical', 'Ventricular System', 'Lateral Ventricle'],
     functionTags: ['Autonomic']
   },
@@ -93,9 +105,9 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   amygdaloid_body: {
     title: 'Amygdala', 
-    description: 'The amygdala, sometimes called the amygdaloid body, is the main area of the brain responsible for adverse emotional responses—both conscious and unconscious. Because of its shape, it is often referred to as the "almond-shaped" structure within the lymbic system.', 
-    location: 'The amygdala is part of the lymbic system. It is connected to the ends of the hippocampus in either hemisphere.', 
-    function: 'Most notably, it is known for its production of the "fear" response—a cruical evolutionary feature, but it also handles other. It is responsible for Processes emotional responses, fear conditioning, and attaches emotional significance to memories.', 
+    description: 'The amygdala, sometimes called the amygdaloid body, is the main area of the brain responsible for adverse emotional responses—both conscious and unconscious. Because of its shape, it is often referred to as the "almond-shaped" structure within the limbic system.', 
+    location: 'The amygdala is part of the limbic system. It is connected to the ends of the hippocampus in either hemisphere.', 
+    function: 'Most notably, it is known for its production of the "fear" response—a crucial evolutionary feature, but it also handles other. It is responsible for processing emotional responses, fear conditioning, and attaching emotional significance to memories.', 
     connections: 'The amygdala is connected to the olfactory bulb, orbitofrontal cortex, cingulate gyrus, basal forebrain, medial thalamus, hypothalamus, and the brainstem',
     groupPath: ['Subcortical', 'Limbic System', 'Amygdala'],
     functionTags: ['Emotion', 'Memory']
@@ -124,7 +136,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     description: 'The corpus callosum is one of the most unique structures in the entire brain. While most of the brain is divided into its right and left hemispheres, the corpus callosum is one large structure sitting inbetween the two, bridging them together. It is a massive bundle of over 200 million myelinated nerve fibers.', 
     location: 'Spans the longitudinal fissure, forming the roof of the lateral ventricles.', 
     function: 'The corpus callosum not only physically connects the two hemispheres, it also connects their neurons, which scientists call "interhemispheric communication." This connection allows for everything—movements, perception, thoughts, etc.—to be shared throughout the brain.', 
-    connections: "The corpous callosum's whole purpose is connection! Namely, it connects the right and left hemispheres.",
+    connections: "The corpus callosum's whole purpose is connection! Namely, it connects the right and left hemispheres.",
     groupPath: ['Subcortical', 'White Matter Tracts', 'Corpus Callosum'],
     functionTags: ['All', 'Motor', 'Vision', 'Smell', 'Touch', 'Taste', 'Memory', 'Emotion']
   },
@@ -132,7 +144,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   cingulate_gyrus: {
     title: 'Cingulate Gyrus', 
     description: 'The cingulate gyrus is divided into two halves, the anterior cingulate cortex (ACC), and the posterior cingulate cortex (PPC). It is an integral part of the limbic system, acting as a major pathway connecting the cerebral cortex to deeper, subcortical structures.', 
-    location: 'Found in the lymbic system, immediately above the corpus callosum. The AAC and the PCC contains Broadmann areas 23 and 31.', 
+    location: 'Found in the limbic system, immediately above the corpus callosum. The AAC and the PCC contains Broadmann areas 23 and 31.', 
     function: 'The AAC helps express internal autonomic, states such as distress, outwardly, through physical expressions like heavy breath, posture, etc. The PPC plays a part in the default mode network, and may play a role in self-cognition, such as planning and assesments for personal relevance.', 
     connections: 'Amygdala, thalamus, ',
 
@@ -145,7 +157,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     description: 'Often referred to as the "switchboard" of the brain. Almost all sensory information (except smell) passes through here before reaching the cerebral cortex.', 
     location: 'A paired, symmetrical structure situated at the top of the brainstem, near the center of the brain.', 
     function: 'Relays sensory and motor signals to the cortex, and plays a role in the regulation of consciousness, sleep, and alertness.', 
-    groupPath: ['Subcortical', 'Diencephalon', 'Thalamus'],
+    groupPath: ['Subcortical', 'Limbic System','Diencephalon', 'Thalamus'],
     functionTags: ['Vision', 'Touch', 'Taste', 'Motor']
   },
 
@@ -156,8 +168,8 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   cerebellum: {
     title: 'Cerebellum', 
-    description: "The cerebellum is a hugely important structure in the brain, visible in diagrams alongside the lobes. Despite its size, it contains over 50% of the neurons in the entire brain.", 
-    location: 'Found at the very back of the brain, beneath the occpital lobe, the cerebellum rests outside of the cortex, against the brainstem.', 
+    description: "The cerebellum is a hugely important structure in the brain. Despite its size, it contains over 50% of the neurons in the entire brain.", 
+    location: 'Found at the bottom-back of the brain, beneath the occpital lobe, the cerebellum rests outside of the cortex, against the brainstem. It is one of the few outer structures visible in diagrams that isnt a lobe.', 
     function: 'The cerebellum handles constant motor function, both big and small. It is best known for coordination, maintaining balance during movement, and regulating posture—which makes sense given its connection to the spinal cord. Recently, scientists have also discovered the cerebellum may even play a role in learing new skills.', 
     connections: 'Because it is such a cruical structure, the cerebellum shares many connections to neighboring areas, such as the medulla oblongata, the cerebellur peduncle, the pons, the midbrain, and the spinal cord (not shown in this model).',
     groupPath: ['Subcortical', 'Hindbrain', 'Cerebellum'],
@@ -190,6 +202,13 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   Septal_nuclei: {
     title: 'Septal Nuclei'
+  },
+
+  "lat_fis-post": { title: "Lateral Fissure (Posterior)" },
+  "sup_front_gyr(l)": { title: "Superior Frontal Gyrus (Left)" },
+
+  "Sulcus_interm_prim-Jensen.r.001":{
+    title: 'Test_Item3'
   },
 
   Olfactory_sulcus: {
@@ -228,11 +247,13 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   optic_tract:{
     title: 'Optic Tract',
+    groupPath: ['Subcortical', 'Visual Pathway', 'Optic Tract'],
     functionTags: ['Vision']
   },
 
   midbrain: {
     title: 'Midbrain',
+    groupPath: ['Subcortical', 'Brainstem', 'Midbrain'],
     functionTags: ['All', 'Motor']
   },
 
@@ -276,6 +297,20 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     functionTags: ['All', 'Vision', 'Memory']
   },
 
+  _Superior_occipital_gyri:{
+    title:'Superior Occipital Gyrus',
+    groupPath: ['Lobe', 'Occipital Lobe', 'Gyri', 'Superior Occipital Gyrus'],
+    functionTags: ['Vision',]
+  },
+
+  Opercular_part_of__inferior_frontal_gyrus:{
+    title: "Item entry"
+  },
+
+  Transverse_frontopolar_gyrus_and_sulcus: {
+    title: "what da fuck"
+  },
+
   supramarginal_gyrus: {
     title: 'Supramarginal Gyrus',
     description: 'A portion of the parietal lobe that processes somatosensory, auditory, and visual data.',
@@ -307,6 +342,12 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     title: 'Orbital Gyrus',
     groupPath: ['Frontal Lobe', 'Gyri', 'Orbital Gyrus'],
     functionTags: ['Emotion']
+  },
+
+  Medial_occipitotemporal_gyrus:{
+  title: 'Medial Occipitotemporal Gyrus',
+  groupPath: ['Occipital Lobe', 'Gyri', 'Medial Occipitotemporal Gyrus'],
+  functionTags: ['Vision']
   },
 
   middle_frontal_gyrus:{
@@ -371,7 +412,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   Stria_medullaris_thalami: {
     title: 'Stria Medullaris Thalami',
-    groupPath: ['Parietal Lobe', 'Sulci', 'Primary Somatosensory Cortex'],
+    groupPath: ['Subcortical', 'Diencephalon', 'Stria Medullaris Thalami'],
     functionTags: ['Touch']
   },
 
@@ -396,9 +437,9 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   fornix: {
     title: 'Fornix',
     description: 'The fornix is the main pathway that outputs data from the hippocampus. It sends information to the mammilary bodies and the anterior end of the thalamus, which rests below it.',
-    location: 'Found within the lymbic system, the fornix sits just below the corpus callosum and forms an arch directly above the thalamus.',
-    function: 'Beyond offering an out output for the signals of the hippocampus, the larger purpose of the fornix is not entirely understood. However, scientists suspect it is likley involved in the recall of long-term episodic memories.',
-    connections: 'The main connection of the fornix is the hippocampus, but it also has a relationship with the hypothalamus, thalamus, and septal nuclei.',
+    location: 'Found within the limbic system, the fornix sits just below the corpus callosum and forms an arch directly above the thalamus.',
+    function: 'Beyond supporting the hippocampus, the larger purpose of the fornix is not entirely understood yet. However, scientists suspect it may also play a role during recall for long-term episodic memories.',
+    connections: 'The main connection of the fornix is the hippocampus, but it also connects with the hypothalamus, thalamus, and septal nuclei.',
     groupPath: ['Subcortical', 'Limbic System', 'Fornix'],
     functionTags: ['Memory,']
   },
@@ -414,9 +455,10 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   putamen: {
     title: 'Putamen', 
-    description: 'The putamen, a component of the Striatum, is a large subcortical structure that forms the lateral portion of the basal ganglia. It works closely with the caudate nucleus to regulate fluid behavior.', 
-    location: 'Part of the dorsal striatum within the deep subcortical basal ganglia.', 
-    function: 'Regulates motor control networks, controls automated procedural learning, and assists in selecting and reinforcing well-practiced behavioral habits.', 
+    description: 'The putamen a a large, bean-shaped structure in the very center of the brain. Its name comes from the Latin "shell." Together, with the caudate nucleus, it makes up the dorsal striatum, acting as the gateway for information entering the basal ganglia.', 
+    location: 'The putamen is a prominent part of the basal ganglia. It sits just outside the globus pallidus, forming the outermost portion of the lentiform nucleus.', 
+    function: 'Most notably, the putamen is responsible for regulating movement and preparing the body for complex motor tasks. However, it also plays a critical role in reinforcement learning, habit formation, and the automatic execution of learned behaviors.',
+    connections: 'The putamen receives a massive amount of input from both the cerebral cortex and the substantia nigra. In turn, it outputs this data to the globus pallidus and the thalamus.',
     groupPath: ['Subcortical', 'Basal Ganglia', 'Putamen'],
     functionTags: ['Motor', 'Memory']
   },
