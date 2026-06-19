@@ -50,17 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
   controls.minDistance  = 0.15;
   controls.maxDistance  = 2.0;
 
-  // ==========================================
-  // --- NEW: Idle Auto-Rotate Logic ---
-  // ==========================================
+
   let idleTimer = null;
-  const IDLE_TIMEOUT = 60000; // 60 seconds of inactivity
+  const IDLE_TIMEOUT = 60000; 
 
   function startAutoRotate() {
-    // Only spin if the user hasn't pressed the "Lock Rotation" button
     if (controls.enableRotate) {
       controls.autoRotate = true;
-      controls.autoRotateSpeed =1; // A very slow, cinematic spin speed
+      controls.autoRotateSpeed =1; 
     }
   }
 
@@ -70,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
     idleTimer = setTimeout(startAutoRotate, IDLE_TIMEOUT);
   }
 
-  // Listen for ANY interaction to pause the rotation and reset the timer
   ['pointermove', 'pointerdown', 'wheel', 'keydown'].forEach(evt => {
     window.addEventListener(evt, resetIdleTimer, { passive: true });
   });
@@ -114,23 +110,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const SELECT_COLOR = 0x66ff99;
   let isIsolationActive = false;
   const isolateBtn = document.getElementById('isolate-btn');
-  const isolationLabel = document.getElementById('isolation-status-label'); // Grab the text target
+  const isolationLabel = document.getElementById('isolation-status-label'); 
 
-  // --- NEW: Centralized function to manage button state & text state ---
   function updateIsolationState(isActive) {
     isIsolationActive = isActive;
     
-    // Sync the puzzle piece active class
     isolateBtn?.classList.toggle('is-active', isIsolationActive);
     
-    // Sync the status text and inline styles (or custom class)
     if (isolationLabel) {
       if (isIsolationActive) {
         isolationLabel.textContent = 'on';
-        isolationLabel.style.color = '#66ff99'; // Bright green matching your select color
+        isolationLabel.style.color = '#66ff99'; 
       } else {
         isolationLabel.textContent = 'off';
-        isolationLabel.style.color = '#ff4d4d'; // Soft error red
+        isolationLabel.style.color = '#c13131';
       }
     }
   }
@@ -185,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateIsolationState(true);
         isolateMesh(selectedMesh);
       } else {
-        // Fall back or do nothing if no mesh is clicked yet
         updateIsolationState(false);
       }
     } else {
@@ -256,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   });
 
-  // --- Filter Mesh Logic ---
   window.addEventListener('mm:filterMeshes', (e) => {
     const { allowedKeys, isFiltering } = e.detail;
     if (!model) return;
@@ -345,13 +336,12 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedMesh.material.emissive.setHex(SELECT_COLOR);
     }
     
-    // --- Sync text if user clicks empty space and breaks isolation ---
-    if (isIsolationActive && selectedMesh) {
+ if (isIsolationActive && selectedMesh) {
       isolateMesh(selectedMesh);
-    } else if (isIsolationActive && !selectedMesh) {
-      updateIsolationState(false); // Refreshes text back to 'off / red' seamlessly
-      clearIsolation();
-    }
+   } else if (isIsolationActive && !selectedMesh) {
+      updateIsolationState(false); 
+         clearIsolation();
+   }
   }
 
   function selectMeshByKey(key) {
@@ -364,8 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  function zoomToMesh(mesh, opts = {}) {
-    if (!mesh || !camera) return;
+function zoomToMesh(mesh, opts = {}) {
+   if (!mesh || !camera) return;
     const { duration = 900, fitRatio = 1.75, reorient = false } = opts; 
 
     const box = new THREE.Box3().setFromObject(mesh);
@@ -417,15 +407,13 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const hit of hits) {
       const mesh = hit.object;
 
-      // 1. Ignore hidden meshes completely
       if (!mesh.visible) continue;
 
-      // 2. Ignore "ghosted" meshes if isolation mode is active
-      let isGhosted = false;
-      if (Array.isArray(mesh.material)) {
-        isGhosted = mesh.material[0].opacity < 0.5;
+     let isGhosted = false;
+  if (Array.isArray(mesh.material)) {
+  isGhosted = mesh.material[0].opacity < 0.5;
       } else if (mesh.material) {
-        isGhosted = mesh.material.opacity < 0.5;
+      isGhosted = mesh.material.opacity < 0.5;
       }
       if (isGhosted) continue;
 
@@ -448,9 +436,9 @@ document.addEventListener('DOMContentLoaded', () => {
       isDragging = true;
     }
     
-    if (isDragging) {
-      hideTip();
-      if (currentHover && currentHover !== selectedMesh && currentHover.material?.emissive) {
+  if (isDragging) {
+   hideTip();
+     if (currentHover && currentHover !== selectedMesh && currentHover.material?.emissive) {
         currentHover.material.emissive.setHex(0x000000);
       }
       currentHover = null;
@@ -565,21 +553,19 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.getElementById('panel')?.classList.remove('is-closed');
     autoZoomToKey(key, { duration: 900, fitRatio: 1.75 });
+ });
+
+ window.addEventListener('resize', () => {
+ camera.aspect = container.clientWidth / container.clientHeight;
+ camera.updateProjectionMatrix();
+   renderer.setSize(container.clientWidth, container.clientHeight);
   });
 
-  window.addEventListener('resize', () => {
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-  });
 
-  // ==========================================
-  // --- Rotation Sync & Animation Loop ---
-  // ==========================================
-  const rotationSlider = document.getElementById('rotation-slider');
-  const anatomicalLabel = document.getElementById('current-view-label');  
-  const startPos = new THREE.Vector3(0.6, 0.6, 2.3);
-  const initialAzimuth = Math.atan2(startPos.x, startPos.z);
+const rotationSlider = document.getElementById('rotation-slider');
+const anatomicalLabel = document.getElementById('current-view-label');  
+const startPos = new THREE.Vector3(0.6, 0.6, 2.3);
+const initialAzimuth = Math.atan2(startPos.x, startPos.z);
 
   function updateAnatomyLabel() {
       if (!anatomicalLabel || !camera || !controls) return;
@@ -617,7 +603,6 @@ document.addEventListener('DOMContentLoaded', () => {
       anatomicalLabel.textContent = direction;
   }
 
-  // Master function to keep the slider and label synced with the true camera rotation
   function syncRotationUI() {
     if (rotationSlider && document.activeElement !== rotationSlider) {
       const offset = new THREE.Vector3().subVectors(camera.position, controls.target);
@@ -649,26 +634,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     updateAnatomyLabel(); 
   });
-
-  // Sync when the user manually drags the model
   controls.addEventListener('change', syncRotationUI);
   
-  // Ensure the UI is correct immediately on load
   setTimeout(syncRotationUI, 100);
 
-  // The engine render loop
   (function animate() {
     requestAnimationFrame(animate);
     controls.update();
 
-    // If the brain is auto-spinning, continuously sync the slider and label!
     if (controls.autoRotate) {
       syncRotationUI();
     }
 
     renderer.render(scene, camera);
   })();
-  // ==========================================
 
   const toggleBtn = document.querySelector('.index-tog');
   const leftHand = document.getElementById('left-hand');
@@ -714,7 +693,7 @@ document.addEventListener('DOMContentLoaded', () => {
     newPos.add(target);
 
     const startPos = camera.position.clone();
-    const duration = 600; // milliseconds
+    const duration = 600; 
     const t0 = performance.now();
     
     function animateView() {
@@ -787,7 +766,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animateExplode(isExploded ? 1.0 : 0.0);
   });
 
-  // --- Rotation Lock Logic ---
   const lockBtn = document.getElementById('rotation-lock-btn');
   let isRotationLocked = false;
 
@@ -796,7 +774,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     controls.enableRotate = !isRotationLocked;
     
-    // NEW: Stop auto-rotation immediately if the user locks it
     if (isRotationLocked) {
       controls.autoRotate = false;
     }
@@ -818,23 +795,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 window.addEventListener('brain:filter', (e) => {
-    // 1. Keep your clean dictionary keys lowercase
     const activeKeys = e.detail.activeMeshes.map(key => key.toLowerCase());
     
     scene.traverse((child) => {
         if (child.isMesh && child.name) {
             const meshNameLower = child.name.toLowerCase();
             
-            // 2. SMART MATCH: Check if any active dictionary keys are part of the 3D mesh name
             const isVisible = activeKeys.some(key => meshNameLower.includes(key));
-            
-            // 3. SAFE MATERIAL UPDATES: Handle both single materials and arrays
             const materials = Array.isArray(child.material) ? child.material : [child.material];
             
             materials.forEach(mat => {
                 if (mat) {
-                    mat.transparent = true; // Keep true so blending works flawlessly during shifts
-                    mat.opacity = isVisible ? 1.0 : 0.15; // Shift to ghost opacity if filtered out
+                    mat.transparent = true; s
+                    mat.opacity = isVisible ? 1.0 : 0.15; 
                     mat.needsUpdate = true;
                 }
             });

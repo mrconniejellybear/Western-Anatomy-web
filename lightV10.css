@@ -887,7 +887,7 @@ html, body { overflow-x: hidden;}
 
 .index{
   width: var(--mm-index-w);
-  height : calc(var(--main-height) - 180px);
+  height : calc(var(--main-height) - 184px);
   overflow-y: auto;
   background-color: #ffffff43;
     color: var(--lil-text);
@@ -1085,7 +1085,7 @@ right: unset;
   border: none;
   font-size: var(--lil-text);
   padding-left: 38px; 
-  background: #e0e0e058;
+  background: #e0e0e033;
   border: solid 1px #6d6d6d77;
 }
 

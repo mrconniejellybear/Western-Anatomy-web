@@ -86,7 +86,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
    lateral_ventricle: {
     title: 'Lateral Ventricle(s)',
-    description: "The two lateral ventricles are the largest cavities in the brain's ventricular system, and are responsible for most of its work. You may notice that the model does not contain a 'first' or 'second' ventricle anywhere. Because the lateral ventricles have a side on either hemisphere, they are technically the first and second ventricles, but they are seldom called that in brain anatomy.",
+    description: "The lateral ventricles are the largest cavities in the brain's ventricular system, handling most of the work. You may notice the model does not contain a 'first' or 'second' ventricle anywhere. Because the lateral ventricles have a side on either hemisphere, they are technically the first and second ventricles, but they are seldom called that in brain anatomy.",
     location: 'Deep within the cerebrum, the lateral ventricles sit just below the corpus callosum, arching over the thalamus and basal ganglia.',
     function: 'Their main job is to produce and house cerebrospinal fluid throughout a network of blood vessels. The fluid provides buoyancy and shock absorption for the brain. Without it, ordinary movements would jostle the fragile brain, subjecting it to serious damage.',
     connections: "To keep the cerebrospinal fluid circulating, the lateral ventricles connect directly to the brain's third ventricle through two small channels called the interventricular foramina.",
@@ -309,7 +309,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   },
 
   Transverse_frontopolar_gyrus_and_sulcus: {
-    title: "what da fuck"
+    title: "Test_Item4"
   },
 
   supramarginal_gyrus: {
@@ -467,12 +467,10 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 };
 
 
-  /* 2) Renderers for the tab content */
   function renderBrainInfo(info){
     const $ = (id)=>document.getElementById(id);
     ($('brainName')||{}).textContent = info.title || 'Brain';
 
-    // Inject the dynamic breadcrumb pathway
     const pathway = $('rel-pathway');
     if (pathway) {
       pathway.textContent = info.groupPath ? info.groupPath.join(' / ') : '';
@@ -483,7 +481,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
       if (info.img){ img.src = info.img; img.alt = `${info.title} illustration`; img.style.display='block'; }
       else { img.removeAttribute('src'); img.alt=''; img.style.display='none'; }
     }
-    const desc = $('info-desc'); if (desc) desc.textContent = info.description || 'Im still working on this one... Have a little patience, would ya?';
+    const desc = $('info-desc'); if (desc) desc.textContent = info.description || 'This is a demo of WesternAnatomy that I have distrubuted to test for feedback. Given that I am developing this site independently, providing accurate descriptions for every structure will take time. Please bare with me, and expect new information to populate in the coming months I collect high-quality sources, to ensure the content is not only free, but also reliable. The site will be completely finished in the fall of 2026, so check back then!';
     
     const conct = $('info-conct'); if (conct) conct.textContent = info.connections || '';
     const head = $('info-head'); if (head) head.textContent = info.location || '';
@@ -499,7 +497,6 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     if(explanation) explanation.textContent = info.explanation || '';
   }
   
-  /* 3) Open the info panel for a given key */
   window.openSidebarWith = function(key){
     const info = (window.BRAIN_INFO || {})[key];
     const fallback = (k)=>({ title: k.replace(/[_-]/g,' ').replace(/\b\w/g,m=>m.toUpperCase()), description:'Coming soon.' });
@@ -511,15 +508,12 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     window.dispatchEvent(new CustomEvent('mm:selected', { detail:{ name:key }}));
   };
 
-    /* --- NEW: Manage Active List Button State --- */
   window.addEventListener('mm:selected', (e) => {
       const selectedKey = e.detail.name;
 
-      // 1. Remove the active class from ALL buttons in the index
       const allButtons = document.querySelectorAll('#mi-list button');
       allButtons.forEach(btn => btn.classList.remove('is-active'));
 
-      // 2. Find the specific button that was clicked and turn it on
       const activeButton = document.querySelector(`#mi-list button[data-key="${selectedKey}"]`);
       if (activeButton) {
           activeButton.classList.add('is-active');
@@ -530,11 +524,10 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   navbar.addEventListener('mouseenter', () => {
     navbar.classList.remove('is-leaving');
-    navbar.classList.add('is-armed');        // grow L→R
-  });
+    navbar.classList.add('is-armed');        
+ });
 
   navbar.addEventListener('mouseleave', () => {
-    // run exit: keep armed, add leaving so it slides off to the right
     navbar.classList.add('is-leaving');
 
     const onEnd = (e) => {
@@ -552,23 +545,20 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   const SELECT = document.getElementById('mobile-region-select'); 
   
 
-  const titleOf = (k,m)=>(m?.title)||k.replace(/[_-]/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
+ const titleOf = (k,m)=>(m?.title)||k.replace(/[_-]/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
   
   function allItems(){
     return Object.entries(window.BRAIN_INFO||{})
       .map(([key,m]) => ({ key, title: titleOf(key,m) }))
       .sort((a,b)=>a.title.localeCompare(b.title));
-  }
-
-  // Render BOTH UI elements
+}
   function render(list){
-    // 1. Render Desktop UL
     if (UL) {
       UL.innerHTML = '';
       const frag = document.createDocumentFragment();
       for (const it of list){
         const li  = document.createElement('li');
-        li.id = `list-item-${it.key}`; // CRITICAL: IDs for the filter to grab!
+        li.id = `list-item-${it.key}`;
         
         const btn = document.createElement('button');
         btn.type = 'button';
@@ -579,9 +569,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
       }
       UL.appendChild(frag);
     }
-
-    // 2. Render Mobile Select
-    if (SELECT) {
+        if (SELECT) {
       SELECT.innerHTML = '<option value="" disabled selected>Select a region...</option>';
       const fragSel = document.createDocumentFragment();
       for (const it of list){
@@ -594,13 +582,10 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     }
   }
 
-  // initial draw
   let ITEMS = allItems();
   
-  // CRITICAL: Actually draw the items onto the page!
   render(ITEMS); 
 
-  // --- NEW: Map Mobile Selection to the 3D View and Info Panel ---
   if (SELECT) {
     SELECT.addEventListener('change', (e) => {
       const selectedKey = e.target.value;
@@ -618,7 +603,6 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   const body  = document.body;
   const panel = document.getElementById('panel');
 
-  /* ---------------- panel width helpers (CSS var: --panel-w) --------- */
   function varPx(name, fallback=0){
     const v = getComputedStyle(root).getPropertyValue(name).trim();
     if (!v) return fallback;
@@ -641,10 +625,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   try { const saved = localStorage.getItem('mm.panel.width'); if (saved) root.style.setProperty('--panel-w', saved); } catch {}
 
-
-  /* --- Unified Filter Pipeline --- */
   function applyFilters() {
-      // Safely grab elements using the new wrapper logic
       const searchBox = document.getElementById('mi-search');
       const groupBox = document.getElementById('group-filter');
       const funcBox = document.getElementById('function-filter');
@@ -659,14 +640,11 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
           const info = window.BRAIN_INFO[id];
           const listItem = document.getElementById(`list-item-${id}`);
 
-          // Safe fallbacks to prevent undefined crashes
           const nameText = (info.name || info.title || "").toLowerCase();
           const matchesSearch = nameText.includes(searchText);
           
-          // Match group
           const matchesGroup = (groupValue === 'All' || (info.groupPath && info.groupPath.includes(groupValue)));
           
-          // Match functions seamlessly using either the single tag string or your new tag array setup!
           let matchesFunction = (functionValue === 'All');
           if (!matchesFunction) {
               if (info.functionTags && info.functionTags.includes(functionValue)) matchesFunction = true;
@@ -685,7 +663,6 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
       window.dispatchEvent(filterEvent);
   }
 
-  /* --- Filter Event Listeners (Bulletproofed!) --- */
   const searchEl = document.getElementById('mi-search');
   if (searchEl) searchEl.addEventListener('input', applyFilters);
 
@@ -695,7 +672,6 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   const funcEl = document.getElementById('function-filter');
   if (funcEl) funcEl.addEventListener('change', applyFilters);
 
-  /* --- Reset Buttons --- */
   const resetGroupBtn = document.getElementById('reset-group');
   if (resetGroupBtn) {
       resetGroupBtn.addEventListener('click', () => {
@@ -712,8 +688,6 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
       });
   }
 
-  // 🚀 KICKSTART THE PIPELINE ON PAGE LOAD!
-  // Wait a fraction of a second to ensure DOM is fully ready
   setTimeout(() => applyFilters(), 100);
 
   
