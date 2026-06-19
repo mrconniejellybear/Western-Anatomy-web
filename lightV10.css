@@ -4,7 +4,7 @@
 :root{
   --navbar-h: 60px;
   --main-color: #ffffff;
-  --color3: #f9fafb;
+  --color3: #ffffffbf;
   
   --mm-border: #d1dce5;
 
@@ -16,9 +16,9 @@
   --main-height: calc(100vh - var(--navbar-h) - 24px);
 
   --big-text: #161515;
-  --lil-text: #333a50; font-size: 15px; font-weight: 400;
+  --lil-text: #363d54; font-size: 15px; font-weight: 400;
 
-  --p-text: #b1bac0;
+  --p-text: #b5c0c8;
 
   --big-2: #ffffff;
   --border-2: #7e8ba346;
@@ -816,7 +816,7 @@ html, body { overflow-x: hidden;}
   z-index: 10;
 
   transition: width 0.3s ease, min-width 0.3s ease;
-  width: 320px;
+  width: 330px;
   overflow: hidden;
 }
 .left-hand.collapsed {
@@ -892,8 +892,8 @@ html, body { overflow-x: hidden;}
   background-color: #ffffff43;
     color: var(--lil-text);
 
-      padding-left: 22px;
-      padding-right: 14px;
+      padding-left: 18px;
+      padding-right: 12px;
       padding-top: 2px;
       border-top: 1px solid var(--mm-border);
 }
@@ -926,7 +926,7 @@ html, body { overflow-x: hidden;}
   all: unset;
   box-sizing: border-box;
   height: 39px;
-  padding-left: 10px;
+  padding-left: 12px;
   width: 98%;
   font-weight: var(--lil-text);
   font-size: var(--lil-text);
@@ -1018,7 +1018,7 @@ right: unset;
   align-items: center; 
   justify-content: center;
   align-content: center;
-  padding: 12px 14px 14px 28px;
+  padding: 12px 14px 14px 26px;
 }
 .searchy:focus-within .mm-search-icon { 
   padding-left: 50px; 
@@ -1067,25 +1067,25 @@ right: unset;
 .isolation-status-row{
   margin-top: 6px;
   font-size: 14px;
-  color: #707070;
+  color: #919191;
   z-index: 3000;
 
   position: absolute;
 
   right: 30px;
-  top: 64px;
+  top: 66px;
 }
 
 .mi-search{
   opacity: 1;
-  width: 276px;
+  width: 290px;
   padding:14px;   
 
   border-radius: 10px; 
   border: none;
   font-size: var(--lil-text);
   padding-left: 38px; 
-  background: #ffffff82;
+  background: #e0e0e058;
   border: solid 1px #6d6d6d77;
 }
 
@@ -1109,7 +1109,7 @@ right: unset;
 
 .mm-search-icon{
   position: absolute;
-  left: 41px; 
+  left: 39px; 
   top: 25.5px; /* Centers it vertically */
   pointer-events: none; 
   color: #757575; /* A muted color for the icon */

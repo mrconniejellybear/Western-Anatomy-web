@@ -154,14 +154,15 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   thalamus: {
     title: 'Thalamus', 
-    description: 'Often referred to as the "switchboard" of the brain. Almost all sensory information (except smell) passes through here before reaching the cerebral cortex.', 
+    description: 'The thalamus is often referred to as the "central relay hub" of the brain for being the first stop for nearly all sensory input (excluding smell). Given that we rely on sensroy information to percieve our world, the thalamus is a highly important structure. After leaving the thalamus, data is sent to the cerebral cortex.', 
     location: 'A paired, symmetrical structure situated at the top of the brainstem, near the center of the brain.', 
     function: 'Relays sensory and motor signals to the cortex, and plays a role in the regulation of consciousness, sleep, and alertness.', 
+    connections: "ayy im walkin ere!",
     groupPath: ['Subcortical', 'Limbic System','Diencephalon', 'Thalamus'],
     functionTags: ['Vision', 'Touch', 'Taste', 'Motor']
   },
 
-  hypothalamus: {
+  Thalamus: {
     title: 'Hypothalamus', 
     groupPath: ['Subcortical', 'Diencephalon', 'Hypothalamus'],
   },
