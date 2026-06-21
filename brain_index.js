@@ -105,12 +105,11 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   amygdaloid_body: {
     title: 'Amygdala', 
-    description: 'The amygdala, sometimes called the amygdaloid body, is the main area of the brain responsible for adverse emotional responses—both conscious and unconscious. Because of its shape, it is often referred to as the "almond-shaped" structure within the limbic system.', 
+    description: 'The amygdala, sometimes called the amygdaloid body, is the main area of the brain responsible for both conscious and unconscious adverse emotional responses. It is best known for its production of the "fear" response, but it is responsible for processing emotional other negative emotions, such as stress or disgust, too. It may also help attatch emotional significance to memories negative experinces. You can remember this structure as the "almond-shaped" part of the brain, living within the limbic system.', 
     location: 'The amygdala is part of the limbic system. It is connected to the ends of the hippocampus in either hemisphere.', 
-    function: 'Most notably, it is known for its production of the "fear" response—a crucial evolutionary feature, but it also handles other. It is responsible for processing emotional responses, fear conditioning, and attaching emotional significance to memories.', 
     connections: 'The amygdala is connected to the olfactory bulb, orbitofrontal cortex, cingulate gyrus, basal forebrain, medial thalamus, hypothalamus, and the brainstem',
     groupPath: ['Subcortical', 'Limbic System', 'Amygdala'],
-    functionTags: ['Emotion', 'Memory']
+    functionTags: ['Emotion', ' Memory']
   },
 
   caudate_nucleus: {
@@ -154,27 +153,23 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
 
   thalamus: {
     title: 'Thalamus', 
-    description: 'The thalamus is often referred to as the "central relay hub" of the brain for being the first stop for nearly all sensory input (excluding smell). Given that we rely on sensroy information to percieve our world, the thalamus is a highly important structure. After leaving the thalamus, data is sent to the cerebral cortex.', 
+    description: 'The thalamus is knicknamed the "central relay hub" of the brain. After sensory information is taken in through the eyes, ears, mouth, and body (the thalamus does not handle smell), the first stop for that input is the thalamus. After leaving the thalamus, data is sent to the cerebral cortex.', 
     location: 'A paired, symmetrical structure situated at the top of the brainstem, near the center of the brain.', 
     function: 'Relays sensory and motor signals to the cortex, and plays a role in the regulation of consciousness, sleep, and alertness.', 
+    connections: "",
     connections: "ayy im walkin ere!",
     groupPath: ['Subcortical', 'Limbic System','Diencephalon', 'Thalamus'],
     functionTags: ['Vision', 'Touch', 'Taste', 'Motor']
   },
 
-  Thalamus: {
-    title: 'Hypothalamus', 
-    groupPath: ['Subcortical', 'Diencephalon', 'Hypothalamus'],
-  },
 
   cerebellum: {
     title: 'Cerebellum', 
-    description: "The cerebellum is a hugely important structure in the brain. Despite its size, it contains over 50% of the neurons in the entire brain.", 
-    location: 'Found at the bottom-back of the brain, beneath the occpital lobe, the cerebellum rests outside of the cortex, against the brainstem. It is one of the few outer structures visible in diagrams that isnt a lobe.', 
-    function: 'The cerebellum handles constant motor function, both big and small. It is best known for coordination, maintaining balance during movement, and regulating posture—which makes sense given its connection to the spinal cord. Recently, scientists have also discovered the cerebellum may even play a role in learing new skills.', 
-    connections: 'Because it is such a cruical structure, the cerebellum shares many connections to neighboring areas, such as the medulla oblongata, the cerebellur peduncle, the pons, the midbrain, and the spinal cord (not shown in this model).',
+    description: "The cerebellum is a hugely important structure in the brain, handling constant motor function—both big and small—across the body. Despite its size, it contains over 50% of the neurons in the entire brain.The cerebellum manages coordination, balance, and help regulate posture—which makes sense given its connection to the spinal cord. Recently, scientists have also discovered that the cerebellum may even play a role in learing new skills.", 
+    location: 'Found at the bottom-back of the brain, beneath the occpital lobe, the cerebellum rests outside of the cortex, against the back of the brainstem. It is one of the few outer structures visible in diagrams that isnt a lobe.', 
+    connections: 'Because it handles so much of the motor coordination process, the cerebellum shares many connections to neighboring areas, such as the medulla oblongata, the cerebellur peduncle, the pons, the midbrain, and the spinal cord (not shown in this model).',
     groupPath: ['Subcortical', 'Hindbrain', 'Cerebellum'],
-    functionTags: ['All', 'Motor',]
+    functionTags: ['Motor',]
   },
 
   cerebellar_peduncle: {
@@ -298,6 +293,12 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     functionTags: ['All', 'Vision', 'Memory']
   },
 
+  Inferior_occipital_gyrus_and_sulcus: {
+    title: 'Inferior Occipital Gyrus',
+    groupPath: ['Lobe', 'Occipital Lobe', 'Gyri', 'Inferior Occipital Gyrus'],
+    functionTags: ['Vision',]
+  },
+
   _Superior_occipital_gyri:{
     title:'Superior Occipital Gyrus',
     groupPath: ['Lobe', 'Occipital Lobe', 'Gyri', 'Superior Occipital Gyrus'],
@@ -378,6 +379,11 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     functionTags: ['Memory', 'Vision']
   },
 
+  Cuneus: {
+    title: "Cuneus",
+    groupPath: ['Lobe', 'Parietal Lobe', 'Cuneus'],
+  },
+
   superior_colliculus: {
     title: 'Superior Colliculus', 
     description: 'Superior Colliculus, also called the Optic Tectum, is a paired subcortical structure that forms a major component of the midbrain roof. It handles rapid, subconscious visual processing long before conscious awareness kicks in.', 
@@ -385,6 +391,11 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     function: 'Directs involuntary behavioral responses to spatial stimuli, coordinating saccadic eye movements and reflexive head turning toward sudden visual or auditory shifts.', 
     groupPath: ['Subcortical', 'Midbrain', 'Superior Colliculus'],
     functionTags: ['Vision', 'Motor']
+  },
+
+  Paracentral_gyrus_and_sulcus: {
+    title: 'Paracentral Gyrus', 
+    groupPath: ['Parietal Lobe', 'Gyri', 'Paracentral Gyrus'],
   },
 
   _precentral_gyrus: {
@@ -410,6 +421,14 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     groupPath: ['Parietal Lobe', 'Sulci', 'Primary Somatosensory Cortex'],
     functionTags: ['Touch']
   },
+
+
+  Lingual_gyrus:{
+    title: "Lingual Gyrus",
+    groupPath: ['Occipital Lobe', 'Gyri', 'Lingual Gyrus'],
+    functionTags: ['Speech']  
+  },
+
 
   Stria_medullaris_thalami: {
     title: 'Stria Medullaris Thalami',
@@ -454,6 +473,12 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     functionTags: ['Emotion', 'Memory']
   },
 
+  Temporal_plane:{
+    title:"Temporal Plane",
+    groupPath: ['Temporal Lobe', 'Gyri', 'Temporal Plane'],
+    functionTags: ['Emotion', 'Memory']
+  },
+
   putamen: {
     title: 'Putamen', 
     description: 'The putamen a a large, bean-shaped structure in the very center of the brain. Its name comes from the Latin "shell." Together, with the caudate nucleus, it makes up the dorsal striatum, acting as the gateway for information entering the basal ganglia.', 
@@ -486,6 +511,8 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     const conct = $('info-conct'); if (conct) conct.textContent = info.connections || '';
     const head = $('info-head'); if (head) head.textContent = info.location || '';
     const func = $('info-func'); if (func) func.textContent = info.function || '';
+
+    const functionTags = $('info-functionTags'); if (functionTags) functionTags.textContent = info.functionTags || '';
   }
 
   function renderBrainExercises(info){

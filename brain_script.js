@@ -795,19 +795,23 @@ const initialAzimuth = Math.atan2(startPos.x, startPos.z);
   });
 
 window.addEventListener('brain:filter', (e) => {
+    // 1. Keep your clean dictionary keys lowercase
     const activeKeys = e.detail.activeMeshes.map(key => key.toLowerCase());
     
     scene.traverse((child) => {
         if (child.isMesh && child.name) {
             const meshNameLower = child.name.toLowerCase();
             
+            // 2. SMART MATCH: Check if any active dictionary keys are part of the 3D mesh name
             const isVisible = activeKeys.some(key => meshNameLower.includes(key));
+            
+            // 3. SAFE MATERIAL UPDATES: Handle both single materials and arrays
             const materials = Array.isArray(child.material) ? child.material : [child.material];
             
             materials.forEach(mat => {
                 if (mat) {
-                    mat.transparent = true; s
-                    mat.opacity = isVisible ? 1.0 : 0.15; 
+                    mat.transparent = true; // Keep true so blending works flawlessly during shifts
+                    mat.opacity = isVisible ? 1.0 : 0.15; // Shift to ghost opacity if filtered out
                     mat.needsUpdate = true;
                 }
             });
