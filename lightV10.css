@@ -16,31 +16,29 @@
   --main-height: calc(100vh - var(--navbar-h) - 14px);
 
   --big-text: #161515;
-  --lil-text: #454a59; font-size: 15px; font-weight: 400;
+  --lil-text: #454a59; font-size: 14px; font-weight: 460;
 
-  --p-text: #b5c0c8;
+  --p-text: #bababa;
 
   --big-2: #ffffff;
   --border-2: #7e8ba346;
 
   --link-text: #25b43d;
   --link-2: #00806d;
-  --link-sel: #007fef;
+  --link-sel: #0091ff;
 
 
   --mm-select: #090909;
   --mm-highlight: #bfcab846;
 }
 
-@import url('GeneralSans_Complete/Fonts/WEB/fonts-sans.css');
 
 @font-face {
-  font-family: 'GeneralSans';
-  src: url('GeneralSans_Complete/Fonts/WEB/fonts/GeneralSans-Medium.ttf/my-font.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
+    font-family: "GeneralSans";
+    src: url("GeneralSans_Complete/GeneralSans-Variable.woff2") format("woff2"),
+    url("GeneralSans_Complete/Fonts/WEB/fonts/GeneralSans-Medium.woff") format("woff"),
+    url("GeneralSans_Complete/Fonts/TTF/GeneralSans-Variable.ttf") format("truetype");
 }
-
 
 body {
   font-family: 'GeneralSans', sans-serif;
@@ -126,7 +124,7 @@ display: none;
 .link{ 
   text-decoration: none; 
   color: var(--lil-text);
-  font-size: 15px;
+  font-size: 14px;
   align-items: center;
   display: flex;
   border: none; 
@@ -137,9 +135,9 @@ display: none;
 }
 
 .link:hover{
-  color: var(--link-2); 
+  color: var(--link-sel); 
   border: none; 
-  text-decoration: none; 
+  text-decoration: underline; 
   border-radius: 40px;
 }
 .link:active{
@@ -715,7 +713,7 @@ margin-top: auto;
   font-size: 20px;
   color: var(--big-2);
   margin: 6px 0px 4px 0px;
-  font-weight: 700;
+  font-weight: 540;
 
 }
 
@@ -737,7 +735,7 @@ margin-top: auto;
   border-radius: 0px 14px 14px 0px;
   pointer-events: auto;
   position: relative;
-  padding: 18px;
+  padding: 22px;
   margin-right: 2vw;
   margin-top: 18px;
   height: calc(var(--main-height) - 2rem); 
@@ -779,13 +777,15 @@ margin-top: auto;
   font-size: 46px;
   font-weight: 600;
   background-color: none;
+  margin-bottom: 2px;
+  margin-top: -8px;
 }
 .pathway{
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.3px;
-  font-size: 16px;
+  font-size: 14px;
   font-style: italic;
-  color: var(--p-text);
+  color: #757575;
 }
 
   .header-contents{
@@ -793,11 +793,6 @@ margin-top: auto;
     align-items: center;
     flex-direction: row;
   }
-#exerciseList{ list-style:none; margin-top:10px; padding:0; }
-
-#exerciseList li{ color: #bbbbbb; display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;}
-#exerciseList li a{ color: var(--link-2); text-decoration:none; }
-#exerciseList li a:hover{ text-decoration:underline; }
 
 
 html, body { overflow-x: hidden;}
@@ -811,12 +806,12 @@ html, body { overflow-x: hidden;}
   border-radius: var(--radius);
 
   background-color: var(--color3);
-   box-shadow: 1px 1px 6px 1px rgba(47, 47, 47, 0); 
+   box-shadow: 1px 1px 10px 1px rgba(47, 47, 47, 0); 
 
   z-index: 10;
 
   transition: width 0.3s ease, min-width 0.3s ease;
-  width: 22vw;
+  width: 20vw;
   overflow: hidden;
 }
 .left-hand.collapsed {
@@ -889,11 +884,11 @@ html, body { overflow-x: hidden;}
   width: var(--mm-index-w);
   height : calc(var(--main-height) - 170px);
   overflow-y: auto;
-  background-color: #ffffff43;
+  background-color: #efefef40;
     color: var(--lil-text);
 
-      padding-left: 18px;
-      padding-right: 12px;
+      padding-left: 14px;
+      padding-right: 14px;
       padding-top: 2px;
       border-top: 1px solid var(--mm-border);
 }
@@ -925,7 +920,7 @@ html, body { overflow-x: hidden;}
 .mi-list button {
   all: unset;
   box-sizing: border-box;
-  height: 39px;
+  height: 36px;
   padding-left: 12px;
   width: 98%;
   font-weight: var(--lil-text);
@@ -934,7 +929,7 @@ html, body { overflow-x: hidden;}
   display: flex;
   align-items: center;
   opacity: 1;
-  border-bottom: 1px solid #85858514;
+  border-bottom: 1px solid #85858524;
   letter-spacing: normal;
 
  transition: ease-in-out 0.1s;
@@ -1018,7 +1013,7 @@ right: unset;
   align-items: center; 
   justify-content: center;
   align-content: center;
-  padding: 18px 20px 16px 26px;
+  padding: 18px 20px 16px 24px;
 }
 .searchy:focus-within .mm-search-icon { 
   padding-left: 50px; 
@@ -1110,7 +1105,7 @@ right: unset;
 
 .mm-search-icon{
   position: absolute;
-  left: 40px; 
+  left: 38px; 
   top: 29.5px; 
   pointer-events: none; 
   color: #757575; /* A muted color for the icon */
