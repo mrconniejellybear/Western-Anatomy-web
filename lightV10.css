@@ -2,21 +2,21 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root{
-  --navbar-h: 60px;
+  --navbar-h: 50px;
   --main-color: #ffffff;
   --color3: #ffffffbf;
   
-  --mm-border: #d1dce5;
+  --mm-border: #d3dbe1;
 
   --hoverlay: #3333333b;
   --hoverlay-2: #3232328f;
 
   --radius: 0px;
 
-  --main-height: calc(100vh - var(--navbar-h) - 24px);
+  --main-height: calc(100vh - var(--navbar-h) - 14px);
 
   --big-text: #161515;
-  --lil-text: #363d54; font-size: 15px; font-weight: 400;
+  --lil-text: #454a59; font-size: 15px; font-weight: 400;
 
   --p-text: #b5c0c8;
 
@@ -125,8 +125,8 @@ display: none;
 
 .link{ 
   text-decoration: none; 
-  color: #252937;
-  font-size: 16px;
+  color: var(--lil-text);
+  font-size: 15px;
   align-items: center;
   display: flex;
   border: none; 
@@ -292,7 +292,7 @@ display: none;
   min-width: 0;
   display:flex; 
   flex-direction:column; 
-  margin-top: 14px;
+  margin-top: 18px;
   margin-left: 2vw;
 
      border: none;
@@ -739,7 +739,7 @@ margin-top: auto;
   position: relative;
   padding: 18px;
   margin-right: 2vw;
-  margin-top: 14px;
+  margin-top: 18px;
   height: calc(var(--main-height) - 2rem); 
 
 
@@ -816,7 +816,7 @@ html, body { overflow-x: hidden;}
   z-index: 10;
 
   transition: width 0.3s ease, min-width 0.3s ease;
-  width: 330px;
+  width: 22vw;
   overflow: hidden;
 }
 .left-hand.collapsed {
@@ -887,7 +887,7 @@ html, body { overflow-x: hidden;}
 
 .index{
   width: var(--mm-index-w);
-  height : calc(var(--main-height) - 184px);
+  height : calc(var(--main-height) - 170px);
   overflow-y: auto;
   background-color: #ffffff43;
     color: var(--lil-text);
@@ -1018,7 +1018,7 @@ right: unset;
   align-items: center; 
   justify-content: center;
   align-content: center;
-  padding: 12px 14px 14px 26px;
+  padding: 18px 20px 16px 26px;
 }
 .searchy:focus-within .mm-search-icon { 
   padding-left: 50px; 
@@ -1078,21 +1078,22 @@ right: unset;
 
 .mi-search{
   opacity: 1;
-  width: 290px;
-  padding:14px;   
+  width: 100%;
+  padding:12px; 
+  margin-bottom: 6px;  
 
-  border-radius: 10px; 
+  border-radius: 14px; 
   border: none;
   font-size: var(--lil-text);
   padding-left: 38px; 
   background: #e0e0e033;
-  border: solid 1px #6d6d6d77;
+  border: solid 1px #d2d2d2;
 }
 
 .mi-search:hover{
   outline: none;
   opacity: 1;
-  padding:13px; 
+  padding:11px; 
   border:2px solid var(--link-2);
   background: #b6f4da16;
   padding-left: 14px; 
@@ -1100,7 +1101,7 @@ right: unset;
 .mi-search:focus{
   outline: none;
   opacity: 1;
-  padding:13px; 
+  padding:11px; 
   border: 2px solid var(--link-2);
   background:#b2ffde47;
   padding-left: 14px; 
@@ -1109,8 +1110,8 @@ right: unset;
 
 .mm-search-icon{
   position: absolute;
-  left: 39px; 
-  top: 25.5px; /* Centers it vertically */
+  left: 40px; 
+  top: 29.5px; 
   pointer-events: none; 
   color: #757575; /* A muted color for the icon */
   width: 18px;

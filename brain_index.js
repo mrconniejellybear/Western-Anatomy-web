@@ -147,8 +147,8 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
     function: 'The AAC helps express internal autonomic, states such as distress, outwardly, through physical expressions like heavy breath, posture, etc. The PPC plays a part in the default mode network, and may play a role in self-cognition, such as planning and assesments for personal relevance.', 
     connections: 'Amygdala, thalamus, ',
 
-    groupPath: ['Lobe', 'Limbic Lobe', 'Gyri', 'Cingulate Gyrus'],
-    functionTags: ['Emotion', 'Motor']
+    groupPath: ['Lobe', 'Limbic System', 'Gyri', 'Cingulate Gyrus'],
+    functionTags: ['Emotion', 'Motor', 'Memory']
   },
 
   thalamus: {

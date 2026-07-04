@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     0.1,
     1000
   );
-  camera.position.set(1, 0.2, 0.5); 
+  camera.position.set(1.2, 0.2, 0.5); 
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
@@ -811,7 +811,7 @@ window.addEventListener('brain:filter', (e) => {
             materials.forEach(mat => {
                 if (mat) {
                     mat.transparent = true; // Keep true so blending works flawlessly during shifts
-                    mat.opacity = isVisible ? 1.0 : 0.15; // Shift to ghost opacity if filtered out
+                    mat.opacity = isVisible ? 1.0 : 0.05; // Shift to ghost opacity if filtered out
                     mat.needsUpdate = true;
                 }
             });
