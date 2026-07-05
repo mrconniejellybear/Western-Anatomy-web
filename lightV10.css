@@ -2,7 +2,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root{
-  --navbar-h: 50px;
+  --navbar-h: 44px;
   --main-color: #ffffff;
   --color3: #ffffffbf;
   
@@ -16,16 +16,16 @@
   --main-height: calc(100vh - var(--navbar-h) - 14px);
 
   --big-text: #161515;
-  --lil-text: #454a59; font-size: 14px; font-weight: 460;
+  --lil-text: #454a59; font-size: 14px; font-weight: 450;
 
-  --p-text: #bababa;
+  --p-text: #aeaeae;
 
   --big-2: #ffffff;
   --border-2: #7e8ba346;
 
   --link-text: #25b43d;
   --link-2: #00806d;
-  --link-sel: #0091ff;
+  --link-sel: #008cff;
 
 
   --mm-select: #090909;
@@ -34,10 +34,9 @@
 
 
 @font-face {
-    font-family: "GeneralSans";
+    font-family: "General Sans";
     src: url("GeneralSans_Complete/GeneralSans-Variable.woff2") format("woff2"),
-    url("GeneralSans_Complete/Fonts/WEB/fonts/GeneralSans-Medium.woff") format("woff"),
-    url("GeneralSans_Complete/Fonts/TTF/GeneralSans-Variable.ttf") format("truetype");
+    url("GeneralSans_Complete/GeneralSans-Variable.woff") format("woff"),
 }
 
 body {
@@ -85,7 +84,8 @@ a:hover{
   height: var(--navbar-h);
   display: flex; align-items: center;
   border-bottom: 1px solid var(--mm-border);
-  box-shadow: 1px 1px 6px 1px rgba(47, 47, 47, 0); 
+     box-shadow: 1px 1px 10px 1px #2f2f2f00; 
+
 
   position: relative;
 
@@ -96,7 +96,7 @@ a:hover{
 }
 
 
-.brand img{height:40px; width: auto; margin: auto; position: fixed; right:3.4rem; top: 6px;}
+.brand img{display: none;}
 
 .index-tog{
   background: none;
@@ -704,7 +704,7 @@ margin-top: auto;
   margin-left: 0;
   font-weight: var(--lil-text);
 }
-.panel-section p{ line-height:22px; color: var(--p-text);
+.panel-section p{ line-height:20px; color: var(--p-text);
   ;}
 
 
@@ -777,15 +777,15 @@ margin-top: auto;
   font-size: 46px;
   font-weight: 600;
   background-color: none;
-  margin-bottom: 2px;
   margin-top: -8px;
 }
 .pathway{
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.3px;
   font-size: 14px;
+  margin-top: 4px;
   font-style: italic;
-  color: #757575;
+  color: #676767;
 }
 
   .header-contents{
@@ -806,7 +806,7 @@ html, body { overflow-x: hidden;}
   border-radius: var(--radius);
 
   background-color: var(--color3);
-   box-shadow: 1px 1px 10px 1px rgba(47, 47, 47, 0); 
+   box-shadow: 1px 1px 8px 1px #3838380b; 
 
   z-index: 10;
 
@@ -884,7 +884,7 @@ html, body { overflow-x: hidden;}
   width: var(--mm-index-w);
   height : calc(var(--main-height) - 170px);
   overflow-y: auto;
-  background-color: #efefef40;
+  background-color: #efefef4c;
     color: var(--lil-text);
 
       padding-left: 14px;
@@ -920,7 +920,7 @@ html, body { overflow-x: hidden;}
 .mi-list button {
   all: unset;
   box-sizing: border-box;
-  height: 36px;
+  height: 34px;
   padding-left: 12px;
   width: 98%;
   font-weight: var(--lil-text);
@@ -937,9 +937,10 @@ html, body { overflow-x: hidden;}
 
 .mi-list button:hover {
   color: var(--link-2);
-  background-color: #89f4e049;
+  background-color: #89f4e000;
     border-radius: 4px;
     margin-left: 4px;
+    text-decoration: underline;
 }
 .mi-list button.is-active {
   color: #fff;
@@ -1081,7 +1082,7 @@ right: unset;
   border: none;
   font-size: var(--lil-text);
   padding-left: 38px; 
-  background: #e0e0e033;
+  background: #e0e0e027;
   border: solid 1px #d2d2d2;
 }
 
@@ -1481,7 +1482,7 @@ right: unset;
   .navbar{
     justify-content: left;
     gap: 10vw;
-    padding: 30px;
+    padding: 20px;
   }
 
 .help-btn{
