@@ -6,7 +6,7 @@
   --main-color: #ffffff;
   --color3: #ffffffbf;
   
-  --mm-border: #c1c7cb;
+  --mm-border: #c0c8cd;
 
   --hoverlay: #3333333b;
   --hoverlay-2: #3232328f;
@@ -84,7 +84,7 @@ a:hover{
   display: flex; 
   flex-direction: row;
   align-items: center;
-  justify-content: left;
+  justify-content: variable;
   gap: 3rem;
   padding-left: 150px;
 
@@ -128,12 +128,23 @@ display: none;
   text-decoration: none; 
   display: flex;
   align-items: center;
-  gap: 6px;
   color: var(--lil-text);
   font-size: 14px;
   transition: ease-in-out 0.15s;
 
   margin: 0;
+}
+
+.link2{ 
+  text-decoration: none; 
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: var(--lil-text);
+  transition: ease-in-out 0.1s;
+
+  position: absolute;
+  right: 40px;
 }
 
 .link:hover{
