@@ -2,11 +2,11 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root{
-  --navbar-h: 42px;
+  --navbar-h: 44px;
   --main-color: #ffffff;
   --color3: #ffffffbf;
   
-  --mm-border: #bbc3c9;
+  --mm-border: #c1c7cb;
 
   --hoverlay: #3333333b;
   --hoverlay-2: #3232328f;
@@ -16,7 +16,7 @@
   --main-height: calc(100vh - var(--navbar-h) - 10px);
 
   --big-text: #161515;
-  --lil-text: #454a59; font-size: 14px; font-weight: 400;
+  --lil-text: #535865; font-size: 14px; font-weight: 400;
 
   --p-text: #aeaeae;
 
@@ -1002,11 +1002,15 @@ right: unset;
   background-color: #d1d3d500;
   padding: 6px;
   border-radius: 6px;
-  width: 98%;
+  width: 99.5%;
 
   color: var(--lil-text);
-
 }
+.filter-items:hover{
+  border: 1px solid var(--mm-border);
+  cursor: pointer;
+}
+
 .reset-btn{
   background: none;
   border: none;
@@ -1035,28 +1039,24 @@ right: unset;
 }
 
 .mi-search{
-  opacity: 1;
   width: 100%;
   padding:13px; 
   margin-bottom: 6px;  
-  border-radius: 10px; 
-  font-size: var(--lil-text);
+  border-radius: 8px;
   padding-left: 38px; 
   background: #ffffff00;
-  border: solid 1px var(--mm-border);
+  border: solid 1px var(--border-2);
 }
 
 .mi-search:hover{
   outline: none;
-  opacity: 1;
-  padding:12px; 
-  border:2px solid var(--link-2);
-  background: #b6f4da16;
+  padding:13px; 
+  border:1px solid var(--mm-border);
+  background: #fff;
   padding-left: 14px; 
 }
 .mi-search:focus{
   outline: none;
-  opacity: 1;
   padding:12px; 
   border: 2px solid var(--link-2);
   background:#b2ffde30;
@@ -1067,7 +1067,7 @@ right: unset;
 .mm-search-icon{
   position: absolute;
   left: 34px; 
-  top: 30.5px; 
+  top: 30px; 
   pointer-events: none; 
   color: #757575; /* A muted color for the icon */
   width: 18px;
