@@ -131,7 +131,7 @@ display: none;
   gap: 6px;
   color: var(--lil-text);
   font-size: 14px;
-  transition: ease-in-out 0.06s;
+  transition: ease-in-out 0.15s;
 
   margin: 0;
 }
@@ -686,7 +686,7 @@ margin-top: auto;
   font-size: 20px;
   color: var(--big-2);
   margin: 6px 0px 4px 0px;
-  font-weight: 540;
+  font-weight: 500;
 
 }
 
@@ -748,12 +748,12 @@ margin-top: auto;
   align-items: center;
   color: var(--big-2);
   font-size: 46px;
-  font-weight: 600;
+  font-weight: 500;
   background-color: none;
   margin-top: -8px;
 }
 .pathway{
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.3px;
   font-size: 14px;
   margin-top: 4px;
@@ -865,10 +865,6 @@ html, body { overflow-x: hidden;}
 
 
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 .mi-list {
   border: solid 0px var(--mm-border);
   list-style: none;
@@ -893,7 +889,6 @@ html, body { overflow-x: hidden;}
   border-bottom: 1px solid #8585851f;
 
  transition: ease-in-out 0.2s;
-
 }
 
 .mi-list button:hover {
@@ -1004,6 +999,8 @@ right: unset;
   width: 100%;
 
   color: var(--lil-text);
+    transition: ease-in-out 0.1s;
+
 }
 .filter-items:hover{
   border: 1px solid var(--mm-border);
