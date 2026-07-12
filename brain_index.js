@@ -568,7 +568,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   
 (function buildIndex(){
   const UL = document.getElementById('mi-list');
-  const Q  = document.getElementById('mi-search');
+  const Q  = document.getElementById('searchbar');
   const SELECT = document.getElementById('mobile-region-select'); 
   
 
@@ -653,7 +653,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
   try { const saved = localStorage.getItem('mm.panel.width'); if (saved) root.style.setProperty('--panel-w', saved); } catch {}
 
   function applyFilters() {
-      const searchBox = document.getElementById('mi-search');
+      const searchBox = document.getElementById('searchbar');
       const groupBox = document.getElementById('group-filter');
       const funcBox = document.getElementById('function-filter');
 
@@ -690,7 +690,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
       window.dispatchEvent(filterEvent);
   }
 
-  const searchEl = document.getElementById('mi-search');
+  const searchEl = document.getElementById('searchbar');
   if (searchEl) searchEl.addEventListener('input', applyFilters);
 
   const groupEl = document.getElementById('group-filter');

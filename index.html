@@ -3,21 +3,27 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>WWU Neuroanatomy demo</title>
   <link rel="icon" type="image/x-icon" href="BRAIN_2.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="Interactive 3D Model of the Human Brain">
-  <meta property="og:description" content="Interactive 3D Model of the Human Brain">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="/og-image.png">
 
-  <!-- Theme Stylesheets -->
+  <title>Neuroanatomy 3D Model</title>
+  <meta name="description" content="Learn neuroanatomy with an interactive 3D model. Created by Connor Mausolf at Western Washington University.">
+
+
+  <meta property="og:title" content="WesternAnatomy Brain Model">
+  <meta property="og:description" content="Learn neuroanatomy with an interactive 3D model. Created by Connor Mausolf at Western Washington University."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://westernanatomy.com/">
+  <meta property="og:image" content="og_image.png" src="og_image.png">
+
+
   <link rel="stylesheet" href="lightV10.css">
 
-<script src="brain_index.js" defer></script>
-<script type="module" src="brain_script.js"></script>
+  <script src="brain_index.js" defer></script>
+  <script type="module" src="brain_script.js"></script>
 
-
+</head>
 
 <body>
 
@@ -59,7 +65,7 @@
   <div class="layout-wrapper">
 
       <div class="mobile-select-container">
-    <select id="mobile-region-select" class="mi-search" aria-label="Select Brain Region">
+    <select id="mobile-region-select" class="searchbar" aria-label="Select Brain Region">
       <option value="" disabled selected>Select a region...</option>
     </select>
   </div>
@@ -119,7 +125,7 @@
     <svg class="mm-search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-      <input id="mi-search" class="mi-search" placeholder="⌘ K to Search Index..." aria-label="Search">
+      <input id="searchbar" class="searchbar" placeholder="⌘ K to Search Index..." aria-label="Search">
 
   </div>
 
