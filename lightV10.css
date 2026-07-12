@@ -2,7 +2,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root{
-  --navbar-h: 48px;
+  --navbar-h: 46px;
   --main-color: #ffffff;
   --color3: #ffffffbf;
   
@@ -274,7 +274,7 @@ display: none;
   min-width: 0;
   display:flex; 
   flex-direction:column; 
-  margin-top: 18px;
+  margin-top: 14px;
   margin-left: 2vw;
 
      border: none;
@@ -721,7 +721,7 @@ margin-top: auto;
   position: relative;
   padding: 22px;
   margin-right: 2vw;
-  margin-top: 18px;
+  margin-top: 14px;
   height: calc(var(--main-height) - 2rem); 
 
 
@@ -734,8 +734,6 @@ margin-top: auto;
 .panel-content {
   overflow-y: auto;
   flex-grow: 1;
-  margin-top: 2px;
-  
 }
 
 .info-grid {
@@ -978,7 +976,7 @@ right: unset;
   align-items: center; 
   justify-content: center;
   align-content: center;
-  padding: 18px 20px 16px 20px;
+  padding: 14px 20px 14px 20px;
   box-shadow: 1px 1px 8px 1px #38383800; 
 
 }
@@ -1075,7 +1073,7 @@ right: unset;
 .mm-search-icon{
   position: absolute;
   left: 34px; 
-  top: 115px; 
+  top: 110.5px; 
   pointer-events: none; 
   color: #757575; /* A muted color for the icon */
   width: 18px;
