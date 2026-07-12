@@ -1429,13 +1429,21 @@ right: unset;
   }
   .index-tog .mobile{
     position: absolute;
-    left: 20px;
+    margin: auto;
+    top: -11px;
     width: auto;
-    height: 34px;
+    height: 24px;
     display: block;
   }
     .index-tog .desktop{
     display: none;
+  }
+
+  .link2{
+    display: none;
+  }
+  .navbar{
+    justify-content: center;
   }
 
   .panel-section{
