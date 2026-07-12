@@ -11,8 +11,7 @@
 
 
   <meta property="og:title" content="WesternAnatomy Brain Model">
-  <meta property="og:description" content="Learn neuroanatomy with an interactive 3D model. Created by Connor Mausolf at Western Washington University."
-  >
+  <meta property="og:description" content="Learn neuroanatomy with an interactive 3D model. Created by Connor Mausolf at Western Washington University.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://westernanatomy.com/">
   <meta property="og:image" content="og_image.png" src="og_image.png">
@@ -51,10 +50,12 @@
        <div class="link2">
        <a class="link" 
        href="https://account.venmo.com/u/connormaus">Make a Donation
+           <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="currentColor"><path d="M204-129q-30.94 0-52.97-22.03Q129-173.06 129-204v-552q0-30.94 22.03-52.97Q173.06-831 204-831h273v75H204v552h552v-273h75v273q0 30.94-22.03 52.97Q786.94-129 756-129H204Zm185.5-208L337-389.5 703.5-756H552v-75h279v279h-75v-151.5L389.5-337Z"/></svg>
        </a>
 
        <a class="link" 
        href="https://www.wwu.edu/"> Western Washington University
+        <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="currentColor"><path d="M204-129q-30.94 0-52.97-22.03Q129-173.06 129-204v-552q0-30.94 22.03-52.97Q173.06-831 204-831h273v75H204v552h552v-273h75v273q0 30.94-22.03 52.97Q786.94-129 756-129H204Zm185.5-208L337-389.5 703.5-756H552v-75h279v279h-75v-151.5L389.5-337Z"/></svg>
        </a>
        </div>
 
@@ -122,12 +123,17 @@
     </div>
 
 
-    <svg class="mm-search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-      <input id="searchbar" class="searchbar" placeholder="⌘ K to Search Index..." aria-label="Search">
 
-  </div>
+    <div class="searchbar">
+       <div class="search-btn">
+          <svg class="magnifying-glass"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+       </div>
+
+          <input id="searchbar" class="searchinput" placeholder="Press  /  for searchbar..." aria-label="Search">
+       </div>
+    </div>
 
 
       <aside id="index" class="index">
@@ -268,11 +274,11 @@
 <aside id="panel" class="panel" aria-label="Region Info">
 
       <div>
+
+      <div class="pathway" id="rel-pathway">
+      </div>
       <div class="panel-header"  id="brainName">
         Select Region 
-      </div>
-
-            <div class="pathway" id="rel-pathway">
       </div>
 
     <div class="panel-content">

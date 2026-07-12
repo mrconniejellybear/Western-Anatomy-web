@@ -6,7 +6,7 @@
   --main-color: #ffffff;
   --color3: #ffffffbf;
   
-  --mm-border: #c0c8cd;
+  --border-1: #c0c8cd;
 
   --hoverlay: #3333333b;
   --hoverlay-2: #3232328f;
@@ -21,10 +21,10 @@
   --p-text: #aeaeae;
 
   --big-2: #ffffff;
-  --border-2: #8c97aa3e;
+  --border-2: #d0d5d8;
 
   --link-text: #25b43d;
-  --link-2: #05805c;
+  --link-2: #008cff;
   --link-sel: #008cff;
 
 
@@ -68,7 +68,7 @@ a:hover{
   height: 40px;
   z-index: 1300;
   display: flex; align-items: center;
-  border-bottom: 1px solid var(--mm-border);
+  border-bottom: 1px solid var(--border-1);
   justify-content: center;
 
   display: flex; align-items: center; gap: 8px;
@@ -88,8 +88,10 @@ a:hover{
   gap: 3rem;
   padding-left: 150px;
 
+  background-color: #e9eaeb32;
 
-  border-bottom: 1px solid var(--mm-border);
+
+  border-bottom: 1px solid var(--border-1);
   box-shadow: 1px 1px 10px 1px #2f2f2f00; 
 
 
@@ -128,6 +130,7 @@ display: none;
   text-decoration: none; 
   display: flex;
   align-items: center;
+  gap: 6px;
   color: var(--lil-text);
   font-size: 14px;
   transition: ease-in-out 0.15s;
@@ -186,7 +189,7 @@ display: none;
   left: 50%;
   transform: translateX(-26%); /* Centers the menu under the button */
   
-  border: 1px solid var(--mm-border);
+  border: 1px solid var(--border-1);
   border-radius: 0px 0px 12px 12px;
   box-shadow: 0px 8px 24px #00000000;
   
@@ -213,12 +216,12 @@ display: none;
 }
 
 /* Separator */
-.mm-sep1{ height:1px; background: var(--mm-border);   max-width: 100%; margin: 1rem 0rem; }
+.mm-sep1{ height:1px; background: var(--border-1);   max-width: 100%; margin: 1rem 0rem; }
 
-.mm-sep2{ height:1px; background:var(--mm-border);}
-.mm-sep3{ flex: 0 0 1px; height: 26px; align-self: center;  color:var(--mm-border);}
-.mm-sep5{ height:0px; background:var(--mm-border); margin-bottom: 10px;}
-.mm-sep7{ height: var(--main-height); width: 0px; background-color: var(--mm-border);}
+.mm-sep2{ height:1px; background:var(--border-1);}
+.mm-sep3{ flex: 0 0 1px; height: 26px; align-self: center;  color:var(--border-1);}
+.mm-sep5{ height:0px; background:var(--border-1); margin-bottom: 10px;}
+.mm-sep7{ height: var(--main-height); width: 0px; background-color: var(--border-1);}
 
 
 /* Hover tooltip */
@@ -347,7 +350,7 @@ display: none;
     background-color: #000000;
     background-position: center;
     background-size: 1400px;
-     border-radius: 14px 0px 0px 14px;
+     border-radius: 14px;
     
   display: flex; 
   align-items: center; 
@@ -655,7 +658,7 @@ margin-top: auto;
   width: 24px;              /* The little guy is finally bigger */
   height: 14px;
   border-radius:99px;
-  border: 1px solid var(--mm-border);
+  border: 1px solid var(--border-1);
   background: #ffffff;
   cursor: grab;
   margin-top: -5px;         /* Keeps him centered on the 2px track */
@@ -684,18 +687,15 @@ margin-top: auto;
 
 
 
-.panel-content p{
-  margin-left: 0;
-  font-weight: var(--lil-text);
-}
-.panel-section p{ line-height:20px; color: var(--p-text);
+.panel-section p{ line-height:20px; color: var(--lil-text);
+  font-size: 14px
   ;}
 
 
 .section-label {
   align-items: center;         
-  font-size: 16px;
-  color: var(--big-2);
+  font-size: 19px;
+  color: var(--big-text);
   margin: 6px 0px 4px 0px;
   font-weight: 600;
 
@@ -716,18 +716,16 @@ margin-top: auto;
   height: auto;
   width: 29vw;
   flex-shrink: 0;
-  border-radius: 0px 14px 14px 0px;
+  border-radius: 14px;
   pointer-events: auto;
   position: relative;
-  padding: 22px 16px;
+  padding: 12px 16px;
   margin-right: 2vw;
+  margin-left: 1rem;
   margin-top: 14px;
   height: calc(var(--main-height) - 2rem); 
 
-
-
-  border: 1px  solid #51515122;
-  background-color: #000000f2;
+  border: 1px  solid var(--border-2);
   backdrop-filter: blur(50px);
 }
 
@@ -755,19 +753,22 @@ margin-top: auto;
   display: flex;
   justify-content: space-between; /* Pushes text left and button right */
   align-items: center;
-  color: var(--big-2);
+  color: var(--big-text);
   font-size: 40px;
   font-weight: 600;
   background-color: none;
-  margin-top: -8px;
 }
 .pathway{
   font-weight: 500;
-  letter-spacing: 0.3px;
-  font-size: 14px;
-  margin-top: 4px;
+  letter-spacing: 0.4px;
+  font-size: 13px;
+  margin-bottom: 2px;
   font-style: italic;
-  color: #676767;
+  color: #717171;
+}
+.pathway:hover{
+  color: #0084ff;
+  cursor: pointer;
 }
 
   .header-contents{
@@ -784,13 +785,13 @@ html, body { overflow-x: hidden;}
   align-items: center;
   width: auto;
   height: var(--main-height);
-  border-right: 1px solid var(--mm-border);
+  border-right: 1px solid var(--border-1);
   border-radius: var(--radius);
-  box-shadow: 1px 1px 8px 1px #2d2d2d00; 
+  background-color: #fff;
 
 
   transition: width 0.3s ease, min-width 0.3s ease;
-  width: 20vw;
+  width: 19vw;
   overflow: hidden;
 }
 .left-hand.collapsed {
@@ -817,7 +818,7 @@ html, body { overflow-x: hidden;}
   pointer-events: none; /* Prevents clicking invisible elements */
 }
 
-/* Center the magnifying glass when collapsed */
+/* Center the  when collapsed */
 
 
 .center-btn{
@@ -861,21 +862,21 @@ html, body { overflow-x: hidden;}
 
 .index{
   width: var(--mm-index-w);
-  height : calc(var(--main-height) - 170px);
+  height : calc(var(--main-height) - 150px);
   overflow-y: auto;
     color: var(--lil-text);
 
-      padding-left: 12px;
+      padding-left: 20px;
       padding-right: 12px;
       padding-top: 2px;
-      border-top: 1px solid var(--mm-border);
+      border-top: 1px solid var(--border-1);
 }
 
 
 
 
 .mi-list {
-  border: solid 0px var(--mm-border);
+  border: solid 0px var(--border-1);
   list-style: none;
   margin-top: 4px;
 }
@@ -886,8 +887,8 @@ html, body { overflow-x: hidden;}
 .mi-list button {
   all: unset;
   box-sizing: border-box;
-  height: 34px;
-  padding-left: 12px;
+  height: 32px;
+  padding-left: 10px;
   width: 100%;
   font-weight: var(--lil-text);
   font-size: var(--lil-text);
@@ -906,12 +907,14 @@ html, body { overflow-x: hidden;}
     text-decoration: underline;
 }
 .mi-list button.is-active {
-  color: #e0f8c6;
-  background-color: var(--link-2);
+  color: var(--link-2);
+  background-color: #efefef74;
     border-radius: 4px;
+
+    border-left: 3px solid var(--link-2);
 }
 
-.searchbar:focus-within .mm-search-icon{ opacity:1;}
+.searchbar:focus-within { opacity:1;}
 
 
 .hover-tog{
@@ -920,7 +923,7 @@ right: unset;
 }
 
 .bottom-index{
-  border-top: 1px solid var(--mm-border);
+  border-top: 1px solid var(--border-1);
   padding: 12px;  
   display: flexbox;
   flex-direction: column;
@@ -937,6 +940,7 @@ right: unset;
   left: 10px;
   background: none;
 
+  display: none;
 
   color:#ffffff71;
   font-weight: var(--lil-text);
@@ -980,13 +984,9 @@ right: unset;
   box-shadow: 1px 1px 8px 1px #38383800; 
 
 }
-.searchy:focus-within .mm-search-icon { 
-  padding-left: 50px; 
-}
-.searchbar:focus .mm-search-icon { 
-  padding-left: 50px; 
-  transition: 0.2s ease-in-out;
-}
+
+
+
 
 .item-sec{
   display: flex;
@@ -996,23 +996,22 @@ right: unset;
   margin-bottom: 8px;
   gap: 10px;
 
-  color: var(--lil-text);
 }
 
 .filter-items{
   border: 1px solid var(--border-2);
-  font-size: 14px;
+  font-size: 13px;
   background-color: #d1d3d500;
-  padding: 6px;
+  padding: 3px;
   border-radius: 6px;
   width: 100%;
 
-  color: var(--lil-text);
+  color: #747474;
     transition: ease-in-out 0.1s;
 
 }
 .filter-items:hover{
-  border: 1px solid var(--mm-border);
+  border: 1px solid var(--border-1);
   cursor: pointer;
 }
 
@@ -1044,45 +1043,61 @@ right: unset;
 }
 
 
-.mm-search-icon{
-  position: absolute;
-  left: 34px; 
-  top: 110.5px; 
+.search-btn{
+  border-right: 1px solid var(--border-2);
+  z-index: 30000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+
+  background-color: #f8f8f8;
+  border-radius: 7px 0px 0px 7px;
+}
+
+.magnifying-glass{
   pointer-events: none; 
-  color: #8b8b8b; 
+  color: #808080; 
   width: 18px;
   height: 18px;
 }
+
 .searchbar{
   width: 100%;
-  padding:13px; 
   margin-top: 6px;  
   border-radius: 8px;
-  padding-left: 38px; 
   border: solid 1px var(--border-2);
+  display: flex;
+  flex-direction: row;
 }
-.searchbar::placeholder{
-  color: #8b8b8b;
+.searchinput::placeholder{
+  color: #969696;
   font-style: italic;
 }
-
 .searchbar:hover{
-  outline: none;
-  padding:13px; 
-  border:1px solid var(--mm-border);
-  background: #fff;
-  padding-left: 14px; 
+  border:1px solid var(--link-2);
 }
-.searchbar:focus{
-  outline: none;
-  padding:12px; 
-  border: 2px solid var(--link-2);
-  background:#b2ffd615;
-  padding-left: 14px; 
-
-  transition: ease-in-out 0.1s;
+.searchbar:hover .search-btn{
+  border-right:1px solid var(--border-1);
+}
+.searchbar:hover .magnifying-glass{
+  color: var(--link-2); 
 }
 
+.searchinput{
+  border: none;
+  border-radius: 0px 8px 8px 0px;
+  padding: 12px;
+  width: 100%;
+  background-color: none;
+  color: none;
+}
+.searchinput:focus{
+  outline: none;
+  padding: 12px;
+  background-color: none;
+  color: none;
+}
 
 
 .logo-main{
@@ -1098,8 +1113,8 @@ right: unset;
   gap: 3rem;
   padding: 3rem 6rem 2rem 6rem;
   background-color: var(--color3);
-  border-top: 1px solid var(--mm-border);
-  border-bottom: 14px solid var(--mm-border);
+  border-top: 1px solid var(--border-1);
+  border-bottom: 14px solid var(--border-1);
   margin: 0 auto;
   align-items: flex-start;
 }
@@ -1175,7 +1190,7 @@ right: unset;
 /* --- Divider --- */
 .footer-divider {
   border: none;
-  border-top: 1px solid var(--mm-border); /* Matches your --mm-border */
+  border-top: 1px solid var(--border-1); /* Matches your --border-1 */
   margin: 10px 0 14px 0px;
 }
 
@@ -1289,6 +1304,9 @@ right: unset;
 .references p{
   margin-bottom: 10px;
   line-height: 1.5;
+  align-items: center;
+  display: flex;
+
 }
 
 .references li{
@@ -1303,6 +1321,7 @@ right: unset;
 .references a:hover{
   color: var(--link-sel);
   text-decoration: underline;
+  align-items: center;
 }
 .references h3{
   font-size: 15px;
@@ -1367,7 +1386,7 @@ right: unset;
 
 
 .soapbox{
-  border-top: 1px solid var(--mm-border);
+  border-top: 1px solid var(--border-1);
   background-color: var(--color3);
   padding: 2rem 12rem;
 }
@@ -1386,7 +1405,7 @@ right: unset;
 .banner img{
   min-width:100vw;
   height: auto;
-  border-bottom: 1px solid var(--mm-border);
+  border-bottom: 1px solid var(--border-1);
 }
 
 
