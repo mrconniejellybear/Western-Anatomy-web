@@ -86,7 +86,7 @@ a:hover{
   align-items: center;
   justify-content: variable;
   gap: 3rem;
-  padding-left: 150px;
+  padding-left: 80px;
 
   background-color: #e9eaeb32;
 
@@ -117,7 +117,10 @@ a:hover{
   transition: color 0.15s ease;
 
   position: absolute;
-  left: 40px;
+  left: 20px;
+}
+.index-tog:hover{
+  color: #828282;
 }
 
 .index-tog .mobile{
@@ -757,6 +760,7 @@ margin-top: auto;
   font-size: 40px;
   font-weight: 600;
   background-color: none;
+  background-color: #f8f8f8;
 }
 .pathway{
   font-weight: 500;
@@ -765,6 +769,8 @@ margin-top: auto;
   margin-bottom: 2px;
   font-style: italic;
   color: #717171;
+    background-color: #f8f8f8;
+
 }
 .pathway:hover{
   color: #0084ff;
