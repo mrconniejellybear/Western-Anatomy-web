@@ -159,41 +159,8 @@ display: none;
   text-decoration: underline;
 }
 
-
-
-/* --- Navbar Dropdowns --- */
-.nav-dropdown-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  z-index: 5000;
-  height: 100%; /* Ensures hover area covers the full navbar height */
-}
-
-
-
-/* The Dropdown Menu Box */
-.nav-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-26%); /* Centers the menu under the button */
-  
-  border: 1px solid var(--border-1);
-  border-radius: 0px 0px 12px 12px;
-  box-shadow: 0px 8px 24px #00000000;
-  
-  list-style: none;
-  padding: 6px 0;
-  min-width: 180px;
-  
-  
-  display: none; /* Hidden until hovered */
-  flex-direction: column;
-  z-index: 5000;
-}
 #current-view-label{
-  font-size: 15px;
+  font-size: 14px;
 }
 
 /* Main content area */
@@ -278,41 +245,23 @@ display: none;
   /* Container holds everything together */
 .view-dropdown-container {
   position: absolute;
-  top: 10px;
-  left: 8px;
+  top: 14px;
+  left: 12px;
   pointer-events: auto; /* Ensure clicks register */
   z-index: 20; 
+  background-color: #0f0f0fb7;
+  border-radius: 40px;
+  color: white;
+  padding: 10px 20px;
 }
 
 /* The Trigger Button */
 .view-dropdown-trigger {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  background: none;  
-  border-radius: 50px;
-  border: none;
-  color: white;
-  font-family: inherit;
-  font-size: 16px;
-  transition: background 0.1s ease;
+  gap: 10px;
 }
 
-/* The Menu Itself */
-.view-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 8px;
-  background: none;
-  border-radius: 12px;
-  list-style: none;
-  padding: 4px 0;
-  min-width: 160px;
-  display: none; /* Hidden by default */
-  flex-direction: column;
-}
 
 
 
@@ -552,36 +501,27 @@ color: rgb(255, 119, 0) !important;
 
 /* --- Rotation Slider --- */
 .rotation-controls {
-  bottom: 14px;     
-  left: 70px;   /* Anchors to the left side of the safe zone */
-  right: 70px;
-  padding: 8px 22px;
+  bottom: 0px;     
+  padding: 10px 30px;
   display: flex;
   justify-content: center;
-  width: inherit;
+  width: 100%;
 
-  background-color: var(--hoverlay);
-  border: 1px  solid #3f3f3f25;
-  backdrop-filter: blur(8px);
-  border-radius: 40px;
+
+  background-color: none;
+  border: 1px  solid var(--border-1);
+  border-radius: 0px 0px 14px 14px;
 
   gap: 16px;
   align-items: center;
+  background-color: #f8f8f8;
 
   position: absolute;
 }
 .rotation-controls .upper-button{
-  color: #ffffff40;
+  color: var(--big-text);
 }
-.rotation-controls:hover{
-  background-color: var(--hoverlay-2);
-}
-.rotation-controls:hover .upper-button{
-  color: #ffffffda;
-}
-.rotation-controls:hover .upper-button:hover{
-  color: #fff;
-}
+
 
 
 .control-toggle{
@@ -636,7 +576,7 @@ margin-top: auto;
 #rotation-slider::-webkit-slider-runnable-track {
   width: 100%;
   height: 6px;
-  background: #fafafa3a; /* Your track color */
+  background: #cbcbcbaa; /* Your track color */
   border-radius: 3px;
   border: 0.5px solid #aeaeae89;
 
@@ -1527,10 +1467,7 @@ right: unset;
     transform: scale(0.85);
     transform-origin: top right;
   }
-  .rotation-controls {
-    bottom: 10px; left: 5%; right: 5%;
-    width: 90%;
-    transform: scale(0.9);}
+
 
   /* Move info panel directly below the viewer */
   .panel {
