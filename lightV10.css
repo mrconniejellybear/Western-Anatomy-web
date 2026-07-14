@@ -16,7 +16,7 @@
   --main-height: calc(100vh - var(--navbar-h) - 10px);
 
   --big-text: #2b3249;
-  --lil-text: #525660; font-size: 14px; font-weight: 360;
+  --lil-text: #46484f; font-size: 14px; font-weight: 360;
 
   --p-text: #aeaeae;
 
@@ -1153,7 +1153,7 @@ right: unset;
   text-decoration: none;
   color: #1a1a1a;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .footer-links a:hover {
@@ -1194,7 +1194,7 @@ right: unset;
 
 /* --- Bottom Row (Credits Text) --- */
 .footer-credits-text {
-  font-size: 14px;
+  font-size: 13px;
   color: #333333;
   line-height: 1;
   text-align: left;
@@ -1336,13 +1336,15 @@ right: unset;
   align-items: center;
   align-self: center;
 
-  background-color: var(--link-2);
-  padding: 14px 22px;
-  font-size: 24px;
-  border-radius: 14px;
-  border: 1px solid #0ea08ac5;
+  font-family: 'Google Sans';
 
-  margin-top: 10px;
+  background-color: #185281;
+  padding: 14px 22px;
+  font-size: 20px;
+  border-radius: 14px;
+  border: none;
+
+  margin: 30px 0px;
 
   transition: ease-in-out 0.15s;
 }
@@ -1352,13 +1354,13 @@ right: unset;
   font-weight: 700;
 }
 .model-button:hover{
-  background-color: #089d7f;
+  background-color: #1e6cac;
   cursor: pointer;
 }
 
 .setup{
  padding: 24px 14vw;
- font-size: 17px;
+ font-size: 15px;
 
  display: flex;
  flex-direction: column;
@@ -1367,38 +1369,24 @@ right: unset;
 .setup h2{
   display: flex;
   align-items: center;
-  color: #171717;
-  font-size: 34px;
+  font-size: 32px;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
+
+  color: var(--big-text);
 }
 
 .setup p{
-  color: #141414;
+  color: var(--lil-text);
   margin-bottom: 1rem;
    line-height: 1.6rem;
    font-weight: 340;
     position: relative;
     text-align: center;
 }
-
-
-.soapbox{
-  border-top: 1px solid var(--border-1);
-  background-color: var(--color3);
-  padding: 2rem 12rem;
-}
-.soapbox h1{
-  color: #414552;
-  margin-bottom: 0.5rem;
-}
-.soapbox p{
-  color: #22252b;
-  font-size: 16px;
-  line-height: 1.7rem;
-}
-.soapbox a{
+.setup p a{
   color: var(--link-2);
+  text-decoration: none;
 }
 .banner img{
   min-width:100vw;
