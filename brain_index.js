@@ -506,7 +506,7 @@ window.BRAIN_INFO = window.BRAIN_INFO || {
       if (info.img){ img.src = info.img; img.alt = `${info.title} illustration`; img.style.display='block'; }
       else { img.removeAttribute('src'); img.alt=''; img.style.display='none'; }
     }
-    const desc = $('info-desc'); if (desc) desc.textContent = info.description || 'This is a demo of WesternAnatomy that I have distrubuted to test for feedback. Given that I am developing this site independently, providing accurate descriptions for every structure will take time. Please bare with me, and expect new information to populate in the coming months I collect high-quality sources, to ensure the content is not only free, but also reliable. The site will be completely finished in the fall of 2026, so check back then!';
+    const desc = $('info-desc'); if (desc) desc.textContent = info.description || 'You are currently viewing a demo of the final site that I have shared for test feedback. I am developing this project independently, so providing accurate descriptions for every structure will take time. Please bare with me, and expect new entries to appear in the coming months. The site will be completely finished in the fall of 2026, so check back then!';
     
     const conct = $('info-conct'); if (conct) conct.textContent = info.connections || '';
     const head = $('info-head'); if (head) head.textContent = info.location || '';

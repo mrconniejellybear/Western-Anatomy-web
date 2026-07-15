@@ -4,7 +4,7 @@
 :root{
   --navbar-h: 46px;
   --main-color: #ffffff;
-  --color3: #ffffffbf;
+  --color3: #f3f3f3;
   
   --border-1: #b9c1c6;
 
@@ -16,7 +16,7 @@
   --main-height: calc(100vh - var(--navbar-h) - 10px);
 
   --big-text: #2b3249;
-  --lil-text: #46484f; font-size: 14px; font-weight: 360;
+  --lil-text: #484a52; font-size: 14px; font-weight: 360;
 
   --p-text: #aeaeae;
 
@@ -24,7 +24,7 @@
   --border-2: #dde1e4;
 
   --link-text: #25b43d;
-  --link-2: #168c67;
+  --link-2: #12966d;
   --link-sel: #008cff;
 
 
@@ -83,7 +83,7 @@ a:hover{
   gap: 3rem;
   padding-left: 80px;
 
-  background-color: #e9eaeb32;
+  background-color: #fafafa;
 
 
   border-bottom: 1px solid var(--border-1);
@@ -492,10 +492,10 @@ color: rgb(255, 119, 0) !important;
 }
 
 .mm-sep4 {   
-  height: 26px;
+  height: 24px;
   width: 2px;
 
-  background: #dcdcdc2a;
+  background:var(--border-2);
 }
 
 
@@ -514,7 +514,7 @@ color: rgb(255, 119, 0) !important;
 
   gap: 16px;
   align-items: center;
-  background-color: #f8f8f8;
+  background-color: var(--color3);
 
   position: absolute;
 }
@@ -828,18 +828,19 @@ html, body { overflow-x: hidden;}
   align-items: center;
   opacity: 1;
   border-bottom: 1px solid #8585851f;
-
- transition: ease-in-out 0.2s;
 }
 
 .mi-list button:hover {
   color: var(--link-2);
-    text-decoration: underline;
+  text-decoration: underline;
+  border-left: 2px solid var(--link-2);
 }
 .mi-list button.is-active {
   color: var(--link-2);
-  background-color: #d4f3d44d;
-    border-left: 2px solid var(--link-2);
+  background-color: #d3f1d03a;
+  border-left: 3px solid var(--link-2);
+  font-weight: 800;
+  pointer-events: none;
 }
 
 .searchbar:focus-within { opacity:1;}
@@ -868,7 +869,7 @@ right: unset;
   left: 10px;
   background: none;
 
-  display: none;
+  display: flex;
 
   color:#ffffff71;
   font-weight: var(--lil-text);
@@ -942,6 +943,10 @@ right: unset;
     outline: none;
 }
 
+.filter-items:hover{
+  border-color: var(--link-2);
+}
+
 
 .reset-btn{
   background: none;
@@ -949,18 +954,18 @@ right: unset;
   position: absolute;
   color: #777777; 
 
-  background-color: #f8f8f8;
+  background-color: var(--color3);
   border: 1px solid var(--border-1);
+  border-right: 0px;
   border-radius: 6px 0px 0px 6px;
   height: 25px;
-  width: 25px;
+  width: 24px;
 
   cursor: pointer;
 }
 .reset-btn:hover{
   color: var(--link-2);
   cursor: pointer;
-  border: 1px solid var(--link-2);
 }
 
 .isolation-status-row{
@@ -984,7 +989,7 @@ right: unset;
   align-items: center;
   width: 50px;
 
-  background-color: #f8f8f8;
+  background-color: var(--color3);
   border-radius: 7px 0px 0px 7px;
 }
 
