@@ -3,17 +3,17 @@
 
 :root{
   --navbar-h: 46px;
-  --main-color: #ffffff;
-  --color3: #f3f3f3;
+  --main-color: #ecebf1ec;
+  --color3: #efeff0d4;
   
-  --border-1: #b9c1c6;
+  --border-1: #afb7bd;
 
   --hoverlay: #3333333b;
   --hoverlay-2: #3232328f;
 
   --radius: 0px;
 
-  --main-height: calc(100vh - var(--navbar-h) - 10px);
+  --main-height: calc(100vh - var(--navbar-h));
 
   --big-text: #2b3249;
   --lil-text: #484a52; font-size: 14px; font-weight: 360;
@@ -21,10 +21,11 @@
   --p-text: #aeaeae;
 
   --big-2: #ffffff;
-  --border-2: #dde1e4;
+  --border-2: #b9c1c752;
 
   --link-text: #25b43d;
-  --link-2: #12966d;
+  --link-2: #0079e3;
+  --link-hover: #afd3ec3a;
   --link-sel: #008cff;
 
 
@@ -502,20 +503,18 @@ color: rgb(255, 119, 0) !important;
 /* --- Rotation Slider --- */
 .rotation-controls {
   bottom: 0px;     
-  padding: 10px 30px;
+  padding: 14px 22px;
   display: flex;
   justify-content: center;
   width: 100%;
 
 
-  background-color: none;
+  background-color: #fff;
   border: 1px  solid var(--border-1);
   border-radius: 0px 0px 14px 14px;
 
   gap: 16px;
   align-items: center;
-  background-color: var(--color3);
-
   position: absolute;
 }
 .rotation-controls .upper-button{
@@ -658,6 +657,8 @@ margin-top: auto;
 
   border: 1px  solid var(--border-1);
   backdrop-filter: blur(50px);
+
+  background-color: #fff;
 }
 
 .panel-content {
@@ -693,14 +694,11 @@ margin-top: auto;
   text-decoration: underline;
 }
 .pathway{
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.4px;
   font-size: 12px;
   font-style: italic;
-  color: #6d6d6d;
-}
-.pathway:hover{
-  color: #494949;
+  color: #5a5a5a;
 }
 
   .header-contents{
@@ -794,7 +792,7 @@ html, body { overflow-x: hidden;}
 
 .index{
   width: var(--mm-index-w);
-  height : calc(var(--main-height) - 150px);
+  height : calc(var(--main-height) - 170px);
   overflow-y: auto;
     color: var(--lil-text);
 
@@ -837,7 +835,7 @@ html, body { overflow-x: hidden;}
 }
 .mi-list button.is-active {
   color: var(--link-2);
-  background-color: #d3f1d03a;
+  background-color: var(--link-hover);
   border-left: 3px solid var(--link-2);
   font-weight: 800;
   pointer-events: none;
@@ -912,6 +910,7 @@ right: unset;
   padding: 14px 20px 14px 20px;
   box-shadow: 1px 1px 8px 1px #38383800; 
 
+  background-color: #e4e4e42d;
 }
 
 
@@ -941,6 +940,7 @@ right: unset;
     transition: ease-in-out 0.1s;
     cursor: pointer;
     outline: none;
+    background-color: #ffffff;
 }
 
 .filter-items:hover{
@@ -1028,7 +1028,7 @@ right: unset;
   border-radius: 0px 8px 8px 0px;
   padding: 12px;
   width: 100%;
-  background-color: none;
+  background-color: #fff;
   color: none;
 }
 .searchinput:focus{
