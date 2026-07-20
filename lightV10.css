@@ -2,7 +2,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root{
-  --navbar-h: 46px;
+  --navbar-h: 48px;
   --main-color: #ebeef1da;
   --color3: #eaeaea;
   
@@ -11,7 +11,7 @@
 
   --main-height: calc(100vh - var(--navbar-h));
 
-  --big-text: #2b3249;
+  --big-text: #2c344e;
   --lil-text: #484a52; font-size: 14px; font-weight: 360;
 
   --p-text: #aeaeae;
@@ -468,47 +468,12 @@ cursor: pointer;
   flex-direction: column;
   gap: 20px;
 }
-.ext_controls:hover{
-  background-color: var(--hoverlay-2);
-}
+
 .ext_controls .upper-button{
   color: #ffffff;
 }
 .ext_controls:hover .upper-button{
   color: #ffffffc6;
-}
-.ext_controls:hover .upper-button:hover{
-  color: #fff;
-}
-#isolate-btn.is-active{
-color: #0084ff !important;
-}
-#explode-btn.is-active{
-color: rgb(255, 230, 0) !important;
-}
-#track-btn.is-active{
-color: rgb(255, 119, 0) !important;
-}
-#rotation-lock-btn.is-active{
-  color: rgb(8, 177, 8) !important;
-}
-.ext_controls > * {
-  transition: width 0.35s ease, margin 0.35s ease, padding 0.35s ease, opacity 0.2s ease;
-  flex-shrink: 0; 
-}
-.ext_controls.is-collapsed {
-  border-radius: 50px !important; /* Keeps it a perfect circle */
-  gap: 0 !important; /* Removes flex gap if you are using it */
-}
-.ext_controls.is-collapsed > :not(#settings-toggle-btn) {
-  width: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  opacity: 0 !important;
-  pointer-events: none;
-  border: none !important;
 }
 
 .mm-sep4 {   
@@ -537,7 +502,7 @@ color: rgb(255, 119, 0) !important;
   position: absolute;
 }
 .rotation-controls .upper-button{
-  color: var(--big-text);
+  color: var(--lil-text);
 }
 
 
@@ -783,26 +748,25 @@ html, body { overflow-x: hidden;}
   display: flex;
   gap: 6px;
   transition: 0.1s ease;
-  font-size: var(--lil-text);
-  font-weight: var(--lil-text);
 
-  text-align: left;
-  background: var(--color-2);
-
+  font-family: 'Google Sans';
+  background: none;
   border: none;
-  color: #fff;
   border-radius: var(--radius);
+
   text-decoration: none;
+  font-size: 14px;
 }
 .upper-button:hover{
   border: none;
   cursor: pointer;
+  color: var(--link-2);
 }
 
 
 .index{
   width: var(--mm-index-w);
-  height : calc(var(--main-height) - 170px);
+  height : calc(var(--main-height) - 160px);
   overflow-y: auto;
     color: var(--lil-text);
 
@@ -854,56 +818,6 @@ html, body { overflow-x: hidden;}
 .searchbar:focus-within { opacity:1;}
 
 
-.hover-tog{
-  color: var(--lil-text);
-right: unset;
-}
-
-.bottom-index{
-  border-top: 1px solid var(--border-1);
-  padding: 12px;  
-  display: flexbox;
-  flex-direction: column;
-}
-
-.help-btn{
-  align-items: center;
-  display: flex;
-  gap: 6px;
-
-  z-index: 3000;
-  position: absolute;
-  bottom: 16px;
-  left: 10px;
-  background: none;
-
-  display: flex;
-
-  color:#ffffff71;
-  font-weight: var(--lil-text);
-
-  border: none;
-  padding: 8px;
-  text-decoration: none;
-  font-size: var(--lil-text);
-}
-.help-btn:hover{
-  background: var(--mm-highlight);
-  border: none;
-
-  color: var(--link-2);
-   text-decoration: none;
-   border-radius:30px;
-   padding: 8px;
-  cursor: pointer;
-}
-.help-btn:active{
-  background: var(--link-2);
-  border: none;
-
-  color: #fff;
-}
-
 .mm-sep10{
   height: 1px;
   margin: 6px 0px;
@@ -917,7 +831,7 @@ right: unset;
   align-items: center; 
   justify-content: center;
   align-content: center;
-  padding: 14px 20px 14px 20px;
+  padding: 6px 6px 6px 12px;
   box-shadow: 1px 1px 8px 1px #38383800; 
 
   background-color: #fafafa;
@@ -931,11 +845,12 @@ right: unset;
   flex-direction: row;
   align-items: center;
   align-self: center;
-  margin-bottom: 8px;
-  gap: 10px;
+  margin: 8px;
 
 }
-
+.filtuh{
+  gap: 10px;
+}
 .filter-items{
   border: 1px solid var(--border-1);
   font-size: 13px;
@@ -965,7 +880,6 @@ right: unset;
   color: #f0ffe7; 
 
   background-color: #1aa932;
-  border: 1px solid #1aa932;
   border-right: 0px;
   border-radius: 4px 0px 0px 4px;
   height: 26px;
@@ -974,8 +888,10 @@ right: unset;
   cursor: pointer;
 }
 .reset-btn:hover{
-  color: var(--link-2);
+  color: #f8fcf0;
+  background-color: #33b533;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .isolation-status-row{
@@ -991,6 +907,13 @@ right: unset;
 }
 
 
+
+
+.search-container{
+  background-color: #fafafa;
+  padding: 8px 14px 10px 18px;
+  border-top: 1px solid var(--border-1);
+}
 .search-btn{
   border-right: 1px solid var(--border-1);
   z-index: 30000;
@@ -1040,14 +963,14 @@ right: unset;
 .searchinput{
   border: none;
   border-radius: 0px 6px 6px 0px;
-  padding: 12px;
+  padding: 11px;
   width: 100%;
   background-color: #fff;
   color: none;
 }
 .searchinput:focus{
   outline: none;
-  padding: 12px;
+  padding: 11px;
   background-color: none;
   color: none;
 }
