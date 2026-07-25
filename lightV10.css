@@ -3,7 +3,7 @@
 
 :root{
   --navbar-h: 48px;
-  --main-color: #ebeef1da;
+  --main-color: #f1f5f8ea;
   --color3: #eaeaea;
   
   --border-1: #a7aeb4;
@@ -1283,7 +1283,7 @@ html, body { overflow-x: hidden;}
 
 
 /* --- Responsive Mobile Layout --- */
-@media (max-width: 850px) {
+@media (max-width: 700px) {
 
   .navbar{
     justify-content: left;
@@ -1375,12 +1375,12 @@ html, body { overflow-x: hidden;}
   }
 
   .rotation-controls{
-    display: none;
+    display: flex;
+    top: 10px;
+    height: 40px;
+    border-radius: none;
   }
-  .ext_controls{
-    flex-direction: column;
-    padding: 16px;
-  }
+
   .mm-sep4{
     display: none;
   }
@@ -1403,9 +1403,7 @@ html, body { overflow-x: hidden;}
 
   /* Shrink external controls so they don't overlap on small screens */
   .ext_controls {
-    top: 10px; right: 10px;
-    transform: scale(0.85);
-    transform-origin: top right;
+   display: none;
   }
 
 
