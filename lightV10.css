@@ -504,7 +504,7 @@ cursor: pointer;
   position: static; /* Removes absolute positioning */
   padding: 8px 8px 8px 10px;
   gap: 12px;
-  width: 132%;
+  width: 120%;
 }
 
 .menu-controls {
@@ -1015,8 +1015,8 @@ html, body { overflow-x: hidden;}
 }
 
 .searchbar{
-  width: 100%;
-  border-radius: 24px;
+  width: 90%;
+  border-radius: 30px;
   display: flex;
   max-height: 36px;
   flex-direction: row;
