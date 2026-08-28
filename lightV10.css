@@ -504,7 +504,7 @@ cursor: pointer;
   position: static; /* Removes absolute positioning */
   padding: 8px 8px 8px 10px;
   gap: 12px;
-  width: 120%;
+  width: 130%;
 }
 
 .menu-controls {
