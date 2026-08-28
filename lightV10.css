@@ -432,9 +432,9 @@ cursor: pointer;
 
 .mm-sep4 {   
   height: 24px;
-  width: 2px;
+  width: 3px;
 
-  background:var(--border-2);
+  background: #e3e3e3;
 }
 
 .ctrl-wrapper{
