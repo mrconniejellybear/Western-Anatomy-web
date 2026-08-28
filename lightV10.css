@@ -3,8 +3,8 @@
 
 :root{
   --navbar-h: 52px;
-  --main-color: #f5f7fac9;
-  --color3: #eaeaea;
+  --main-color: #e5e8eb;
+  --color3: #eee;
   
   --border-1: #a7aeb4;
   --border-2: #b9c1c7a0;
@@ -359,7 +359,7 @@ display: none;
 }
 .obj-orient,
 .instruction-overlay,
-.rotation-controls,
+.model-controls,
 .explode_ctrl,
 .panel {
   pointer-events: auto;
@@ -474,10 +474,10 @@ cursor: pointer;
   gap: 20px;
 }
 
-.ext_controls .upper-button{
+.ext_controls .ctrl-btn{
   color: #ffffff;
 }
-.ext_controls:hover .upper-button{
+.ext_controls:hover .ctrl-btn{
   color: #ffffffc6;
 }
 
@@ -493,21 +493,21 @@ cursor: pointer;
   justify-content: left;
 }
 /* --- Rotation Slider --- */
-.rotation-controls {
+.model-controls {
   bottom: 24px;     
   padding: 10px 16px;
   display: flex;
   justify-content: center;
-  width: 40%;
+  width: 50%;
 
-  background-color: #e1e1e1bd;
+  background-color: #fff;
   border-radius: 22px;
 
   gap: 20px;
   align-items: center;
   position: absolute;
 }
-.rotation-controls .upper-button{
+.model-controls .ctrl-btn{
   color: var(--lil-text);
 }
 
@@ -558,6 +558,7 @@ margin-top: auto;
 #rotation-slider {
   appearance: none;
   background: none;
+  display: none;
   width: 80%;     
   cursor: grab;
 
@@ -634,9 +635,9 @@ margin-top: auto;
   margin-right: 1vw;
   margin-left: 1rem;
   margin-top: 28px;
-  height: calc(var(--main-height) - 3rem); 
+  height: calc(var(--main-height) - 4rem); 
 
-  border: 1px  solid var(--border-1);
+  border: 0px  solid var(--border-1);
   backdrop-filter: blur(50px);
 
   background-color: #fff;
@@ -677,9 +678,9 @@ margin-top: auto;
 .pathway{
   font-weight: 500;
   letter-spacing: 0.4px;
-  font-size: 12px;
+  font-size: 13px;
   font-style: italic;
-  color: #5a5a5a;
+  color: #9a9c9e;
 }
 
   .header-contents{
@@ -755,13 +756,13 @@ html, body { overflow-x: hidden;}
 #rotation-lock-btn{
   display: none;
 }
-.upper-button{
+.ctrl-btn{
   align-items: center;
   display: flex;
   gap: 6px;
   transition: 0.1s ease;
 
-  background: #d1d1d1ec;
+  background: #eee;
   border: none;
   border-radius: var(--radius);
 
@@ -769,18 +770,17 @@ html, body { overflow-x: hidden;}
   font-size: 14px;
   border-radius: 14px;
 }
-.upper-button:hover{
+.ctrl-btn:hover{
   border: none;
   cursor: pointer;
   color: var(--link-2);
 }
 .inner-btn{
-  height: 34px;
+  height: 36px;
+  padding: 2px;
   width: auto;
 }
-.inner-btn.google{
-  padding: 5px;
-}
+
 
 .index{
   width: var(--mm-index-w);
@@ -928,12 +928,12 @@ html, body { overflow-x: hidden;}
 
 
 .search-container{
+  display: none;
   background-color: #fafafa;
   padding: 8px 14px 10px 18px;
   border-top: 1px solid var(--border-1);
 }
 .search-btn{
-  border-right: 1px solid var(--border-1);
   z-index: 30000;
   display: flex;
   justify-content: center;
@@ -941,28 +941,28 @@ html, body { overflow-x: hidden;}
   width: 50px;
 
   background-color: var(--color3);
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 12px 0px 0px 12px;
 }
 
 .magnifying-glass{
   pointer-events: none; 
-  color: #565656; 
-  width: 18px;
-  height: 18px;
+  color: var(--lil-text); 
+  width: 32px;
+  height: auto;
 }
 
 .searchbar{
   width: 100%;
-  margin-top: 6px;  
-  border-radius: 6px;
-  border: solid 1px var(--border-1);
+  border-radius: 24px;
   display: flex;
   flex-direction: row;
 }
 .searchinput::placeholder{
   color: var(--border-1);
   font-style: italic;
-  font-family: 'Google Sans';
+  font-weight: 320;
+  
+  font-family: 'Stack Sans Headline';
 }
 
 .searchbar:focus-within .search-btn{
@@ -970,7 +970,7 @@ html, body { overflow-x: hidden;}
  transition: all 0.3s;
 }
 .searchbar:focus-within .searchinput{
- background-color: #04a5fb10;
+ background-color: #0084ff2d;
  transition: all 0.3s;
 }
 .searchbar:focus-within .magnifying-glass{
@@ -979,17 +979,18 @@ html, body { overflow-x: hidden;}
 }
 
 .searchinput{
-  border: none;
-  border-radius: 0px 6px 6px 0px;
-  padding: 11px;
+  border-radius: 0px 14px 14px 0px;
+  padding: 10px;
   width: 100%;
+  font-size: 14px;
+  border: 1px solid #e1e1e1;
   background-color: #fff;
   color: none;
 }
 .searchinput:focus{
   outline: none;
-  padding: 11px;
   background-color: none;
+  border-color: #0081fa00;
   color: none;
 }
 
@@ -1392,7 +1393,7 @@ html, body { overflow-x: hidden;}
     backdrop-filter: blur(10px);
   }
 
-  .rotation-controls{
+  .model-controls{
     display: flex;
     top: 10px;
     height: 40px;
