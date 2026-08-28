@@ -502,7 +502,7 @@ cursor: pointer;
 
 .model-controls {
   position: static; /* Removes absolute positioning */
-  padding: 8px 8px 8px 10px;
+  padding: 8px;
   gap: 12px;
   width: 130%;
 }
