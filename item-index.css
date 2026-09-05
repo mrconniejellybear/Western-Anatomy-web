@@ -1,0 +1,141 @@
+
+
+.index{
+    height : calc(var(--main-height) - 100px);
+    overflow-y: auto;
+    color: var(--lil-text);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+
+    padding: 4px 14px 10px 14px;
+    border-top: 1px solid var(--border-1);
+    cursor: default;
+}
+
+
+
+
+.mi-list {
+  list-style: none;
+  margin-top: 4px;
+}
+.index:hover{
+  color: var(--lil-text);
+}
+
+.mi-list button {
+  all: unset;
+  box-sizing: border-box;
+  height: 33px;
+  padding-left: 12px;
+  width: 100%;
+  font-weight: var(--lil-text);
+  font-size: var(--lil-text);
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  border-bottom: 1px solid #85858512;
+}
+
+.mi-list button:hover {
+  color: var(--lil-text);
+  background-color: #f3f3f3;
+  border-radius: 6px;
+}
+.mi-list button.is-active {
+  color: var(--link-2);
+  background-color: var(--link-hover);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.searchbar:focus-within { opacity:1;}
+
+
+.mm-sep10{
+  height: 1px;
+  margin: 6px 0px;
+  background-color: var(--border-2);
+}
+
+
+
+.searchy{
+  position: relative;
+  align-items: center; 
+  justify-content: center;
+  align-content: center;
+  padding: 6px 6px 6px 12px;
+  box-shadow: 1px 1px 8px 1px #38383800; 
+
+  background-color: #fff;
+}
+
+
+
+
+.item-sec{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  margin: 8px;
+
+}
+.filtuh{
+  gap: 10px;
+}
+.filter-items{
+  cursor: default;
+  border: 1px solid var(--border-1);
+  font-size: var(--lil-text);
+  font-weight: var(--lil-text);
+  padding: 3px;
+  border-radius: 0px 6px 6px 0px;
+  width: 100%;
+  margin-left: 24px;
+
+  font-family: 'Stack Sans Headline';
+
+  color: var(--lil-text);
+  transition: ease-in-out 0.1s;
+  background-color: #fff;
+}
+
+.filter-items:hover{
+  border-color: var(--link-2);
+}
+
+
+.reset-btn{
+  background: none;
+  border: none;
+  position: absolute;
+  color: #f0ffe7; 
+
+  background-color: #eee;
+  border-right: 0px;
+  border-radius:50px;
+  height: 26px;
+  width: 26px;
+
+  cursor: pointer;
+}
+.reset-btn:hover{
+  color: #f8fcf0;
+  background-color: #33b533;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.isolation-status-row{
+  margin-top: 6px;
+  font-size: 14px;
+  color: #919191;
+  z-index: 3000;
+
+  position: absolute;
+
+  right: 30px;
+  top: 66px;
+}

@@ -1,0 +1,156 @@
+:root{
+  --navbar-h: 50px;
+  --main-color: #fcfcfc;
+  --color3: #eee;
+  
+  --border-1: #e3e3e3;
+  --border-2: #b9c1c7a0;
+
+  --main-height: calc(100vh - var(--navbar-h));
+
+  --big-text: #323642;
+  --lil-text: #676767; font-size: 13px; font-weight: 300;
+
+  --p-text: #aeaeae;
+
+  --mobile-text: #ffffff;
+
+  --link-text: #25b43d;
+  --link-2: #0084ff;
+  --link-hover: #0099ff1e;
+  --link-sel: #008cff;
+
+
+  --mm-select: #090909;
+  --mm-highlight: #bfcab846;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  font-family: 'Stack Sans Headline' , sans-serif;
+}
+
+
+
+
+
+a:hover{
+    cursor: default;
+  text-decoration: underline;
+}
+
+
+  .mm-content{
+    margin: 0 auto;
+    margin-bottom: 0rem;
+    z-index: 0;
+
+    
+  }
+
+
+
+.navbar{
+  top: 0; left: 0; right: 0;
+  z-index: 1300;
+  background-color: var();
+  height: var(--navbar-h);
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: variable;
+  gap: 4rem;
+  padding-left: 80px;
+
+  background-color: #fff;
+
+
+  border-bottom: 1px solid var(--border-1);
+  box-shadow: 0px 2px 3px  rgba(0, 0, 0, 0.00); 
+
+
+  position: relative;
+
+  font-weight: var(--lil-text);
+}
+.mini-nav{
+  display: none;
+}
+
+
+.brand img{display: none;}
+
+
+.index-tog{
+  color: var(--lil-text);
+  display: flex;
+  cursor: default;
+  transition: color 0.15s ease;
+  position: absolute;
+  left: 20px;
+  border-radius: 6px;
+}
+.index-tog svg{
+  height: 28px;
+  width: auto;
+}
+.index-tog:hover{
+  background-color: #ececec;
+}
+
+.index-tog .mobile{
+display: none;
+}
+
+
+
+.link{ 
+  text-decoration: none; 
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--lil-text);
+  font-weight: var(--lil-text);
+  font-size: 13px;
+  transition: ease-in-out 0.15s;
+ 
+  margin: 0;
+}
+.link svg{
+  rotate: 180deg;
+}
+
+
+.linkVENMO{
+  text-decoration: none; 
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--lil-text);
+  color: var(--lil-text);
+  font-weight: var(--lil-text);
+  transition: ease-in-out 0.15s;
+  margin: 0;
+}
+.linkVENMO:hover{
+ color: var(--link-sel);
+}
+
+
+
+.link:hover{
+  color: var(--link-sel); 
+  border: none; 
+  text-decoration: underline; 
+  border-radius: 40px;
+}
+.link:active{
+  color: var(--link-sel);
+  text-decoration: underline;
+}
+
