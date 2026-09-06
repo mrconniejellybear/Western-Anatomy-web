@@ -2,6 +2,8 @@
   --navbar-h: 50px;
   --main-color: #fcfcfc;
   --color3: #eee;
+
+  --page: #fff;
   
   --border-1: #e3e3e3;
   --border-2: #b9c1c7a0;
@@ -9,7 +11,7 @@
   --main-height: calc(100vh - var(--navbar-h));
 
   --big-text: #323642;
-  --lil-text: #676767; font-size: 13px; font-weight: 300;
+  --lil-text: #676767; font-size: 13px; font-weight: 290;
 
   --p-text: #aeaeae;
 
@@ -65,9 +67,9 @@ a:hover{
   align-items: center;
   justify-content: variable;
   gap: 4rem;
-  padding-left: 80px;
+  padding-left: 34px;
 
-  background-color: #fff;
+  background-color: var(--page);
 
 
   border-bottom: 1px solid var(--border-1);
@@ -91,12 +93,13 @@ a:hover{
   display: flex;
   cursor: default;
   transition: color 0.15s ease;
-  position: absolute;
-  left: 20px;
   border-radius: 6px;
+  justify-content: right;
+  margin-left: 2px;
+  margin-top: 2px;
 }
 .index-tog svg{
-  height: 28px;
+  height: 30px;
   width: auto;
 }
 .index-tog:hover{

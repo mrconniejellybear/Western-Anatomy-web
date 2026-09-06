@@ -96,8 +96,8 @@
   flex-grow: 1;
   overflow: hidden;
   background-color: #000000;
-  margin: 0px 20px;
-  border-radius: 20px;
+  margin: 0px 14px;
+  border-radius: 14px;
   border: none;
   display: flex; 
   align-items: center; 
@@ -236,10 +236,9 @@ cursor: pointer;
 }
 
 .mm-sep4 {   
-  height: 24px;
-  width: 3px;
-
-  background: #e3e3e3;
+  height: 22px;
+  width: 1px;
+  background: #c7c7c7;
 }
 
 .ctrl-wrapper{
@@ -281,115 +280,9 @@ cursor: pointer;
 
 
 
-.left-hand{
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: var(--main-height);
-  border-right: 1px solid var(--border-1);
-  border-radius: var(--radius);
-  background-color: #fff;
 
-
-  transition: width 0.3s ease, min-width 0.3s ease;
-  width: 19vw;
-  overflow: hidden;
-}
-.left-hand.collapsed {
-  width: 60px;
-  min-width: 60px;
-}
-.left-hand .searchbar,
-.left-hand .index,
-.left-hand .bottom-index {
-  transition: opacity 0.2s ease;
-  opacity: 1;
-}
-
-.left-hand.collapsed .searchbar {
-  opacity: 0;
-  pointer-events: none;
-  width: 0;
-  padding: 0;
-  border: none;
-}
-.left-hand.collapsed .index,
-.left-hand.collapsed .bottom-index {
-  opacity: 0;
-  pointer-events: none; /* Prevents clicking invisible elements */
-}
 
 /* Center the  when collapsed */
-
-
-
-.search-container{
-  display: none;
-  background-color: #fafafa;
-  padding: 8px 14px 10px 18px;
-  border-top: 1px solid var(--border-1);
-}
-.search-btn{
-  z-index: 30000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 42px;
-
-  background: none;
-  border-radius: 99px 0px 0px 99px;
-}
-
-.magnifying-glass{
-  pointer-events: none; 
-  color: var(--lil-text); 
-  width: 32px;
-  height: auto;
-}
-
-.searchbar{
-  width: 90%;
-  border-radius: 99px;
-  display: flex;
-  max-height: 36px;
-  flex-direction: row;
-}
-.searchinput::placeholder{
-  color: var(--border-1);
-  font-style: italic;
-  font-weight: 320;
-  
-  font-family: 'Stack Sans Headline';
-}
-
-.searchbar:focus-within .search-btn{
- background-color: var(--link-2);
- transition: all 0.3s;
-}
-.searchbar:focus-within .searchinput{
- background-color: #2797ff2d;
- transition: all 0.3s;
-}
-.searchbar:focus-within .magnifying-glass{
-  color: #fff; 
-  transition: all 0.3s;
-}
-
-.searchinput{
-  border-radius: 0px 99px 99px 0px;
-  padding: 10px;
-  width: 100%;
-  font-size: 14px;
-  border: 1px solid #e5e5e5;
-  background-color: #fff;
-  color: none;
-}
-.searchinput:focus{
-  outline: none;
-  background-color: none;
-  border-color: #5db1ff00;
-  color: none;
-}
 
 
 .logo-main{
