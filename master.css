@@ -11,7 +11,7 @@
   --main-height: calc(100vh - var(--navbar-h));
 
   --big-text: #323642;
-  --lil-text: #676767; font-size: 13px; font-weight: 290;
+  --lil-text: #545454; font-size: 13px; font-weight: 280;
 
   --p-text: #aeaeae;
 

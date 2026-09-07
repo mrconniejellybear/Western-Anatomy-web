@@ -1,5 +1,5 @@
 
-.panel-section p{ line-height:20px; color: var(--lil-text);
+.panel-section p{ line-height:19px; color: var(--lil-text);
   font-size: 13px;
   font-weight: 280;
   margin-bottom: 4px;}
@@ -7,10 +7,10 @@
 
 .section-label {
   align-items: center;         
-  font-size: 17px;
+  font-size: 14px;
   color: var(--big-text);
-  margin: 2px 0px;
-  font-weight: 600;
+  margin: 6px 0px;
+  font-weight: 500;
 
 }
 
